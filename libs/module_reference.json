@@ -629,6 +629,7 @@
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/MainContext.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/utils/callLater.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/display/StageText.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/text/TextFieldUtils.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/geom/Rectangle.ts"
 		],
 		"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/audio/Html5Audio.ts": [
@@ -688,6 +689,7 @@
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/filters/Filter.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/filters/DropShadowFilter.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/display/RenderTexture.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/net/NativeNetContext.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/geom/Rectangle.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/filters/ColorMatrixFilter.ts"
 		],
@@ -738,7 +740,15 @@
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/PromiseObject.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/media/IAudio.ts"
 		],
-		"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/NativeTexture.ts": [],
+		"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/NativeTexture.ts": [
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/display/Texture.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/geom/Rectangle.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/renderer/NativeRendererContext.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/MainContext.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/display/BlendMode.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/geom/Matrix.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/utils/Logger.ts"
+		],
 		"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/extension/version/DefaultLoadingView.ts": [
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/text/TextField.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/context/MainContext.ts",
@@ -852,6 +862,8 @@
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/utils/Injector.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/utils/callLater.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/extension/resource/analyzer/AnalyzerBase.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/utils/callLater.ts",
+			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/egret/utils/Logger.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/extension/resource/core/ResourceItem.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/extension/resource/core/ResourceLoader.ts",
 			"/Applications/EgretEngine.app/Contents/Resources/mac/egret/src/extension/resource/analyzer/BinAnalyzer.ts",

@@ -59,6 +59,7 @@ var Main = (function (_super) {
                 oriMap[res[k][ib].x][res[k][ib].y] = -5;
             }
         }
+        var rrr;
         for (var i = 0; i < 9; i++) {
             var t = '';
             for (var j = 0; j < 7; j++) {
@@ -69,8 +70,9 @@ var Main = (function (_super) {
                     t = t + oriMap[i][j];
                 }
             }
-            console.log(t);
+            rrr += t;
         }
+        alert(rrr);
         // var end=egret.getTimer();
         // console.log('time='+(end-start));
         //test code

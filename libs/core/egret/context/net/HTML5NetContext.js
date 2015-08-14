@@ -204,7 +204,7 @@ var egret;
         };
         __egretProto__.loadTexture = function (loader) {
             var virtualUrl = this.getVirtualUrl(loader._request.url);
-            if (egret.Browser.getInstance().webPSupport) {
+            if (egret.Browser.getInstance().webPSupport && virtualUrl.indexOf("http:") != 0) {
                 if (virtualUrl.indexOf(".png") != -1) {
                     virtualUrl = virtualUrl.replace(".png", ".webp");
                 }

@@ -33,15 +33,65 @@ var egret;
         /**
          * @private
          */
-        function toDataURL(type) {
-            return "";
+        function convertImageToRenderTexture(texture, rect) {
+            var renderContext = new egret.NativeRendererContext();
+            var w = texture._textureWidth;
+            var h = texture._textureHeight;
+            if (rect == null) {
+                rect = new egret.Rectangle();
+                rect.x = 0;
+                rect.y = 0;
+                rect.width = w;
+                rect.height = h;
+            }
+            rect.x = Math.min(rect.x, w - 1);
+            rect.y = Math.min(rect.y, h - 1);
+            rect.width = Math.min(rect.width, w - rect.x);
+            rect.height = Math.min(rect.height, h - rect.y);
+            var iWidth = rect.width;
+            var iHeight = rect.height;
+            var surface = new egret_native.RenderTexture(iWidth, iHeight);
+            var thisObject = { _texture_to_render: texture };
+            var scale = egret.MainContext.instance.rendererContext._texture_scale_factor;
+            var offsetX = texture._offsetX;
+            var offsetY = texture._offsetY;
+            var bitmapWidth = texture._bitmapWidth || w;
+            var bitmapHeight = texture._bitmapHeight || h;
+            offsetX = Math.round(offsetX * scale);
+            offsetY = Math.round(offsetY * scale);
+            surface.begin();
+            renderContext.setAlpha(1, egret.BlendMode.NORMAL);
+            renderContext.setTransform(new egret.Matrix());
+            egret.RenderFilter.getInstance().drawImage(renderContext, thisObject, texture._bitmapX + rect.x / scale, texture._bitmapY + rect.y / scale, bitmapWidth * rect.width / w, bitmapHeight * rect.height / h, offsetX, offsetY, rect.width, rect.height);
+            surface.end();
+            return surface;
         }
         /**
          * @private
          */
-        function download(base64) {
+        function toDataURL(type, rect) {
+            try {
+                var renderTexture = convertImageToRenderTexture(this, rect);
+                var base64 = renderTexture.toDataURL(type);
+                renderTexture.dispose();
+                return base64;
+            }
+            catch (e) {
+                egret.$error(1033);
+                return null;
+            }
+        }
+        function saveToFile(type, filePath, rect) {
+            try {
+                var renderTexture = convertImageToRenderTexture(this, rect);
+                renderTexture.saveToFile(type, filePath);
+                renderTexture.dispose();
+            }
+            catch (e) {
+                egret.$error(1033);
+            }
         }
         egret.Texture.prototype.toDataURL = toDataURL;
-        egret.Texture.prototype.download = download;
+        egret.Texture.prototype.saveToFile = saveToFile;
     })(web = egret.web || (egret.web = {}));
 })(egret || (egret = {}));
