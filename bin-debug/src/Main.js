@@ -73,7 +73,7 @@ var Main = (function (_super) {
             }
             rrr += t + '\n';
         }
-        //alert(rrr);
+        console.log(rrr);
         // var end=egret.getTimer();
         // console.log('time='+(end-start));
         //test code
@@ -133,6 +133,11 @@ var Main = (function (_super) {
     __egretProto__.createGameScene = function () {
         egret.Profiler.getInstance().run();
         GameCore.$i.launch(this);
+        //test json res
+        var texture = RES.getRes("buttons_RETINA.shop_bottom_back");
+        var bitmap = new egret.Bitmap();
+        bitmap.texture = texture;
+        this.addChild(bitmap);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

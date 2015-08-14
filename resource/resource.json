@@ -21,7 +21,7 @@
   		"subkeys":"shop_bottom_back,shop_bottom_back_push",
   		"type":"sheet",
   		"url":"assets/images/Buttons/buttons_RETINA.json"
-  	},
+  	}
 
 	],
 	"groups": [
