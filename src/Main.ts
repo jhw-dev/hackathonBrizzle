@@ -79,7 +79,8 @@ class Main extends egret.DisplayObjectContainer {
             }
             rrr+=t+'\n';
         }
-        alert(rrr);
+        // alert(rrr);
+        console.log(rrr);
         // var end=egret.getTimer();
         // console.log('time='+(end-start));
         //test code

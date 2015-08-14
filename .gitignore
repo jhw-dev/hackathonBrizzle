@@ -4,4 +4,4 @@
 # webstorm
 .idea
 
-bin-debug/
+bin-debug/*
