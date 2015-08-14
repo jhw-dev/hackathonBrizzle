@@ -44,7 +44,24 @@ class Main extends egret.DisplayObjectContainer {
         //Config to load process interface
         this.loadingView = new LoadingUI();
         this.stage.addChild(this.loadingView);
-
+        //test code
+        var elf=new ElfBFS();
+        var start=egret.getTimer();
+        var res=elf.findBlocks([
+          [0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0],
+          [0,0,0,2,2,3,3],
+          [0,0,0,0,2,0,0],
+          [0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0],
+          [0,1,1,0,0,0,0],
+          [0,0,1,0,0,0,0],
+          [1,1,1,1,0,0,0]
+        ]);
+        var end=egret.getTimer();
+        console.log(res);
+        console.log('time='+(end-start));
+        //test code
         //初始化Resource资源加载库
         //initiate Resource loading library
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
