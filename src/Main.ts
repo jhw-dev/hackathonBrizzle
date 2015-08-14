@@ -79,7 +79,8 @@ class Main extends egret.DisplayObjectContainer {
             }
             rrr+=t+'\n';
         }
-        //alert(rrr);
+
+        console.log(rrr);
         // var end=egret.getTimer();
         // console.log('time='+(end-start));
         //test code
@@ -146,6 +147,16 @@ class Main extends egret.DisplayObjectContainer {
     private createGameScene():void {
         egret.Profiler.getInstance().run();
         GameCore.$i.launch(this);
+
+        //test json res
+
+        var texture = RES.getRes("buttons_RETINA.shop_bottom_back");
+
+        var bitmap = new egret.Bitmap();
+
+        bitmap.texture = texture;
+
+        this.addChild(bitmap); 
     }
 
     /**
