@@ -66,9 +66,7 @@ class GameCore extends egret.Sprite{
         this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, addOneBox, this);
         var self = this;
 
-        function removeOneBox(e:egret.TouchEvent):void {
 
-        }
 
         function addOneBox(e:egret.TouchEvent):void {
             var positionX:number = Math.floor(e.stageX / factor);
@@ -97,8 +95,12 @@ class GameCore extends egret.Sprite{
             display.width = (<p2.Rectangle>boxShape).width * factor;
             display.height = (<p2.Rectangle>boxShape).height * factor;
 
-            display.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.removeOneBox, this)
-
+            //display.addEventListener(egret.TouchEvent.TOUCH_BEGIN, removeOneBox, display);
+            //function removeOneBox(e:egret.TouchEvent):void {
+            //    console.log("remove one box: " + e.target);
+            //    var target = e.target;
+            //    target.parent.removeChild(target);
+            //}
 
             if (!self._isDebug) {
                 display.anchorX = display.anchorY = .5;
@@ -106,6 +108,8 @@ class GameCore extends egret.Sprite{
                 self.addChild(display);
             }
         }
+
+
 
         if (this._isDebug) {
             //开启debug模式，使用图形绘制
