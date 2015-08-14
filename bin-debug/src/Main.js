@@ -40,21 +40,39 @@ var Main = (function (_super) {
         this.stage.addChild(this.loadingView);
         //test code
         var elf = new ElfBFS();
-        var start = egret.getTimer();
-        var res = elf.findBlocks([
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 2, 2, 3, 3],
-            [0, 0, 0, 0, 2, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
+        // var start=egret.getTimer();
+        var oriMap = [
+            [0, 0, 4, 0, 0, 4, 4],
+            [0, 0, 4, 0, 4, 4, 0],
+            [0, 0, 3, 2, 2, 3, 3],
+            [0, 0, 3, 3, 2, 5, 5],
+            [0, 0, 0, 0, 0, 5, 0],
+            [0, 0, 0, 0, 0, 5, 0],
             [0, 1, 1, 0, 0, 0, 0],
             [0, 0, 1, 0, 0, 0, 0],
             [1, 1, 1, 1, 0, 0, 0]
-        ]);
-        var end = egret.getTimer();
-        console.log(res);
-        console.log('time=' + (end - start));
+        ];
+        var res = elf.findBlocks(oriMap);
+        console.log(JSON.stringify(res));
+        for (var k in res) {
+            for (var ib in res[k]) {
+                oriMap[res[k][ib].x][res[k][ib].y] = -5;
+            }
+        }
+        for (var i = 0; i < 9; i++) {
+            var t = '';
+            for (var j = 0; j < 7; j++) {
+                if (oriMap[i][j] == -5) {
+                    t = t + 'X';
+                }
+                else {
+                    t = t + oriMap[i][j];
+                }
+            }
+            console.log(t);
+        }
+        // var end=egret.getTimer();
+        // console.log('time='+(end-start));
         //test code
         //初始化Resource资源加载库
         //initiate Resource loading library
