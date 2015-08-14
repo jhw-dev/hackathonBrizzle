@@ -32,19 +32,57 @@ class Main extends egret.DisplayObjectContainer {
      * 加载进度界面
      * Process interface loading
      */
-    private loadingView:LoadingUI;
+    private loadingView: LoadingUI;
 
     public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
-    private onAddToStage(event:egret.Event) {
+    private onAddToStage(event: egret.Event) {
         //设置加载进度界面
         //Config to load process interface
         this.loadingView = new LoadingUI();
         this.stage.addChild(this.loadingView);
+        //test code
+        
+        var elf = new ElfBFS();
+        // var start=egret.getTimer();
+        var oriMap = [
+            [0, 0, 4, 0, 0, 4, 4],
+            [0, 0, 4, 0, 4, 4, 0],
+            [0, 0, 3, 2, 2, 3, 3],
+            [0, 0, 3, 3, 2, 5, 5],
+            [0, 0, 0, 0, 0, 5, 0],
+            [0, 0, 0, 0, 0, 5, 0],
+            [0, 1, 1, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0, 0],
+            [1, 1, 1, 1, 0, 0, 0]
+        ];
+        var res = elf.findBlocks(oriMap);
+        console.log(JSON.stringify(res));
+        for (var k in res) {
+            for (var ib in res[k]) {
+                oriMap[res[k][ib].x][res[k][ib].y] = -5;
+            }
+        }
+        var rrr='';
+        for (var i = 0; i < 9; i++) {
+            var t = '';
+            for (var j = 0; j < 7; j++) {
+                if (oriMap[i][j] == -5) {
+                    t = t + 'X';
+                } else {
+                    t = t + oriMap[i][j];
 
+                }
+            }
+            rrr+=t+'\n';
+        }
+        alert(rrr);
+        // var end=egret.getTimer();
+        // console.log('time='+(end-start));
+        //test code
         //初始化Resource资源加载库
         //initiate Resource loading library
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
@@ -55,7 +93,7 @@ class Main extends egret.DisplayObjectContainer {
      * 配置文件加载完成,开始预加载preload资源组。
      * configuration file loading is completed, start to pre-load the preload resource group
      */
-    private onConfigComplete(event:RES.ResourceEvent):void {
+    private onConfigComplete(event: RES.ResourceEvent): void {
         RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
@@ -67,7 +105,7 @@ class Main extends egret.DisplayObjectContainer {
      * preload资源组加载完成
      * Preload resource group is loaded
      */
-    private onResourceLoadComplete(event:RES.ResourceEvent):void {
+    private onResourceLoadComplete(event: RES.ResourceEvent): void {
         if (event.groupName == "preload") {
             this.stage.removeChild(this.loadingView);
             RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
@@ -81,7 +119,7 @@ class Main extends egret.DisplayObjectContainer {
      * 资源组加载出错
      *  The resource group loading failed
      */
-    private onResourceLoadError(event:RES.ResourceEvent):void {
+    private onResourceLoadError(event: RES.ResourceEvent): void {
         //TODO
         console.warn("Group:" + event.groupName + " has failed to load");
         //忽略加载失败的项目
@@ -93,7 +131,7 @@ class Main extends egret.DisplayObjectContainer {
      * preload资源组加载进度
      * Loading process of preload resource group
      */
-    private onResourceProgress(event:RES.ResourceEvent):void {
+    private onResourceProgress(event: RES.ResourceEvent): void {
         if (event.groupName == "preload") {
             this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
         }
@@ -114,11 +152,13 @@ class Main extends egret.DisplayObjectContainer {
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
      */
-    private createBitmapByName(name:string):egret.Bitmap {
-        var result:egret.Bitmap = new egret.Bitmap();
-        var texture:egret.Texture = RES.getRes(name);
+    private createBitmapByName(name: string): egret.Bitmap {
+        var result: egret.Bitmap = new egret.Bitmap();
+        var texture: egret.Texture = RES.getRes(name);
         result.texture = texture;
         return result;
     }
         
 }
+
+
