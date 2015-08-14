@@ -1547,7 +1547,7 @@ declare module egret {
     /**
      * 转换数字为颜色字符串
      * @method egret.toColorString
-     * @param value {number}
+     * @param value {number} 需要转换的颜色值
      * @returns {string} 颜色字符串，例如"#ffffff"。
      * @includeExample egret/utils/toColorString.ts
      */
@@ -2858,13 +2858,13 @@ declare module egret {
         /**
          * 根据显示对象的 Alpha 值擦除背景。Alpha 值不为0的区域将被擦除。
          * @constant {string} egret.BlendMode.ERASE
-         * @private
          */
         static ERASE: string;
         /**
          * 根据显示对象的 Alpha 值擦除背景。Alpha 值为0的区域将被擦除。
          * 注意：由于 CanvasAPI 的限制，只会保留 Alpha 值不为1的区域。
-         * @constant {string} egret.BlendMode.ERASE
+         * @constant {string} egret.BlendMode.ERASE_REVERSE
+         * @deprecated
          */
         static ERASE_REVERSE: string;
     }
@@ -5503,22 +5503,24 @@ declare module egret {
          */
         draw(context: any, sourceX: any, sourceY: any, sourceWidth: any, sourceHeight: any, destX: any, destY: any, destWidth: any, destHeight: any, renderType: any): void;
         /**
-         * 转换成base64字符串，如果图片（或者包含的图片）跨域，则返回null
-         * @param type 转换的类型，如  "image/png"
+         * 转换成base64字符串，如果图片（或者包含的图片）跨域，则返回null。
+         * native只支持 "image/png" 和 "image/jpeg"；Web中由于各个浏览器的实现不一样，因此建议也只用这2种。
+         * @param type 转换的类型，如  "image/png"。
          * @param rect 需要转换的区域
          * @returns {any} base64字符串
-         * @platform Web
          * @version Egret 2.4
          */
         toDataURL(type: string, rect?: egret.Rectangle): string;
         /**
-         * @private
-         * 下载base64字符串
-         * @param base64 base64字符串
-         * @platform Web
+         * 裁剪指定区域并保存成图片。
+         * native只支持 "image/png" 和 "image/jpeg"；Web中由于各个浏览器的实现不一样，因此建议也只用这2种。
+         * @param type 转换的类型，如  "image/png"
+         * @param filePath 图片的名称的路径（主目录为游戏的私有空间，路径中不能有 "../"，Web只支持传名称。）
+         * @param rect 需要转换的区域
          * @version Egret 2.4
+         * @platform Native
          */
-        download(base64: string): void;
+        saveToFile(type: string, filePath: string, rect?: egret.Rectangle): void;
         _drawForCanvas(context: CanvasRenderingContext2D, sourceX: any, sourceY: any, sourceWidth: any, sourceHeight: any, destX: any, destY: any, destWidth: any, destHeight: any, renderType: any): void;
         _drawForNative(context: any, sourceX: any, sourceY: any, sourceWidth: any, sourceHeight: any, destX: any, destY: any, destWidth: any, destHeight: any, renderType: any): void;
         _drawRepeatImageForNative(context: any, sourceX: any, sourceY: any, sourceWidth: any, sourceHeight: any, destX: any, destY: any, destWidth: any, destHeight: any, repeat: any): void;

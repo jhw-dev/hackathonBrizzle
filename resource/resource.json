@@ -14,12 +14,13 @@
 			"name": "description",
 			"type": "json",
 			"url": "config/description.json"
-		}
+		},
+	  	{"name":"rect","type":"image","url":"assets/rect.png"}
 	],
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "bgImage,egretIcon"
+			"keys": "bgImage,egretIcon,rect"
 		}
 	]
 }

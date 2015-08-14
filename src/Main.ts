@@ -99,12 +99,15 @@ class Main extends egret.DisplayObjectContainer {
         }
     }
 
+
+    private _debug:boolean = true;
     /**
      * 创建游戏场景
      * Create a game scene
      */
     private createGameScene():void {
-       // TODO
+        egret.Profiler.getInstance().run();
+        GameCore.$i.launch(this);
     }
 
     /**
@@ -117,4 +120,5 @@ class Main extends egret.DisplayObjectContainer {
         result.texture = texture;
         return result;
     }
+        
 }

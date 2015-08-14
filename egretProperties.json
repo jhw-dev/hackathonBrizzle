@@ -9,10 +9,14 @@
 		},
 		{
 			"name": "res"
+		},
+		{
+			"name": "physics",
+			"path": "../egret-game-library-2.0.3/physics/libsrc/physics"
 		}
 	],
 	"native": {
 		"path_ignore": []
 	},
-	"egret_version": "2.0.3"
+	"egret_version": "2.0.4"
 }

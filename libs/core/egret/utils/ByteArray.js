@@ -147,7 +147,15 @@ var egret;
                 return this.write_position;
             },
             set: function (value) {
-                this.validateBuffer(value, true);
+                this.write_position = value;
+                var tmp = new Uint8Array(new ArrayBuffer(value));
+                var byteLength = this.data.buffer.byteLength;
+                if (byteLength > value) {
+                    this._position = value;
+                }
+                var length = Math.min(byteLength, value);
+                tmp.set(new Uint8Array(this.data.buffer, 0, length));
+                this.buffer = tmp.buffer;
             },
             enumerable: true,
             configurable: true

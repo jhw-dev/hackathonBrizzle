@@ -397,6 +397,7 @@ declare module egret {
         _setText(value: string): void;
         private resetText();
         _onInput(): void;
+        private setAreaHeight();
         _onClickHandler(e: any): void;
         _onDisconnect(): void;
         private _styleInfoes;

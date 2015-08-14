@@ -1,2 +1,7 @@
 # Mac Filesystem
 .DS_Store
+
+# webstorm
+.idea
+
+bin-debug/

@@ -145,6 +145,7 @@ var egret;
             }
             var self = this;
             var properties = self._TF_Props_;
+            value = value.toString();
             this._isFlow = false;
             if (properties._text != value) {
                 this._setTextDirty();
