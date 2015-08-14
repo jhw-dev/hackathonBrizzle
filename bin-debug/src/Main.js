@@ -30,6 +30,7 @@ var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
         _super.call(this);
+        this._debug = true;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
     var __egretProto__ = Main.prototype;
@@ -72,7 +73,7 @@ var Main = (function (_super) {
             }
             rrr += t + '\n';
         }
-        alert(rrr);
+        //alert(rrr);
         // var end=egret.getTimer();
         // console.log('time='+(end-start));
         //test code
@@ -130,7 +131,8 @@ var Main = (function (_super) {
      * Create a game scene
      */
     __egretProto__.createGameScene = function () {
-        // TODO
+        egret.Profiler.getInstance().run();
+        GameCore.$i.launch(this);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

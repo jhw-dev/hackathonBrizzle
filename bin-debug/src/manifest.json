@@ -1,6 +1,7 @@
 [
 	"ElfBFSItem.ts",
 	"ElfBFS.ts",
+	"GameCore.ts",
 	"LoadingUI.ts",
 	"Main.ts"
 ]
