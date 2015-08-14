@@ -4,5 +4,5 @@
 # webstorm
 .idea
 
-bin-debug/*
+bin-debug
 resource/assets/images
