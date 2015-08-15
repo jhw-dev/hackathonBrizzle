@@ -15,19 +15,22 @@
 			"type": "json",
 			"url": "config/description.json"
 		},
-  	{"name":"rect","type":"image","url":"assets/rect.png"},
-  	{
-  		"name":"buttons_RETINA",
-  		"subkeys":"shop_bottom_back,shop_bottom_back_push",
-  		"type":"sheet",
-  		"url":"assets/images/Buttons/buttons_RETINA.json"
-  	},
+	  	{
+	  		"name":"rect",
+	  		"type":"image",
+	  		"url":"assets/rect.png"},
+	  	{
+	  		"name":"buttons_RETINA",
+	  		"subkeys":"shop_bottom_back,shop_bottom_back_push",
+	  		"type":"sheet",
+	  		"url":"assets/images/Buttons/buttons_RETINA.json"
+	  	}
 
 	],
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "bgImage,egretIcon,rect,buttons_RETINA"
+			"keys": "bgImage,egretIcon,rect"
 		}
 	]
 }

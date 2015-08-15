@@ -194,7 +194,7 @@ declare module egret {
          * @param url
          * @returns {string}
          */
-        getVirtualUrl(url: string): string;
+        private getVirtualUrl(url);
         /**
          * 检查文件是否是最新版本
          */
@@ -435,9 +435,6 @@ declare module egret_native {
         begin();
 
         end();
-        dispose();
-        toDataURL(type);
-        saveToFile(type:string, filePath:string);
     }
 
     module rastergl {
@@ -601,8 +598,5 @@ declare module egret {
 }
 declare module egret_native_sound {
     var currentPath: string;
-}
-
-declare module egret.web {
 }
 

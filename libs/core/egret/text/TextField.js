@@ -35,8 +35,8 @@ var egret;
      * 如果开发者希望所有平台完全无差异，请使用BitmapText
      * @extends egret.DisplayObject
      * @see http://edn.egret.com/cn/index.php?g=&m=article&a=index&id=141&terms1_id=25&terms2_id=33 创建文本
+     *
      * @event egret.TextEvent.LINK 点击链接后调度。
-     * @includeExample egret/text/TextField.ts
      */
     var TextField = (function (_super) {
         __extends(TextField, _super);
@@ -145,7 +145,6 @@ var egret;
             }
             var self = this;
             var properties = self._TF_Props_;
-            value = value.toString();
             this._isFlow = false;
             if (properties._text != value) {
                 this._setTextDirty();
@@ -540,9 +539,11 @@ var egret;
         };
         __egretProto__._setWidth = function (value) {
             _super.prototype._setWidth.call(this, value);
+            this.fillBackground();
         };
         __egretProto__._setHeight = function (value) {
             _super.prototype._setHeight.call(this, value);
+            this.fillBackground();
         };
         Object.defineProperty(__egretProto__, "border", {
             get: function () {
@@ -677,16 +678,7 @@ var egret;
             }
         };
         __egretProto__._draw = function (renderContext) {
-            _super.prototype._draw.call(this, renderContext);
-        };
-        /**
-         * @see egret.DisplayObject._render
-         * @param renderContext
-         */
-        __egretProto__._render = function (renderContext) {
             var self = this;
-            if (self._bgGraphics)
-                self._bgGraphics._draw(renderContext);
             var properties = self._TF_Props_;
             if (properties._type == egret.TextFieldType.INPUT) {
                 if (self._isTyping) {
@@ -696,6 +688,15 @@ var egret;
             else if (properties._textMaxWidth == 0) {
                 return;
             }
+            _super.prototype._draw.call(this, renderContext);
+        };
+        /**
+         * @see egret.DisplayObject._render
+         * @param renderContext
+         */
+        __egretProto__._render = function (renderContext) {
+            if (this._bgGraphics)
+                this._bgGraphics._draw(renderContext);
             this.drawText(renderContext);
             this._clearDirty();
         };
@@ -954,7 +955,6 @@ var egret;
                 }
             }
             properties._numLines = linesArr.length;
-            this.fillBackground();
             return linesArr;
         };
         Object.defineProperty(__egretProto__, "wordWrap", {
