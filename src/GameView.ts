@@ -48,7 +48,7 @@ class GameView extends egret.DisplayObjectContainer {
 
         var overboard = new ScoreBoardView();
         this.addChild(overboard);
-        overboard.showME(1222);
+        overboard.showME(1222323);
     }
 
     private newBridsFunc(event: egret.TimerEvent) {

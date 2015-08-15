@@ -172,11 +172,7 @@ class Main extends egret.DisplayObjectContainer {
         // bitmap.texture = texture;
 
         // this.addChild(bitmap);
-        var bitmapText:egret.BitmapText = new egret.BitmapText();
-        bitmapText.font = RES.getRes("number_fnt");
-        this.addChild(bitmapText);
-        bitmapText.text = "0123456789";
-
+        
     }
 
     /**

@@ -26,17 +26,24 @@ class ScoreBoardView extends egret.DisplayObjectContainer {
         this.quit_btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onQuitClicked, this);
         this.restart_btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestartClicked, this);
         // this.showME(1000);
-        this.visible=false;
+        this.visible = false;
     }
     public showME(score: number) {
-      var speak="你大爷还是你大爷\n你输了就是你输了";
-        this.visible=true;
+        var speak = "你大爷还是你大爷\n你输了就是你输了";
+        this.visible = true;
         this.tx = new egret.TextField;
         this.tx.text = speak;
         this.tx.size = 32;
         this.tx.x = this.bg.width / 2 - 110;
         this.tx.y = this.bg.height / 2 - 32;
         this.tx.multiline = true;
+        var bitmapText: egret.BitmapText = new egret.BitmapText();
+        bitmapText.font = RES.getRes("number_fnt");
+        this.addChild(bitmapText);
+        bitmapText.text = score + '';
+        bitmapText.x=30;
+        bitmapText.y=55;
+        this.addChild(bitmapText);
 
         this.addChild(this.tx);
     }
@@ -45,11 +52,11 @@ class ScoreBoardView extends egret.DisplayObjectContainer {
     private onQuitClicked(event: MouseEvent): void {
         console.log("onQuit");
         // this.parent.removeChild(this);
-        this.visible=false;
+        this.visible = false;
     }
     private onRestartClicked(event: MouseEvent): void {
         console.log("onRestart");
-        this.visible=false;
+        this.visible = false;
 
     }
 
