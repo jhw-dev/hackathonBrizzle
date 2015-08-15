@@ -156,6 +156,19 @@ class Main extends egret.DisplayObjectContainer {
         //test json res
 
 
+        var texture = RES.getRes("classic_progress_bar_RETINA_json.stage_bar@2x");
+
+        var bitmap = new egret.Bitmap();
+
+        bitmap.texture = texture;
+        // bitmap.width = 550;
+        // bitmap.height = 25;
+        bitmap.x = 45;
+        bitmap.y = 213;
+        // var rect:egret.Rectangle = new egret.Rectangle(5,5,5,15);
+        // bitmap.scale9Grid =rect;
+        this.addChild(bitmap);
+
         // var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
 
         // var bitmap = new egret.Bitmap();

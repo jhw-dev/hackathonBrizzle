@@ -1,7 +1,7 @@
 {
 	"groups":[
 		{
-			"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json,gameover_RETINA_json,gameover_EN_RETINA_json,number_fnt",
+			"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json,gameover_RETINA_json,gameover_EN_RETINA_json,number_fnt,classic_progress_bar_RETINA_json",
 			"name":"preload"
 		},
 		{
