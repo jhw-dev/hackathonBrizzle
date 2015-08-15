@@ -29,6 +29,7 @@ class StartMenu extends egret.DisplayObjectContainer {
 
     }
     private onStartBtnClicked(event: MouseEvent): void {
+      this.visible=false;
         GameView.instance.onGameStart();
     }
     private onQuitClicked(event: MouseEvent): void {

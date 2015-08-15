@@ -53,6 +53,7 @@ class ScoreBoardView extends egret.DisplayObjectContainer {
         console.log("onQuit");
         // this.parent.removeChild(this);
         this.visible = false;
+        GameView.instance.backToMenu();
     }
     private onRestartClicked(event: MouseEvent): void {
         console.log("onRestart");

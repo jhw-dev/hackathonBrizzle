@@ -34,6 +34,15 @@ class GameView extends egret.DisplayObjectContainer {
 
     }
 
+    public backToMenu() {
+        this.removeChild(this.bgA);
+        this.removeChild(this.bgB);
+        this.newBirdsTimer.stop();
+        //TODO:需要清除所有的鸟
+        this.removeChild(this.scroeBoard);
+        this.startView.visible = true;
+    }
+
     public onGameStart() {
         var bgA = this.bgA = Resource.createBitmapByName("stage_bgA_RETINA_png");
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");
