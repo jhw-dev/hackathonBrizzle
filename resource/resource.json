@@ -25,12 +25,22 @@
 			"subkeys":"shop_bottom_back,shop_b,rect_back_push",
 			"type":"sheet",
 			"url":"assets/images/Buttons/buttons_RETINA.json"
+		},
+		{
+		  "name": "stage_bgA_RETINA_png",
+		  "type": "image",
+		  "url": "assets/images/stage_classic/stage_bgA_RETINA.png"
+		},
+		{
+			"name": "stage_bgB_RETINA_png",
+			"type": "image",
+			"url": "assets/images/stage_classic/stage_bgB_RETINA.png"
 		}
 	],
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "bgImage,egretIcon,rect,buttons_RETINA"
+			"keys": "bgImage,egretIcon,rect,stage_bgA_RETINA_png, stage_bgB_RETINA_png"
 		}
 	]
 }
