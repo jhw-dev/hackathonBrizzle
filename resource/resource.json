@@ -1,7 +1,7 @@
 {
 	"groups":[
 		{
-			"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json",
+			"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json,number_fnt",
 			"name":"preload"
 		},
 		{
@@ -10,6 +10,11 @@
     }
 	],
 	"resources":[
+	{
+		"name":"number_fnt",
+		"type":"font",
+		"url":"assets/fnt/number-export.fnt"
+	},
 	{
      "url": "assets/Sounds/BGM/Birzzle_Amazon.mp3",
      "type": "sound",
