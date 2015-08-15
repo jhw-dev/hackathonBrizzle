@@ -1,17 +1,16 @@
 class BirdView extends egret.Sprite {
     private tX: number;
     private tY: number;
-    private tw:any;
+    private birdBitmap:any;
     public constructor() {
         super();
-    this.tw=egret.Tween.get(this, {
-            loop: false,//设置循环播放
-            onChange: this.onChange,//设置更新函数
-            onChangeObj: this//更新函数作用域
-        })
         this.touchEnabled = true;
         this.tX = 100;
         this.tY = 100;
+        this.birdBitmap = new egret.Bitmap(RES.getRes("Character_RETINA_json.box00_normal_00@2x"));
+        this.birdBitmap.x = 100;
+        this.birdBitmap.y = 100;
+        this.addChild(this.birdBitmap);
         this.draw();
         this.addEventListener(egret.Event.ADDED, this.onAdded, this);
         this.addEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
@@ -26,15 +25,16 @@ class BirdView extends egret.Sprite {
     }
 
     private draw(): void {
-        this.graphics.clear();
-        this.graphics.beginFill(0xff0000);
-        this.graphics.drawRect(this.tX, this.tY, 100, 100);
-        this.graphics.endFill();
     }
 
     private onClick(event: MouseEvent): void {
         console.log("onClick");
-        this.tw.to({ y: this.tY }, 1000,  egret.Ease.sineIn ).call(this.onComplete, this, ["param1", { key: "key", value: 3 }]);
+        var tw = egret.Tween.get(this, {
+            loop: false,//设置循环播放
+            onChange: this.onChange,//设置更新函数
+            onChangeObj: this//更新函数作用域
+        });
+        tw.to({ y: this.tY }, 1000, egret.Ease.sineIn).call(this.onComplete, this, ["param1", { key: "key", value: 3 }]);
         this.tY += 100;
         // this.draw();
         // this.parent.removeChild(this);
