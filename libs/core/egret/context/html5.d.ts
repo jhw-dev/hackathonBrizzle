@@ -397,7 +397,6 @@ declare module egret {
         _setText(value: string): void;
         private resetText();
         _onInput(): void;
-        private setAreaHeight();
         _onClickHandler(e: any): void;
         _onDisconnect(): void;
         private _styleInfoes;
@@ -576,7 +575,7 @@ interface AudioBuffer {
 /**
  * @private
  */
-interface AudioBufferSourceNodeEgret {
+interface AudioBufferSourceNode {
     buffer: any;
     context: any;
     onended: Function;
@@ -645,9 +644,6 @@ declare module egret {
         _setCurrentTime(value: number): void;
         _destroy(): void;
     }
-}
-
-declare module egret.web {
 }
 
 declare module egret {

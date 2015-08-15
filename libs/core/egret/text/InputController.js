@@ -79,13 +79,13 @@ var egret;
             //不再显示竖线，并且输入框显示最开始
             this._isFocus = true;
             this._text._isTyping = true;
-            this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_IN, true));
+            this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_IN));
         };
         __egretProto__.blurHandler = function (event) {
             //不再显示竖线，并且输入框显示最开始
             this._isFocus = false;
             this._text._isTyping = false;
-            this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_OUT, true));
+            this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_OUT));
         };
         //点中文本
         __egretProto__.onMouseDownHandler = function (event) {
@@ -110,7 +110,7 @@ var egret;
         __egretProto__.updateTextHandler = function (event) {
             this.resetText();
             //抛出change事件
-            this._text.dispatchEvent(new egret.Event(egret.Event.CHANGE, true));
+            this._text.dispatchEvent(new egret.Event(egret.Event.CHANGE));
         };
         __egretProto__.resetText = function () {
             this._text._setBaseText(this.stageText._getText());

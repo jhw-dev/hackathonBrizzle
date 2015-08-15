@@ -45,7 +45,7 @@ class Main extends egret.DisplayObjectContainer {
         this.loadingView = new LoadingUI();
         this.stage.addChild(this.loadingView);
         //test code
-        
+
         var elf = new ElfBFS();
         // var start=egret.getTimer();
         var oriMap = [
@@ -150,13 +150,15 @@ class Main extends egret.DisplayObjectContainer {
 
         //test json res
 
-        //var texture = RES.getRes("buttons_RETINA.shop_bottom_back");
-        //
-        //var bitmap = new egret.Bitmap();
-        //
-        //bitmap.texture = texture;
-        //
-        //this.addChild(bitmap);
+
+        var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
+
+        var bitmap = new egret.Bitmap();
+
+        bitmap.texture = texture;
+
+        this.addChild(bitmap);
+
     }
 
     /**
@@ -169,7 +171,7 @@ class Main extends egret.DisplayObjectContainer {
         result.texture = texture;
         return result;
     }
-        
+
 }
 
 
