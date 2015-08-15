@@ -14,6 +14,16 @@
 			"children":[
 			{
 				"isFolder":false,
+				"key":"stage_bgA_RETINA_png",
+				"name":"stage_bgA_RETINA_png"
+			},
+			{
+				"isFolder":false,
+				"key":"stage_bgB_RETINA_png",
+				"name":"stage_bgB_RETINA_png"
+			},
+			{
+				"isFolder":false,
 				"key":"Black_RETINA_png",
 				"name":"Black_RETINA_png"
 			},
@@ -410,22 +420,6 @@
 				"isFolder":false,
 				"key":"button_x_RETINA_png",
 				"name":"button_x_RETINA_png"
-			},
-			{
-				"children":[
-				{
-					"isFolder":false,
-					"key":"shop_bottom_back",
-					"name":"shop_bottom_back"
-				},
-				{
-					"isFolder":false,
-					"key":"shop_bottom_back_push",
-					"name":"shop_bottom_back_push"
-				}],
-				"isFolder":false,
-				"key":"buttons_RETINA",
-				"name":"buttons_RETINA"
 			},
 			{
 				"children":[
@@ -3503,31 +3497,6 @@
 				"name":"Character_RETINA_json"
 			},
 			{
-				"isFolder":false,
-				"key":"bgImage",
-				"name":"bgImage"
-			},
-			{
-				"isFolder":false,
-				"key":"egretIcon",
-				"name":"egretIcon"
-			},
-			{
-				"isFolder":false,
-				"key":"rect",
-				"name":"rect"
-			},
-			{
-				"isFolder":false,
-				"key":"stage_bgA_RETINA_png",
-				"name":"stage_bgA_RETINA_png"
-			},
-			{
-				"isFolder":false,
-				"key":"stage_bgB_RETINA_png",
-				"name":"stage_bgB_RETINA_png"
-			},
-			{
 				"children":[
 				{
 					"isFolder":false,
@@ -4953,6 +4922,183 @@
 				"isFolder":false,
 				"key":"twitter_RETINA_png",
 				"name":"twitter_RETINA_png"
+			},
+			{
+				"isFolder":false,
+				"key":"bg_jpg",
+				"name":"bg_jpg"
+			},
+			{
+				"children":[
+				{
+					"isFolder":false,
+					"key":"shop_bottom_back",
+					"name":"shop_bottom_back"
+				},
+				{
+					"isFolder":false,
+					"key":"shop_bottom_back_push",
+					"name":"shop_bottom_back_push"
+				}],
+				"isFolder":false,
+				"key":"buttons_RETINA_json",
+				"name":"buttons_RETINA_json"
+			},
+			{
+				"isFolder":false,
+				"key":"egret_icon_png",
+				"name":"egret_icon_png"
+			},
+			{
+				"children":[
+				{
+					"isFolder":false,
+					"key":"Character_blue_close",
+					"name":"Character_blue_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_blue_die",
+					"name":"Character_blue_die"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_blue_open",
+					"name":"Character_blue_open"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_gold_close",
+					"name":"Character_gold_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_gray_close",
+					"name":"Character_gray_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_gray_open",
+					"name":"Character_gray_open"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_green_close",
+					"name":"Character_green_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_green_die",
+					"name":"Character_green_die"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_green_open",
+					"name":"Character_green_open"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_large",
+					"name":"Character_large"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_orange_close",
+					"name":"Character_orange_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_orange_die",
+					"name":"Character_orange_die"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_orange_open",
+					"name":"Character_orange_open"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_pink_close",
+					"name":"Character_pink_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_pink_die",
+					"name":"Character_pink_die"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_pink_open",
+					"name":"Character_pink_open"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_purple_close",
+					"name":"Character_purple_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_purple_die",
+					"name":"Character_purple_die"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_purple_open",
+					"name":"Character_purple_open"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_red_close",
+					"name":"Character_red_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_red_die",
+					"name":"Character_red_die"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_red_open",
+					"name":"Character_red_open"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_white_close",
+					"name":"Character_white_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_white_die",
+					"name":"Character_white_die"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_white_open",
+					"name":"Character_white_open"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_yellow_close",
+					"name":"Character_yellow_close"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_yellow_die",
+					"name":"Character_yellow_die"
+				},
+				{
+					"isFolder":false,
+					"key":"Character_yellow_open",
+					"name":"Character_yellow_open"
+				}],
+				"isFolder":false,
+				"key":"character_json",
+				"name":"character_json"
+			},
+			{
+				"isFolder":false,
+				"key":"rect_png",
+				"name":"rect_png"
 			}]
 		}
 	},

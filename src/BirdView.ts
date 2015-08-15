@@ -4,6 +4,8 @@ class BirdView extends egret.Sprite {
     private birdBitmap: any;
     private birdBitmap_close: any;
     private tw: any;
+    private _type: number;
+    
     private BIRDS_OPEN = ['Character_orange_open',
         'Character_pink_open',
         'Character_purple_open',
@@ -31,6 +33,7 @@ class BirdView extends egret.Sprite {
         this.tY = y;
         this.height = 81;
         this.width = 81;
+        this._type = birdType;
         this.birdBitmap = new egret.Bitmap(RES.getRes(this.BIRDS_OPEN[birdType]));
         this.birdBitmap_close = new egret.Bitmap(RES.getRes(this.BIRDS_CLOSE[birdType]));
         // this.birdBitmap.x = 0;
@@ -52,6 +55,10 @@ class BirdView extends egret.Sprite {
         timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);
 
         timer.start();
+    }
+    
+    get type() {
+        return this._type;
     }
 
     public dropTo(x: number, y: number) {

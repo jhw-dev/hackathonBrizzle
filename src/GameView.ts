@@ -50,6 +50,7 @@ class GameView extends egret.DisplayObjectContainer {
 
 
         this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
+        
 
     }
 
