@@ -2,7 +2,7 @@
  * Created by TerryXu on 8/15/15.
  */
 class GameMap {
-    private _mapLines:GameMapLine[];
+    private _mapLines:Array<GameMapLine>;
     private _birdMap: any;
 
     constructor(pStart:egret.Point, lines:number, cols:number, width:number, height:number) {
@@ -14,8 +14,20 @@ class GameMap {
             point.y = pStart.y - i * lineHeight - lineHeight;
             var mapLine = new GameMapLine(i, point, width, lineHeight);
             mapLines.push(mapLine);
+//            console.log("line: " + mapLine);
         }
-        this._birdMap = new Array[9][7];
+//        console.log(mapLines);
+        this._birdMap = [
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0],
+                 [0, 0, 0, 0, 0, 0, 0]
+             ];
     }
 
     public get lines() :GameMapLine[] {
@@ -32,33 +44,44 @@ class GameMap {
     public getBlock(p:egret.Point): GameMapBlock {
         var line: number;
         var col: number;
-        for( var index in this.lines) {
+        console.log("get block x:" + p.x + " y:" + p.y);
+        
+        for(var index = 0;index < this._mapLines.length; index++) {
             if (this.lines[index].containsPoint(p)) {
                 line = index;
-                for( var _col in this.lines[index].blocks) {
-                    if(this.lines[index].blocks[_col].containsPoint(p)) {
+                for(var _col = 0;_col < this._mapLines[index]._blocks.length;_col++) {
+                    console.log("" + this._mapLines[index]._blocks[_col]);
+                    if(this._mapLines[index]._blocks[_col].containsPoint(p)) {
                         col = _col;
+                        return this._mapLines[line]._blocks[col];
                     }
                 }
             }
         }
-        return this.lines[line].blocks[col];
+//        console.log("line:" + line);
+//        console.log(this.lines[line]);
+        return null;
     }
     
-    public isDropStop(x: number, y: number) {
+    public isDropStop(x: number, y: number):any {
         var block = this.getBlock(new egret.Point(x,y));
-        if (this._birdMap[block.line-1][block.col]) {
-            return { isDropStop: false };
-        } else {
-            return { isDropStop: true, x: block.x, y: block.y }
+        if (block && this._birdMap[block.line][block.col]) {
+            return { isDropStop: true, x: block.x, y: block.y };
+        } else if(block && (this._birdMap[block.line][block.col] == 0)) {
+            return { isDropStop: false }
         }
     }
     
     public bindBlock(bird: BirdView) {
         var p = new egret.Point(bird.x,bird.y);
         var block = this.getBlock(p);
-        block.bird = bird;
-        this._birdMap[block.line][block.col] = bird.type;
+        console.log(block);
+        if(block) {
+            block.bird = bird;
+            this._birdMap[block.line][block.col] = bird.type;
+        }
+        console.log(this._birdMap);
+        
     }
     
 }

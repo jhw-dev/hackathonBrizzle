@@ -92,12 +92,18 @@ class BirdView extends egret.Sprite {
         //     this.tw.paused = true;
 
         // }
-        console.log(this.x + 'y' + this.y);
+//        console.log(this.x + 'y' + this.y);
+        var result = GameView.instance.map.isDropStop(this.x, this.y);
+        if(result && result.isDropStop == true) {
+            this.y = result.y;
+            this.tw.paused = true;
+        }
     }
     private onComplete(param1: string, param2: any): void {
         console.log("onComplete");
-        console.log(param1);
-        console.log(param2);
+//        console.log(param1);
+//        console.log(param2);
+        GameView.instance.map.bindBlock(this);
         // this.dropTo(this.tX, this.tY + 100);
     }
 
