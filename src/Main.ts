@@ -117,7 +117,7 @@ class Main extends egret.DisplayObjectContainer {
             this.createGameScene();
         }else if (event.groupName == "soundload") {
             var _bgMusic:egret.Sound = RES.getRes("bgmusic");
-            _bgMusic.play(true);
+            // _bgMusic.play(true);
         }
     }
 
