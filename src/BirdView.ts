@@ -3,16 +3,27 @@ class BirdView extends egret.Sprite {
     private tY: number;
     private birdBitmap: any;
     private tw: any;
-    public constructor(x: number, y: number) {
+    private BIRDS_OPEN=['Character_orange_open',
+    'Character_pink_open',
+    'Character_purple_open',
+    'Character_red_open',
+    'Character_white_open',
+    'Character_yellow_open',
+    'Character_blue_open',
+    'Character_green_open'
+    ];
+    public constructor(x: number, y: number,birdType:number) {
         super();
         this.touchEnabled = true;
         this.x = x;
         this.y = y;
         this.tX = x;
         this.tY = y;
-        this.birdBitmap = new egret.Bitmap(RES.getRes("Character_RETINA_json.box01_normal_01@2x"));
-        this.birdBitmap.x = 100;
-        this.birdBitmap.y = 100;
+        this.height=81;
+        this.width=81;
+        this.birdBitmap = new egret.Bitmap(RES.getRes(this.BIRDS_OPEN[birdType]));
+        // this.birdBitmap.x = 0;
+        // this.birdBitmap.y = 0;
         this.addChild(this.birdBitmap);
         this.draw();
         console.log(this.height, this.width);
