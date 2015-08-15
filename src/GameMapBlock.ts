@@ -1,15 +1,19 @@
 /**
  * Created by TerryXu on 8/15/15.
  */
-class GameMapBlock {
+class GameMapBlock extends egret.Rectangle {
 
-    private pCenter:egret.Point;
-    private width:number;
-    private height:number;
+    private _pCenter:egret.Point;
+    private _width:number;
+    private _height:number;
 
     constructor(pCenter:egret.Point, width:number, height:number) {
-        this.pCenter = pCenter;
-        this.width = width;
-        this.height = height;
+        super(pCenter.x, pCenter.y, width, height);
+        this._pCenter = pCenter; 
     }
+    
+    get pCenter(): egret.Point {
+        return this._pCenter;
+    }
+
 }

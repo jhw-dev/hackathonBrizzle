@@ -36,11 +36,11 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(birdTest);
         //TODO:testcode-end
 
-        var mapWidth = egret.MainContext.instance.stage.stageWidth * 0.9;
+        var mapWidth = GameData.stageWidth * 0.9;
         var mapHeight = mapWidth / 7 * 9;
         var pStart:egret.Point = new egret.Point();
-        pStart.x = egret.MainContext.instance.stage.stageWidth * 0.1 / 2;
-        pStart.y = egret.MainContext.instance.stage.stageHeight * 0.1;
+        pStart.x = GameData.stageWidth * 0.1 / 2;
+        pStart.y = GameData.stageHeight * 0.9;
 
         this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
 
