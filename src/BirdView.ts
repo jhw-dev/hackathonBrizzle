@@ -74,17 +74,17 @@ class BirdView extends egret.Sprite {
     private onClick(event: MouseEvent): void {
         console.log("onClick");
         // this.draw();
-        if (this.y >= 474) {
-            this.tw.paused = false;
-        }
+        // if (this.y >= 474) {
+        //     this.tw.paused = false;
+        // }
         // this.parent.removeChild(this);
     }
     private onChange(): void {
-        if (this.y >= 474) {
-            this.y = 474;
-            this.tw.paused = true;
+        // if (this.y >= 474) {
+        //     this.y = 474;
+        //     this.tw.paused = true;
 
-        }
+        // }
         console.log(this.x + 'y' + this.y);
     }
     private onComplete(param1: string, param2: any): void {

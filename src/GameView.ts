@@ -26,7 +26,7 @@ class GameView extends egret.DisplayObjectContainer {
         super();
         this.elf = new ElfBFS();
         this.newBirdsTimer = new egret.Timer(10000, 0);
-        this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER_COMPLETE, this.newBridsFunc, this);
+        this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBridsFunc, this);
 
         var bgA = this.bgA = Resource.createBitmapByName("stage_bgA_RETINA_png");
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");

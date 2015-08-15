@@ -11,7 +11,7 @@
 	],
 	"resources":[
 	{
-     "url": "assets/Sounds/BGM/Main_bgm.mp3",
+     "url": "assets/Sounds/BGM/Birzzle_Amazon.mp3",
      "type": "sound",
      "name": "bgmusic"
   },
