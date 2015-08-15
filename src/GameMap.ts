@@ -11,4 +11,8 @@ class GameMap {
             mapLines.push(mapLine);
         }
     }
+
+    public get lines() :GameMapLine[] {
+        return this.mapLines;
+    }
 }
