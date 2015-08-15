@@ -18,6 +18,7 @@ class GameView extends egret.DisplayObjectContainer {
 
     private bgA:egret.Bitmap;
     private bgB:egret.Bitmap;
+    private gameMap: GameMap;
 
     constructor() {
         super();
@@ -29,6 +30,14 @@ class GameView extends egret.DisplayObjectContainer {
 
         this.addChild(bgA);
         this.addChild(bgB);
+
+        var mapWidth = egret.MainContext.instance.stage.stageWidth * 0.9;
+        var mapHeight = mapWidth / 7 * 9;
+        var pStart:egret.Point = new egret.Point();
+        pStart.x = egret.MainContext.instance.stage.stageWidth * 0.1 / 2;
+        pStart.y = egret.MainContext.instance.stage.stageHeight * 0.1;
+
+        this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
 
     }
 

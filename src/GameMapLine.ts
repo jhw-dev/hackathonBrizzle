@@ -9,11 +9,11 @@ class GameMapLine {
 
     constructor(col:number, pOrigin:egret.Point, width:number, height:number) {
         var blockWidth = width / col;
-        var blockCenter:egret.Point;
+        var blockCenter:egret.Point = new egret.Point();
         blockCenter.x = pOrigin.x + blockWidth / 2;
         blockCenter.y = pOrigin.y + height / 2;
-        for(i=0; i++; i < col) {
-            var pCenter:egret.Point;
+        for(var i=0; i++; i < col) {
+            var pCenter:egret.Point = new egret.Point();
             pCenter.x = blockCenter.x + i * blockWidth;
             pCenter.y = blockCenter.y;
             var block = new GameMapBlock(pCenter, blockWidth, height);
