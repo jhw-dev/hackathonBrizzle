@@ -35,7 +35,6 @@ class GameView extends egret.DisplayObjectContainer {
 
         this.addChild(bgA);
         this.addChild(bgB);
-
         this.newBirdsTimer.start();
 
         var mapWidth = egret.MainContext.instance.stage.stageWidth * 0.9;
@@ -49,6 +48,9 @@ class GameView extends egret.DisplayObjectContainer {
         var overboard = new ScoreBoardView();
         this.addChild(overboard);
         overboard.showME(1222323);
+
+        // var startMenu= new StartMenu();
+        // this.addChild(startMenu);
     }
 
     private newBridsFunc(event: egret.TimerEvent) {
