@@ -46,14 +46,16 @@ class BirdView extends egret.Sprite {
         console.log("onClick");
         // this.draw();
         this.dropTo(this.tX, this.tY + 500);
-        if(this.y>=479){
+        if(this.y>=474){
           this.tw.paused=false;
         }
         // this.parent.removeChild(this);
     }
     private onChange(): void {
-        if (this.y >= 479) {
+        if (this.y >= 474) {
+          this.y=474;
           this.tw.paused=true;
+
         }
         console.log(this.x + 'y' + this.y);
     }

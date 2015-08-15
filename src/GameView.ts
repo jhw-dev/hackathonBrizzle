@@ -19,9 +19,11 @@ class GameView extends egret.DisplayObjectContainer {
     private bgA:egret.Bitmap;
     private bgB:egret.Bitmap;
     private gameMap: GameMap;
+    private elf:ElfBFS;
 
     constructor() {
         super();
+        this.elf=new ElfBFS();
 
         var bgA = this.bgA = Resource.createBitmapByName("stage_bgA_RETINA_png");
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");

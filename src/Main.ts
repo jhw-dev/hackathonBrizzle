@@ -46,41 +46,42 @@ class Main extends egret.DisplayObjectContainer {
         this.stage.addChild(this.loadingView);
         //test code
 
-        var elf = new ElfBFS();
+        // var elf = new ElfBFS();
         // var start=egret.getTimer();
-        var oriMap = [
-            [0, 0, 4, 0, 0, 4, 4],
-            [0, 0, 4, 0, 4, 4, 0],
-            [0, 0, 3, 2, 2, 3, 3],
-            [0, 0, 3, 3, 2, 5, 5],
-            [0, 0, 0, 0, 0, 5, 0],
-            [0, 0, 0, 0, 0, 5, 0],
-            [0, 1, 1, 0, 0, 0, 0],
-            [0, 0, 1, 0, 0, 0, 0],
-            [1, 1, 1, 1, 0, 0, 0]
-        ];
-        var res = elf.findBlocks(oriMap);
-        console.log(JSON.stringify(res));
-        for (var k in res) {
-            for (var ib in res[k]) {
-                oriMap[res[k][ib].x][res[k][ib].y] = -5;
-            }
-        }
-        var rrr='';
-        for (var i = 0; i < 9; i++) {
-            var t = '';
-            for (var j = 0; j < 7; j++) {
-                if (oriMap[i][j] == -5) {
-                    t = t + 'X';
-                } else {
-                    t = t + oriMap[i][j];
+        // var oriMap = [
+        //     [0, 0, 4, 0, 0, 4, 4],
+        //     [0, 0, 4, 0, 4, 4, 0],
+        //     [0, 0, 3, 2, 2, 3, 3],
+        //     [0, 0, 3, 3, 2, 5, 5],
+        //     [0, 0, 0, 0, 0, 5, 0],
+        //     [0, 0, 0, 0, 0, 5, 0],
+        //     [0, 1, 1, 0, 0, 0, 0],
+        //     [0, 0, 1, 0, 0, 0, 0],
+        //     [1, 1, 1, 1, 0, 0, 0]
+        // ];
+        // var res = elf.findBlocks(oriMap);
+        // console.log(JSON.stringify(res));
+        // for (var k in res) {
+        //     for (var ib in res[k]) {
+        //         oriMap[res[k][ib].x][res[k][ib].y] = -5;
+        //     }
+        // }
+        // var rrr='';
+        // for (var i = 0; i < 9; i++) {
+        //     var t = '';
+        //     for (var j = 0; j < 7; j++) {
+        //         if (oriMap[i][j] == -5) {
+        //             t = t + 'X';
+        //         } else {
+        //             t = t + oriMap[i][j];
 
-                }
-            }
-            rrr+=t+'\n';
-        }
-
-        console.log(rrr);
+        //         }
+        //     }
+        //     rrr+=t+'\n';
+        // }
+        
+        // console.log(rrr);
+        // console.log(elf.getSevenBirds());
         // var end=egret.getTimer();
         // console.log('time='+(end-start));
         //test code
