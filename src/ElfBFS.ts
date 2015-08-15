@@ -68,6 +68,24 @@ class ElfBFS {
 
     }
 
+    public getSevenBirds() {
+        var res = [];
+        for (var i = 0; i < 7; i++) {
+            var num = this.getRandomNum(0, 7);
+            if (i >= 2) {
+                while (num == res[i - 1] && num == res[i - 2]) {
+                    num = this.getRandomNum(0, 7);
+                }
+            }
+            res.push(num);
+        }
+        return res;
+
+    }
+    private getRandomNum(min: number, max: number) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
 }
 
 
