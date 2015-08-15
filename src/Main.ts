@@ -167,7 +167,7 @@ class Main extends egret.DisplayObjectContainer {
         bitmap.y = 213;
         // var rect:egret.Rectangle = new egret.Rectangle(5,5,5,15);
         // bitmap.scale9Grid =rect;
-        this.addChild(bitmap);
+        // this.addChild(bitmap);
 
         // var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
 
