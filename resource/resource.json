@@ -18,14 +18,14 @@
 	  	{
 	  		"name":"rect",
 	  		"type":"image",
-	  		"url":"assets/rect.png"},
-	  	{
-	  		"name":"buttons_RETINA",
-	  		"subkeys":"shop_bottom_back,shop_bottom_back_push",
-	  		"type":"sheet",
-	  		"url":"assets/images/Buttons/buttons_RETINA.json"
-	  	}
-
+	  		"url":"assets/rect.png"
+		},
+		{
+			"name":"buttons_RETINA",
+			"subkeys":"shop_bottom_back,shop_b,rect_back_push",
+			"type":"sheet",
+			"url":"assets/images/Buttons/buttons_RETINA.json"
+		}
 	],
 	"groups": [
 		{

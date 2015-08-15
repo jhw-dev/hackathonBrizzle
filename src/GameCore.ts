@@ -52,7 +52,7 @@ class GameCore extends egret.Sprite{
                         box.y = stageHeight - boxBody.position[1] * factor;
                         //box.rotation = 360 - boxBody.angle * 180 / Math.PI;
                         if (boxBody.sleepState == p2.Body.SLEEPING) {
-                            box.alpha = 0.5;
+                            //box.alpha = 0.5;
                         }
                         else {
                             box.alpha = 1;
@@ -66,44 +66,41 @@ class GameCore extends egret.Sprite{
         this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, addOneBox, this);
         var self = this;
 
+
+
         function addOneBox(e:egret.TouchEvent):void {
             var positionX:number = Math.floor(e.stageX / factor);
             var positionY:number = Math.floor((egret.MainContext.instance.stage.stageHeight - e.stageY) / factor);
 
-            if (Math.random() > 0) {
-                //添加方形刚体
-                var boxShape:p2.Shape = new p2.Rectangle(1, 1);
-                var boxBody:p2.Body = new p2.Body(
-                    {
-                        mass: 0.01,
-                        position: [positionX, positionY],
-                        velocity: [0, -10],
+
+            // 添加方形刚体
+            var boxShape:p2.Shape = new p2.Rectangle(1, 1);
+            var boxBody:p2.Body = new p2.Body(
+                {
+                    mass: 0.0001,
+                    position: [positionX, positionY],
+                    velocity: [0, -10],
 //                        angularVelocity: 1,
-                        fixedRotation: true,
+                    fixedRotation: true,
 //                        allowSleep: true,
 //                        type:p2.Body.DYNAMIC
 //                        fixedX: true
-                    }
-                );
+                }
+            );
 //                boxBody.fixedX = true
-                boxBody.addShape(boxShape);
-                world.addBody(boxBody);
+            boxBody.addShape(boxShape);
+            world.addBody(boxBody);
 
-                var display:egret.DisplayObject = self.createBitmapByName("rect");
-                display.width = (<p2.Rectangle>boxShape).width * factor;
-                display.height = (<p2.Rectangle>boxShape).height * factor;
-            }
-            else {
-                //添加圆形刚体
-                var boxShape:p2.Shape = new p2.Circle(1);
-                var boxBody:p2.Body = new p2.Body({ mass: 1, position: [positionX, positionY]});
-                boxBody.addShape(boxShape);
-                world.addBody(boxBody);
+            var display:egret.DisplayObject = self.createBitmapByName("rect");
+            display.width = (<p2.Rectangle>boxShape).width * factor;
+            display.height = (<p2.Rectangle>boxShape).height * factor;
 
-                var display:egret.DisplayObject = self.createBitmapByName("circle");
-                display.width = (<p2.Circle>boxShape).radius * 2 * factor;
-                display.height = (<p2.Circle>boxShape).radius * 2 * factor;
-            }
+            //display.addEventListener(egret.TouchEvent.TOUCH_BEGIN, removeOneBox, display);
+            //function removeOneBox(e:egret.TouchEvent):void {
+            //    console.log("remove one box: " + e.target);
+            //    var target = e.target;
+            //    target.parent.removeChild(target);
+            //}
 
             if (!self._isDebug) {
                 display.anchorX = display.anchorY = .5;
@@ -111,6 +108,8 @@ class GameCore extends egret.Sprite{
                 self.addChild(display);
             }
         }
+
+
 
         if (this._isDebug) {
             //开启debug模式，使用图形绘制
