@@ -2,7 +2,7 @@
 {
 	"groups":[
 	{
-		"keys":"bgImage,egretIcon,rect,Character_RETINA_json",
+		"keys":"bgImage,egretIcon,rect,Character_RETINA_json,stage_bgA_RETINA_png,stage_bgB_RETINA_png",
 		"name":"preload"
 	}],
 	"resources":[
