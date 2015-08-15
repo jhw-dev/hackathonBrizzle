@@ -156,22 +156,26 @@ class Main extends egret.DisplayObjectContainer {
         //test json res
 
 
-        var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
+        // var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
 
-        var bitmap = new egret.Bitmap();
+        // var bitmap = new egret.Bitmap();
 
-        bitmap.texture = texture;
+        // bitmap.texture = texture;
 
-        this.addChild(bitmap);
+        // this.addChild(bitmap);
 
-        var texture = RES.getRes("Character_RETINA_json.box00_burn@2x");
+        // var texture = RES.getRes("Character_RETINA_json.box00_burn@2x");
 
-        var bitmap = new egret.Bitmap();
-        bitmap.x = 300;
-        bitmap.y = 300;
-        bitmap.texture = texture;
+        // var bitmap = new egret.Bitmap();
+        // bitmap.x = 300;
+        // bitmap.y = 300;
+        // bitmap.texture = texture;
 
-        this.addChild(bitmap);
+        // this.addChild(bitmap);
+        var bitmapText:egret.BitmapText = new egret.BitmapText();
+        bitmapText.font = RES.getRes("number_fnt");
+        this.addChild(bitmapText);
+        bitmapText.text = "0123456789";
 
     }
 
