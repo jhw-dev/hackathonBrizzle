@@ -14,47 +14,6 @@
 			"children":[
 			{
 				"isFolder":false,
-				"key":"bgImage",
-				"name":"bgImage"
-			},
-			{
-				"isFolder":false,
-				"key":"egretIcon",
-				"name":"egretIcon"
-			},
-			{
-				"children":[
-				{
-					"isFolder":false,
-					"key":"shop_bottom_back",
-					"name":"shop_bottom_back"
-				},
-				{
-					"isFolder":false,
-					"key":"shop_bottom_back_push",
-					"name":"shop_bottom_back_push"
-				}],
-				"isFolder":false,
-				"key":"buttons_RETINA",
-				"name":"buttons_RETINA"
-			},
-			{
-				"isFolder":false,
-				"key":"rect",
-				"name":"rect"
-			},
-			{
-				"isFolder":false,
-				"key":"stage_bgA_RETINA_png",
-				"name":"stage_bgA_RETINA_png"
-			},
-			{
-				"isFolder":false,
-				"key":"stage_bgB_RETINA_png",
-				"name":"stage_bgB_RETINA_png"
-			},
-			{
-				"isFolder":false,
 				"key":"Black_RETINA_png",
 				"name":"Black_RETINA_png"
 			},
@@ -451,6 +410,22 @@
 				"isFolder":false,
 				"key":"button_x_RETINA_png",
 				"name":"button_x_RETINA_png"
+			},
+			{
+				"children":[
+				{
+					"isFolder":false,
+					"key":"shop_bottom_back",
+					"name":"shop_bottom_back"
+				},
+				{
+					"isFolder":false,
+					"key":"shop_bottom_back_push",
+					"name":"shop_bottom_back_push"
+				}],
+				"isFolder":false,
+				"key":"buttons_RETINA",
+				"name":"buttons_RETINA"
 			},
 			{
 				"children":[
@@ -3526,6 +3501,31 @@
 				"isFolder":false,
 				"key":"Character_RETINA_json",
 				"name":"Character_RETINA_json"
+			},
+			{
+				"isFolder":false,
+				"key":"bgImage",
+				"name":"bgImage"
+			},
+			{
+				"isFolder":false,
+				"key":"egretIcon",
+				"name":"egretIcon"
+			},
+			{
+				"isFolder":false,
+				"key":"rect",
+				"name":"rect"
+			},
+			{
+				"isFolder":false,
+				"key":"stage_bgA_RETINA_png",
+				"name":"stage_bgA_RETINA_png"
+			},
+			{
+				"isFolder":false,
+				"key":"stage_bgB_RETINA_png",
+				"name":"stage_bgB_RETINA_png"
 			},
 			{
 				"children":[

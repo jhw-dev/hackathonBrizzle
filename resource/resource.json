@@ -1,33 +1,22 @@
-
 {
 	"groups":[
 	{
-		"keys":"bgImage,egretIcon,rect,Character_RETINA_json,stage_bgA_RETINA_png,stage_bgB_RETINA_png",
+		"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json",
 		"name":"preload"
 	}],
 	"resources":[
 	{
-		"name":"bgImage",
+		"name":"bg_jpg",
 		"type":"image",
 		"url":"assets/bg.jpg"
 	},
 	{
-		"name":"egretIcon",
+		"name":"egret_icon_png",
 		"type":"image",
 		"url":"assets/egret_icon.png"
 	},
 	{
-		"name":"description",
-		"type":"json",
-		"url":"config/description.json"
-	},
-	{
-		"name":"rect",
-		"type":"image",
-		"url":"assets/rect.png"
-	},
-	{
-		"name":"buttons_RETINA",
+		"name":"buttons_RETINA_json",
 		"subkeys":"shop_bottom_back,shop_bottom_back_push",
 		"type":"sheet",
 		"url":"assets/images/Buttons/buttons_RETINA.json"
@@ -48,6 +37,12 @@
 		"url":"assets/images/character/block_alert_RETINA.png"
 	},
 	{
+		"name":"character_json",
+		"subkeys":"Character_blue_close,Character_blue_die,Character_blue_open,Character_gold_close,Character_gray_close,Character_gray_open,Character_green_close,Character_green_die,Character_green_open,Character_large,Character_orange_close,Character_orange_die,Character_orange_open,Character_pink_close,Character_pink_die,Character_pink_open,Character_purple_close,Character_purple_die,Character_purple_open,Character_red_close,Character_red_die,Character_red_open,Character_white_close,Character_white_die,Character_white_open,Character_yellow_close,Character_yellow_die,Character_yellow_open",
+		"type":"sheet",
+		"url":"assets/images/character/character.json"
+	},
+	{
 		"name":"Character_RETINA_json",
 		"subkeys":"bone@2x,box00_burn@2x,box00_feather@2x,box00_normal_00@2x,box00_normal_01@2x,box01_burn@2x,box01_feather@2x,box01_normal_00@2x,box01_normal_01@2x,box02_burn@2x,box02_feather@2x,box02_normal_00@2x,box02_normal_01@2x,box03_burn@2x,box03_feather@2x,box03_normal_00@2x,box03_normal_01@2x,box04_burn@2x,box04_feather@2x,box04_normal_00@2x,box04_normal_01@2x,box05_burn@2x,box05_feather@2x,box05_normal_00@2x,box05_normal_01@2x,box06_burn@2x,box06_feather@2x,box06_normal_00@2x,box06_normal_01@2x,box07_burn@2x,box07_feather@2x,box07_normal_00@2x,box07_normal_01@2x,die,gear01,gear02,gear03,glow,item_light,item_lock,item_power,newbird_normal_00@2x,newbird_normal_01@2x,wood@2x,wood_1@2x,wood_2@2x,wood_3@2x,wood_4@2x,wood_bronze@2x,wood_gold@2x,wood_silver@2x",
 		"type":"sheet",
@@ -60,20 +55,10 @@
 		"url":"assets/images/character/lock_RETINA.json"
 	},
 	{
-		"name":"lock_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/character/lock_RETINA.plist"
-	},
-	{
 		"name":"pandora_itembox_glow_RETINA_json",
 		"subkeys":"pandora_itembox_gl01,pandora_itembox_gl02,pandora_itembox_gl03,pandora_itembox_gl04,pandora_itembox_gl05,pandora_itembox_gl06",
 		"type":"sheet",
 		"url":"assets/images/character/pandora_itembox_glow_RETINA.json"
-	},
-	{
-		"name":"pandora_itembox_glow_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/character/pandora_itembox_glow_RETINA.plist"
 	},
 	{
 		"name":"pandora_wood_crack_RETINA_json",
@@ -82,20 +67,10 @@
 		"url":"assets/images/character/pandora_wood_crack_RETINA.json"
 	},
 	{
-		"name":"pandora_wood_crack_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/character/pandora_wood_crack_RETINA.plist"
-	},
-	{
 		"name":"twinkle_RETINA_json",
 		"subkeys":"twinkle01,twinkle02,twinkle03,twinkle04",
 		"type":"sheet",
 		"url":"assets/images/character/twinkle_RETINA.json"
-	},
-	{
-		"name":"twinkle_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/character/twinkle_RETINA.plist"
 	},
 	{
 		"name":"settings_bg_RETINA_png",
@@ -107,16 +82,6 @@
 		"subkeys":"setting_facebook_eng,setting_facebook_push_eng,setting_license_eng,setting_license_push_eng",
 		"type":"sheet",
 		"url":"assets/images/credits/settings_EN_RETINA.json"
-	},
-	{
-		"name":"settings_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/credits/settings_EN_RETINA.plist"
-	},
-	{
-		"name":"settings_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/credits/settings_RETINA.plist"
 	},
 	{
 		"name":"settings_RETINA_png",
@@ -136,11 +101,6 @@
 		"url":"assets/images/GameOver/gameover_EN_RETINA.json"
 	},
 	{
-		"name":"gameover_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/GameOver/gameover_EN_RETINA.plist"
-	},
-	{
 		"name":"gameover_item_RETINA_png",
 		"type":"image",
 		"url":"assets/images/GameOver/gameover_item_RETINA.png"
@@ -152,20 +112,10 @@
 		"url":"assets/images/GameOver/gameover_RETINA.json"
 	},
 	{
-		"name":"gameover_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/GameOver/gameover_RETINA.plist"
-	},
-	{
 		"name":"InApp_EN_RETINA_json",
 		"subkeys":"addcoins_buy,addcoins_buy_push,addcoins_eng",
 		"type":"sheet",
 		"url":"assets/images/inApp/InApp_EN_RETINA.json"
-	},
-	{
-		"name":"InApp_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/inApp/InApp_EN_RETINA.plist"
 	},
 	{
 		"name":"InApp_JP_RETINA_json",
@@ -174,20 +124,10 @@
 		"url":"assets/images/inApp/InApp_JP_RETINA.json"
 	},
 	{
-		"name":"InApp_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/inApp/InApp_JP_RETINA.plist"
-	},
-	{
 		"name":"InApp_RETINA_json",
 		"subkeys":"addcoins,addcoins_bg,addcoins_buy,addcoins_buy_push,quest_addcoin_close,quest_addfeather,quest_jp,quest_jp_2,quest_jp_push,quest_jp_push_2,store_global_use_time,store_global_use_time_push",
 		"type":"sheet",
 		"url":"assets/images/inApp/InApp_RETINA.json"
-	},
-	{
-		"name":"InApp_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/inApp/InApp_RETINA.plist"
 	},
 	{
 		"name":"bomb_circle_RETINA_png",
@@ -201,20 +141,10 @@
 		"url":"assets/images/item/itemblackhole_RETINA.json"
 	},
 	{
-		"name":"itemblackhole_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item/itemblackhole_RETINA.plist"
-	},
-	{
 		"name":"itembomb_RETINA_json",
 		"subkeys":"itemBomb_000,itemBomb_001,itemBomb_002,itemBomb_003,itemBomb_004,itemBomb_005,itemBomb_006,itemBomb_007,itemBomb_008,itemBomb_009,itemBomb_010,itemBomb_011",
 		"type":"sheet",
 		"url":"assets/images/item/itembomb_RETINA.json"
-	},
-	{
-		"name":"itembomb_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item/itembomb_RETINA.plist"
 	},
 	{
 		"name":"itemfirebird_RETINA_json",
@@ -223,20 +153,10 @@
 		"url":"assets/images/item/itemfirebird_RETINA.json"
 	},
 	{
-		"name":"itemfirebird_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item/itemfirebird_RETINA.plist"
-	},
-	{
 		"name":"itemlightning_RETINA_json",
 		"subkeys":"itemLightning_000,itemLightning_001,itemLightning_002,itemLightning_003,itemLightning_004,itemLightning_005,itemLightning_006,itemLightning_007,itemLightning_008,itemLightning_009,itemLightning_010,itemLightning_011",
 		"type":"sheet",
 		"url":"assets/images/item/itemlightning_RETINA.json"
-	},
-	{
-		"name":"itemlightning_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item/itemlightning_RETINA.plist"
 	},
 	{
 		"name":"LightningBall_RETINA_png",
@@ -255,20 +175,10 @@
 		"url":"assets/images/item_effect/cloud_RETINA.json"
 	},
 	{
-		"name":"cloud_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item_effect/cloud_RETINA.plist"
-	},
-	{
 		"name":"effectblackhole_RETINA_json",
 		"subkeys":"Blackhole_000,Blackhole_001,Blackhole_002,Blackhole_003,Blackhole_004,Blackhole_005,Blackhole_006,Blackhole_007,Blackhole_008,Blackhole_009,Blackhole_010,Blackhole_011,Blackhole_012,Blackhole_013,Blackhole_014,Blackhole_015,Blackhole_016,Blackhole_017,Blackhole_018,Blackhole_019,Blackhole_020,Blackhole_021,Blackhole_022,Blackhole_023",
 		"type":"sheet",
 		"url":"assets/images/item_effect/effectblackhole_RETINA.json"
-	},
-	{
-		"name":"effectblackhole_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item_effect/effectblackhole_RETINA.plist"
 	},
 	{
 		"name":"effectbomb_RETINA_json",
@@ -277,20 +187,10 @@
 		"url":"assets/images/item_effect/effectbomb_RETINA.json"
 	},
 	{
-		"name":"effectbomb_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item_effect/effectbomb_RETINA.plist"
-	},
-	{
 		"name":"effectfirebird_RETINA_json",
 		"subkeys":"firebird_000,firebird_001,firebird_002,firebird_003,firebird_004,firebird_005,firebird_006,firebird_007,firebird_008,firebird_009,firebird_010,firebird_011",
 		"type":"sheet",
 		"url":"assets/images/item_effect/effectfirebird_RETINA.json"
-	},
-	{
-		"name":"effectfirebird_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item_effect/effectfirebird_RETINA.plist"
 	},
 	{
 		"name":"lightning_A_RETINA_png",
@@ -309,20 +209,10 @@
 		"url":"assets/images/item_pandora/pandora_box_letter_RETINA.json"
 	},
 	{
-		"name":"pandora_box_letter_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item_pandora/pandora_box_letter_RETINA.plist"
-	},
-	{
 		"name":"pandora_item_RETINA_json",
 		"subkeys":"Lightning1@2x,Lightning2@2x,bomb@2x,clock@2x,cloud@2x,ghost@2x,wood@2x",
 		"type":"sheet",
 		"url":"assets/images/item_pandora/pandora_item_RETINA.json"
-	},
-	{
-		"name":"pandora_item_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/item_pandora/pandora_item_RETINA.plist"
 	},
 	{
 		"name":"LogoEnfeel_RETINA_png",
@@ -341,20 +231,10 @@
 		"url":"assets/images/main_menu/mainMenuPromotion_RETINA.json"
 	},
 	{
-		"name":"mainMenuPromotion_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/main_menu/mainMenuPromotion_RETINA.plist"
-	},
-	{
 		"name":"mainMenu_b_EN_RETINA_json",
 		"subkeys":"main_bag_line_eng,main_bag_line_push_eng,main_coin_eng,main_coin_push_eng,main_select_cancel@2x,main_select_cancel_push@2x,main_select_continue@2x,main_select_continue_push@2x,main_select_newgame@2x,main_select_newgame_push@2x",
 		"type":"sheet",
 		"url":"assets/images/main_menu/mainMenu_b_EN_RETINA.json"
-	},
-	{
-		"name":"mainMenu_b_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/main_menu/mainMenu_b_EN_RETINA.plist"
 	},
 	{
 		"name":"mainMenu_b_JP_RETINA_json",
@@ -363,31 +243,16 @@
 		"url":"assets/images/main_menu/mainMenu_b_JP_RETINA.json"
 	},
 	{
-		"name":"mainMenu_b_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/main_menu/mainMenu_b_JP_RETINA.plist"
-	},
-	{
 		"name":"mainMenu_b_RETINA_json",
 		"subkeys":"main_bag_line,main_bag_line_push,main_coin,main_coin_push,main_select_cancel,main_select_cancel_push,main_select_continue,main_select_continue_push,main_select_newgame,main_select_newgame_push,main_tittle",
 		"type":"sheet",
 		"url":"assets/images/main_menu/mainMenu_b_RETINA.json"
 	},
 	{
-		"name":"mainMenu_b_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/main_menu/mainMenu_b_RETINA.plist"
-	},
-	{
 		"name":"mainMenu_RETINA_json",
 		"subkeys":"main_bg_b@2x,main_bg_tree,main_bizzle_b,main_bizzle_g,main_bizzle_o,main_bizzle_p,main_bizzle_pink,main_bizzle_r,main_bizzle_w,main_bizzle_y,main_classic,main_classic_icon,main_classic_q,main_curtain,main_curtain_up,main_ghost,main_ghost_icon,main_knob@2x,main_option,main_pharaoh,main_pharaoh_icon",
 		"type":"sheet",
 		"url":"assets/images/main_menu/mainMenu_RETINA.json"
-	},
-	{
-		"name":"mainMenu_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/main_menu/mainMenu_RETINA.plist"
 	},
 	{
 		"name":"main_bg_c_l_RETINA_png",
@@ -420,6 +285,11 @@
 		"url":"assets/images/main_menu/main_window_bg_RETINA.png"
 	},
 	{
+		"name":"mainMenu_RETINA_plist",
+		"type":"bin",
+		"url":"assets/images/main_menu/Paid/mainMenu_RETINA.plist"
+	},
+	{
 		"name":"mainMenu_RETINA_png",
 		"type":"image",
 		"url":"assets/images/main_menu/Paid/mainMenu_RETINA.png"
@@ -431,31 +301,16 @@
 		"url":"assets/images/pause/paused_EN_RETINA.json"
 	},
 	{
-		"name":"paused_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/pause/paused_EN_RETINA.plist"
-	},
-	{
 		"name":"paused_JP_RETINA_json",
 		"subkeys":"paused_quit_jp,paused_quit_push_jp,paused_restart_jp,paused_restart_push_jp,paused_resume_jp,paused_resume_push_jp,paused_save_jp,paused_save_push_jp",
 		"type":"sheet",
 		"url":"assets/images/pause/paused_JP_RETINA.json"
 	},
 	{
-		"name":"paused_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/pause/paused_JP_RETINA.plist"
-	},
-	{
 		"name":"paused_RETINA_json",
 		"subkeys":"paused_bg@2x,paused_quit@2x,paused_quit_push@2x,paused_restart@2x,paused_restart_push@2x,paused_resume@2x,paused_resume_push@2x,paused_save@2x,paused_save_push@2x,paused_sound_off@2x,paused_sound_on@2x",
 		"type":"sheet",
 		"url":"assets/images/pause/paused_RETINA.json"
-	},
-	{
-		"name":"paused_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/pause/paused_RETINA.plist"
 	},
 	{
 		"name":"promotion_bg_RETINA_png",
@@ -469,20 +324,10 @@
 		"url":"assets/images/promotion/promotion_RETINA.json"
 	},
 	{
-		"name":"promotion_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/promotion/promotion_RETINA.plist"
-	},
-	{
 		"name":"promotion_text_EN_RETINA_json",
 		"subkeys":"banner_eng,birzzle_eng,birzzle_text_eng,line_get plus_bg",
 		"type":"sheet",
 		"url":"assets/images/promotion/promotion_text_EN_RETINA.json"
-	},
-	{
-		"name":"promotion_text_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/promotion/promotion_text_EN_RETINA.plist"
 	},
 	{
 		"name":"promotion_text_JP_RETINA_json",
@@ -491,20 +336,10 @@
 		"url":"assets/images/promotion/promotion_text_JP_RETINA.json"
 	},
 	{
-		"name":"promotion_text_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/promotion/promotion_text_JP_RETINA.plist"
-	},
-	{
 		"name":"promotion_text_RETINA_json",
 		"subkeys":"banner_eng,birzzle,birzzle_text,line_ad_get it now,line_ad_get it now_push,line_get plus_bg",
 		"type":"sheet",
 		"url":"assets/images/promotion/promotion_text_RETINA.json"
-	},
-	{
-		"name":"promotion_text_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/promotion/promotion_text_RETINA.plist"
 	},
 	{
 		"name":"quest_bg_pharaoh_RETINA_png",
@@ -523,20 +358,10 @@
 		"url":"assets/images/quest/quest_chapter_info_bg_RETINA.json"
 	},
 	{
-		"name":"quest_chapter_info_bg_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/quest_chapter_info_bg_RETINA.plist"
-	},
-	{
 		"name":"quest_num_RETINA_json",
 		"subkeys":"quest_num_0,quest_num_1,quest_num_2,quest_num_3,quest_num_4,quest_num_5,quest_num_6,quest_num_7,quest_num_8,quest_num_9",
 		"type":"sheet",
 		"url":"assets/images/quest/quest_num_RETINA.json"
-	},
-	{
-		"name":"quest_num_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/quest_num_RETINA.plist"
 	},
 	{
 		"name":"quest_stage_EN_RETINA_json",
@@ -545,20 +370,10 @@
 		"url":"assets/images/quest/quest_stage_EN_RETINA.json"
 	},
 	{
-		"name":"quest_stage_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/quest_stage_EN_RETINA.plist"
-	},
-	{
 		"name":"quest_stage_JP_RETINA_json",
 		"subkeys":"quest_classicq_jp",
 		"type":"sheet",
 		"url":"assets/images/quest/quest_stage_JP_RETINA.json"
-	},
-	{
-		"name":"quest_stage_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/quest_stage_JP_RETINA.plist"
 	},
 	{
 		"name":"quest_stage_pharaoh_EN_RETINA_json",
@@ -567,20 +382,10 @@
 		"url":"assets/images/quest/quest_stage_pharaoh_EN_RETINA.json"
 	},
 	{
-		"name":"quest_stage_pharaoh_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/quest_stage_pharaoh_EN_RETINA.plist"
-	},
-	{
 		"name":"quest_stage_pharaoh_JP_RETINA_json",
 		"subkeys":"pharaoh_jp",
 		"type":"sheet",
 		"url":"assets/images/quest/quest_stage_pharaoh_JP_RETINA.json"
-	},
-	{
-		"name":"quest_stage_pharaoh_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/quest_stage_pharaoh_JP_RETINA.plist"
 	},
 	{
 		"name":"quest_stage_pharaoh_RETINA_json",
@@ -589,20 +394,10 @@
 		"url":"assets/images/quest/quest_stage_pharaoh_RETINA.json"
 	},
 	{
-		"name":"quest_stage_pharaoh_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/quest_stage_pharaoh_RETINA.plist"
-	},
-	{
 		"name":"quest_stage_RETINA_json",
 		"subkeys":"achivement_bg@2x,quest_chapter2,quest_chapter_lock2,quest_classic_endless,quest_classic_lock,quest_classicq,quest_coin_bg,quest_feather,quest_power_bg,quest_power_infinite,quest_power_infinite_push,quest_star_gold,quest_star_silver,shop_amulet_coins",
 		"type":"sheet",
 		"url":"assets/images/quest/quest_stage_RETINA.json"
-	},
-	{
-		"name":"quest_stage_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/quest_stage_RETINA.plist"
 	},
 	{
 		"name":"stage_chapter_button_EN_RETINA_json",
@@ -611,20 +406,10 @@
 		"url":"assets/images/quest/stage_chapter_button_EN_RETINA.json"
 	},
 	{
-		"name":"stage_chapter_button_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/stage_chapter_button_EN_RETINA.plist"
-	},
-	{
 		"name":"stage_chapter_button_JP_RETINA_json",
 		"subkeys":"quest_button_next_jp,quest_button_next_push_jp,quest_button_rank_jp,quest_button_rank_push_jp",
 		"type":"sheet",
 		"url":"assets/images/quest/stage_chapter_button_JP_RETINA.json"
-	},
-	{
-		"name":"stage_chapter_button_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/stage_chapter_button_JP_RETINA.plist"
 	},
 	{
 		"name":"stage_chapter_button_RETINA_json",
@@ -633,20 +418,10 @@
 		"url":"assets/images/quest/stage_chapter_button_RETINA.json"
 	},
 	{
-		"name":"stage_chapter_button_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/quest/stage_chapter_button_RETINA.plist"
-	},
-	{
 		"name":"coin_ani_bronze_RETINA_json",
 		"subkeys":"coin_bronze_01@2x,coin_bronze_02@2x,coin_bronze_03@2x,coin_bronze_04@2x,coin_bronze_05@2x,coin_bronze_06@2x,coin_bronze_07@2x,coin_bronze_08@2x,coin_bronze_09@2x",
 		"type":"sheet",
 		"url":"assets/images/shop/coin_ani_bronze_RETINA.json"
-	},
-	{
-		"name":"coin_ani_bronze_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/coin_ani_bronze_RETINA.plist"
 	},
 	{
 		"name":"coin_ani_gold_RETINA_json",
@@ -655,20 +430,10 @@
 		"url":"assets/images/shop/coin_ani_gold_RETINA.json"
 	},
 	{
-		"name":"coin_ani_gold_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/coin_ani_gold_RETINA.plist"
-	},
-	{
 		"name":"coin_ani_silver_RETINA_json",
 		"subkeys":"coin_silver_01@2x,coin_silver_02@2x,coin_silver_03@2x,coin_silver_04@2x,coin_silver_05@2x,coin_silver_06@2x,coin_silver_07@2x,coin_silver_08@2x,coin_silver_09@2x",
 		"type":"sheet",
 		"url":"assets/images/shop/coin_ani_silver_RETINA.json"
-	},
-	{
-		"name":"coin_ani_silver_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/coin_ani_silver_RETINA.plist"
 	},
 	{
 		"name":"coin_RETINA_json",
@@ -677,20 +442,10 @@
 		"url":"assets/images/shop/coin_RETINA.json"
 	},
 	{
-		"name":"coin_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/coin_RETINA.plist"
-	},
-	{
 		"name":"ItemShopBG_EN_RETINA_json",
 		"subkeys":"shop_addcoin_buy_eng,shop_addcoin_coin_eng",
 		"type":"sheet",
 		"url":"assets/images/shop/ItemShopBG_EN_RETINA.json"
-	},
-	{
-		"name":"ItemShopBG_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/ItemShopBG_EN_RETINA.plist"
 	},
 	{
 		"name":"ItemShopBG_JP_RETINA_json",
@@ -699,20 +454,10 @@
 		"url":"assets/images/shop/ItemShopBG_JP_RETINA.json"
 	},
 	{
-		"name":"ItemShopBG_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/ItemShopBG_JP_RETINA.plist"
-	},
-	{
 		"name":"ItemShopBG_RETINA_json",
 		"subkeys":"shop_addcoin_buy@2x,shop_addcoin_coin@2x,shop_table",
 		"type":"sheet",
 		"url":"assets/images/shop/ItemShopBG_RETINA.json"
-	},
-	{
-		"name":"ItemShopBG_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/ItemShopBG_RETINA.plist"
 	},
 	{
 		"name":"ItemShop_RETINA_json",
@@ -721,20 +466,10 @@
 		"url":"assets/images/shop/ItemShop_RETINA.json"
 	},
 	{
-		"name":"ItemShop_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/ItemShop_RETINA.plist"
-	},
-	{
 		"name":"shop_EN_RETINA_json",
 		"subkeys":"quest_replay_eng,quest_replay_push_eng,shop_bottom_play_eng,shop_bottom_play_push_eng",
 		"type":"sheet",
 		"url":"assets/images/shop/shop_EN_RETINA.json"
-	},
-	{
-		"name":"shop_EN_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/shop_EN_RETINA.plist"
 	},
 	{
 		"name":"shop_JP_RETINA_json",
@@ -743,31 +478,16 @@
 		"url":"assets/images/shop/shop_JP_RETINA.json"
 	},
 	{
-		"name":"shop_JP_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/shop_JP_RETINA.plist"
-	},
-	{
 		"name":"shop_RETINA_json",
 		"subkeys":"quest_replay,quest_replay_push,rank_refresh@2x,rank_refresh_push@2x,sale,shop_amulet_coins,shop_amulet_cost,shop_amulet_focus,shop_amulet_money,shop_amulet_money_focus,shop_amulet_table,shop_amuletshop_eng,shop_bottom,shop_bottom_back,shop_bottom_back_push,shop_bottom_play,shop_bottom_play_push,shop_box_a,shop_box_b,shop_top",
 		"type":"sheet",
 		"url":"assets/images/shop/shop_RETINA.json"
 	},
 	{
-		"name":"shop_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/shop_RETINA.plist"
-	},
-	{
 		"name":"shop_sale_popup_RETINA_json",
 		"subkeys":"50_sale,addcoin,addcoin_push,addcoins_x@2x,event,item,main_mode_bg_L,main_mode_bg_R,main_mode_bg_center,playnow,playnow_push,shop_amulet_coins@2x",
 		"type":"sheet",
 		"url":"assets/images/shop/shop_sale_popup_RETINA.json"
-	},
-	{
-		"name":"shop_sale_popup_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/shop/shop_sale_popup_RETINA.plist"
 	},
 	{
 		"name":"birzzle_pt_RETINA_png",
@@ -866,11 +586,6 @@
 		"url":"assets/images/stage_classic/classic_progress_bar_RETINA.json"
 	},
 	{
-		"name":"classic_progress_bar_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_classic/classic_progress_bar_RETINA.plist"
-	},
-	{
 		"name":"level_tag_RETINA_png",
 		"type":"image",
 		"url":"assets/images/stage_classic/level_tag_RETINA.png"
@@ -880,11 +595,6 @@
 		"subkeys":"stage_birds_0@2x,stage_birds_10@2x,stage_birds_1@2x,stage_birds_2@2x,stage_birds_3@2x,stage_birds_4@2x,stage_birds_5@2x,stage_birds_6@2x,stage_birds_7@2x,stage_birds_8@2x,stage_birds_9@2x,stage_gameover_num1_0@2x,stage_gameover_num1_1@2x,stage_gameover_num1_2@2x,stage_gameover_num1_3@2x,stage_gameover_num1_4@2x,stage_gameover_num1_5@2x,stage_gameover_num1_6@2x,stage_gameover_num1_7@2x,stage_gameover_num1_8@2x,stage_gameover_num1_9@2x,stage_gameover_num2_0@2x,stage_gameover_num2_1@2x,stage_gameover_num2_2@2x,stage_gameover_num2_3@2x,stage_gameover_num2_4@2x,stage_gameover_num2_5@2x,stage_gameover_num2_6@2x,stage_gameover_num2_7@2x,stage_gameover_num2_8@2x,stage_gameover_num2_9@2x,stage_level_0@2x,stage_level_1@2x,stage_level_2@2x,stage_level_3@2x,stage_level_4@2x,stage_level_5@2x,stage_level_6@2x,stage_level_7@2x,stage_level_8@2x,stage_level_9@2x,stage_menubar_level_0@2x,stage_menubar_level_1@2x,stage_menubar_level_2@2x,stage_menubar_level_3@2x,stage_menubar_level_4@2x,stage_menubar_level_5@2x,stage_menubar_level_6@2x,stage_menubar_level_7@2x,stage_menubar_level_8@2x,stage_menubar_level_9@2x,stage_menubar_score_0@2x,stage_menubar_score_1@2x,stage_menubar_score_2@2x,stage_menubar_score_3@2x,stage_menubar_score_4@2x,stage_menubar_score_5@2x,stage_menubar_score_6@2x,stage_menubar_score_7@2x,stage_menubar_score_8@2x,stage_menubar_score_9@2x,stage_score_0@2x,stage_score_1@2x,stage_score_2@2x,stage_score_3@2x,stage_score_4@2x,stage_score_5@2x,stage_score_6@2x,stage_score_7@2x,stage_score_8@2x,stage_score_9@2x",
 		"type":"sheet",
 		"url":"assets/images/stage_classic/numbers_RETINA.json"
-	},
-	{
-		"name":"numbers_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_classic/numbers_RETINA.plist"
 	},
 	{
 		"name":"stage_bgA_RETINA_png",
@@ -918,11 +628,6 @@
 		"url":"assets/images/stage_classic/stage_RETINA.json"
 	},
 	{
-		"name":"stage_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_classic/stage_RETINA.plist"
-	},
-	{
 		"name":"tap_RETINA_png",
 		"type":"image",
 		"url":"assets/images/stage_classic/tap_RETINA.png"
@@ -934,20 +639,10 @@
 		"url":"assets/images/stage_classic/trophy_RETINA.json"
 	},
 	{
-		"name":"trophy_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_classic/trophy_RETINA.plist"
-	},
-	{
 		"name":"bandage_RETINA_json",
 		"subkeys":"modeA_mummyani_01@2x,modeA_mummyani_02@2x,modeA_mummyani_03@2x,modeA_mummyani_04@2x",
 		"type":"sheet",
 		"url":"assets/images/stage_ice/bandage_RETINA.json"
-	},
-	{
-		"name":"bandage_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_ice/bandage_RETINA.plist"
 	},
 	{
 		"name":"ice_bg_in_RETINA_png",
@@ -983,11 +678,6 @@
 		"url":"assets/images/stage_pandora/FacebookRankLoading_RETINA.json"
 	},
 	{
-		"name":"FacebookRankLoading_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_pandora/FacebookRankLoading_RETINA.plist"
-	},
-	{
 		"name":"pandora_bg_A_RETINA_png",
 		"type":"image",
 		"url":"assets/images/stage_pandora/pandora_bg_A_RETINA.png"
@@ -1002,11 +692,6 @@
 		"subkeys":"pandora_itembox_bin@2x,pandora_itembox_bin_1@2x,pandora_itembox_bin_2@2x,pandora_itembox_bin_3@2x",
 		"type":"sheet",
 		"url":"assets/images/stage_pandora/pandora_box_RETINA.json"
-	},
-	{
-		"name":"pandora_box_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_pandora/pandora_box_RETINA.plist"
 	},
 	{
 		"name":"pandora_combo_bg_RETINA_png",
@@ -1025,11 +710,6 @@
 		"url":"assets/images/stage_pandora/pandora_combo_RETINA.json"
 	},
 	{
-		"name":"pandora_combo_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_pandora/pandora_combo_RETINA.plist"
-	},
-	{
 		"name":"pandora_face_RETINA_png",
 		"type":"image",
 		"url":"assets/images/stage_pandora/pandora_face_RETINA.png"
@@ -1041,20 +721,10 @@
 		"url":"assets/images/stage_pandora/pandora_numbers_RETINA.json"
 	},
 	{
-		"name":"pandora_numbers_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_pandora/pandora_numbers_RETINA.plist"
-	},
-	{
 		"name":"pandora_rank_button_RETINA_json",
 		"subkeys":"rank_login@2x,rank_login_push@2x,rank_refresh@2x,rank_refresh_icon@2x,rank_refresh_push@2x",
 		"type":"sheet",
 		"url":"assets/images/stage_pandora/pandora_rank_button_RETINA.json"
-	},
-	{
-		"name":"pandora_rank_button_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_pandora/pandora_rank_button_RETINA.plist"
 	},
 	{
 		"name":"pandora_rank_RETINA_json",
@@ -1063,20 +733,10 @@
 		"url":"assets/images/stage_pandora/pandora_rank_RETINA.json"
 	},
 	{
-		"name":"pandora_rank_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_pandora/pandora_rank_RETINA.plist"
-	},
-	{
 		"name":"pandora_roulette_RETINA_json",
 		"subkeys":"pandora_dragon@2x,pandora_dragon_a@2x,pandora_dragon_b@2x,pandora_dragon_cloud@2x,pandora_level@2x,pandora_level_2@2x,pandora_level_3@2x,pandora_level_5@2x,pandora_power@2x,pandora_power_12@2x,pandora_power_6@2x,pandora_power_9@2x,pandora_roulette_level@2x,pandora_roulette_power@2x,pandora_roulette_star@2x,pandora_roulette_stop_normal@2x,pandora_roulette_stop_push@2x,pandora_roulette_time@2x,pandora_time@2x,pandora_time_20@2x,pandora_time_30@2x,pandora_time_40@2x",
 		"type":"sheet",
 		"url":"assets/images/stage_pandora/pandora_roulette_RETINA.json"
-	},
-	{
-		"name":"pandora_roulette_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/stage_pandora/pandora_roulette_RETINA.plist"
 	},
 	{
 		"name":"pandora_stage_RETINA_json",
@@ -1171,20 +831,10 @@
 		"url":"assets/images/Tutorial/classic_tutorial_1_RETINA.json"
 	},
 	{
-		"name":"classic_tutorial_1_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/Tutorial/classic_tutorial_1_RETINA.plist"
-	},
-	{
 		"name":"classic_tutorial_2_RETINA_json",
 		"subkeys":"tuto_list_02",
 		"type":"sheet",
 		"url":"assets/images/Tutorial/classic_tutorial_2_RETINA.json"
-	},
-	{
-		"name":"classic_tutorial_2_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/Tutorial/classic_tutorial_2_RETINA.plist"
 	},
 	{
 		"name":"tutorial_dialog_normal_RETINA_json",
@@ -1193,20 +843,10 @@
 		"url":"assets/images/Tutorial/tutorial_dialog_normal_RETINA.json"
 	},
 	{
-		"name":"tutorial_dialog_normal_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/Tutorial/tutorial_dialog_normal_RETINA.plist"
-	},
-	{
 		"name":"tutorial_dialog_RETINA_json",
 		"subkeys":"tuto_bg,tuto_character,tuto_character_beak01,tuto_character_beak02,tuto_dialogue1,tuto_dialogue1_left,tuto_dialogue1_right,tuto_dialogue1_top,tuto_dialogue2,tuto_dialogue3",
 		"type":"sheet",
 		"url":"assets/images/Tutorial/tutorial_dialog_RETINA.json"
-	},
-	{
-		"name":"tutorial_dialog_RETINA_plist",
-		"type":"bin",
-		"url":"assets/images/Tutorial/tutorial_dialog_RETINA.plist"
 	},
 	{
 		"name":"tutorial_gho_1_RETINA_png",
@@ -1267,5 +907,15 @@
 		"name":"tuto_pepe_02_RETINA_png",
 		"type":"image",
 		"url":"assets/images/Tutorial/tuto_pepe_02_RETINA.png"
+	},
+	{
+		"name":"rect_png",
+		"type":"image",
+		"url":"assets/rect.png"
+	},
+	{
+		"name":"description_json",
+		"type":"json",
+		"url":"config/description.json"
 	}]
 }
