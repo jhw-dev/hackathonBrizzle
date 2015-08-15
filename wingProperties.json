@@ -3497,6 +3497,16 @@
 				"name":"Character_RETINA_json"
 			},
 			{
+				"isFolder":false,
+				"key":"stage_bgA_RETINA_png",
+				"name":"stage_bgA_RETINA_png"
+			},
+			{
+				"isFolder":false,
+				"key":"stage_bgB_RETINA_png",
+				"name":"stage_bgB_RETINA_png"
+			},
+			{
 				"children":[
 				{
 					"isFolder":false,

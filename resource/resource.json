@@ -1,10 +1,20 @@
 {
 	"groups":[
-	{
-		"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json",
-		"name":"preload"
-	}],
+		{
+			"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json",
+			"name":"preload"
+		},
+		{
+        "keys": "bgmusic",
+        "name": "soundload"
+    }
+	],
 	"resources":[
+	{
+     "url": "assets/Sounds/BGM/Birzzle_Amazon.mp3",
+     "type": "sound",
+     "name": "bgmusic"
+  },
 	{
 		"name":"bg_jpg",
 		"type":"image",

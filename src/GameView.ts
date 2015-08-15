@@ -20,10 +20,13 @@ class GameView extends egret.DisplayObjectContainer {
     private bgB: egret.Bitmap;
     private gameMap: GameMap;
     private elf: ElfBFS;
+    private newBirdsTimer: any;
 
     constructor() {
         super();
         this.elf = new ElfBFS();
+        this.newBirdsTimer = new egret.Timer(10000, 0);
+        this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBridsFunc, this);
 
         var bgA = this.bgA = Resource.createBitmapByName("stage_bgA_RETINA_png");
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");
@@ -33,13 +36,7 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(bgA);
         this.addChild(bgB);
 
-        //TODO:testcode
-        var bbbs = this.elf.getSevenBirds();
-        for (var i = 0; i < bbbs.length; i++) {
-            var birdTest = new BirdView(40+i * 80, 80, bbbs[i]);
-            this.addChild(birdTest);
-        }
-        //TODO:testcode-end
+        this.newBirdsTimer.start();
 
         var mapWidth = GameData.stageWidth * 0.9;
         var mapHeight = mapWidth / 7 * 9;
@@ -51,6 +48,17 @@ class GameView extends egret.DisplayObjectContainer {
 
         this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
         
+
+    }
+
+    private newBridsFunc(event: egret.TimerEvent) {
+        //TODO:testcode
+        var bbbs = this.elf.getSevenBirds();
+        for (var i = 0; i < bbbs.length; i++) {
+            var birdTest = new BirdView(40 + i * 80, 80, bbbs[i]);
+            birdTest.dropTo(40 + i * 80, 580, 1000);
+            this.addChild(birdTest);
+        }
 
     }
 

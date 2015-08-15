@@ -101,6 +101,7 @@ class Main extends egret.DisplayObjectContainer {
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
         RES.loadGroup("preload");
+        RES.loadGroup("soundload");
     }
 
     /**
@@ -114,6 +115,9 @@ class Main extends egret.DisplayObjectContainer {
             RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
             RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
             this.createGameScene();
+        }else if (event.groupName == "soundload") {
+            var _bgMusic:egret.Sound = RES.getRes("bgmusic");
+            // _bgMusic.play(true);
         }
     }
 

@@ -50,18 +50,13 @@ class BirdView extends egret.Sprite {
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
         this.addEventListener(egret.Event.RENDER, this.onRender, this);
 
-        //timer
-        var timer: egret.Timer = new egret.Timer(1000, 0);
-        timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);
-
-        timer.start();
     }
     
     get type() {
         return this._type;
     }
 
-    public dropTo(x: number, y: number) {
+    public dropTo(x: number, y: number, timeout: number) {
         this.tX = x;
         this.tY = y;
         this.tw = egret.Tween.get(this, {
@@ -69,7 +64,10 @@ class BirdView extends egret.Sprite {
             onChange: this.onChange,//设置更新函数
             onChangeObj: this//更新函数作用域
         });
-        this.tw.to({ y: this.tY }, 1500, this.customEase).call(this.onComplete, this, ["param1", { key: "key", value: 3 }]);
+        if (!timeout) {
+            timeout = 0;
+        }
+        this.tw.wait(timeout).to({ y: this.tY }, 1500, this.customEase).call(this.onComplete, this, ["param1", { key: "key", value: 3 }]);
 
     }
     private customEase(t: number): number {
@@ -83,18 +81,17 @@ class BirdView extends egret.Sprite {
     private onClick(event: MouseEvent): void {
         console.log("onClick");
         // this.draw();
-        this.dropTo(this.tX, this.tY + 500);
-        if (this.y >= 474) {
-            this.tw.paused = false;
-        }
+        // if (this.y >= 474) {
+        //     this.tw.paused = false;
+        // }
         // this.parent.removeChild(this);
     }
     private onChange(): void {
-        if (this.y >= 474) {
-            this.y = 474;
-            this.tw.paused = true;
+        // if (this.y >= 474) {
+        //     this.y = 474;
+        //     this.tw.paused = true;
 
-        }
+        // }
         console.log(this.x + 'y' + this.y);
     }
     private onComplete(param1: string, param2: any): void {
@@ -106,6 +103,12 @@ class BirdView extends egret.Sprite {
 
     private onAdded(event: Event): void {
         console.log("onAdded");
+        //timer
+        var timer: egret.Timer = new egret.Timer(1000, 0);
+        timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);
+
+        timer.start();
+
     }
 
     private onEnterFrame(event: Event): void {
