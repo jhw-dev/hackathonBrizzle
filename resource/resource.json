@@ -1,13 +1,9 @@
 {
 	"groups":[
 		{
-			"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json,gameover_RETINA_json,gameover_EN_RETINA_json,number_fnt,classic_progress_bar_RETINA_json,mainMenu_b_EN_RETINA_json,main_bg_RETINA_png,main_menu_bg_RETINA_png",
+			"keys":"bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json,gameover_RETINA_json,gameover_EN_RETINA_json,number_fnt,classic_progress_bar_RETINA_json,mainMenu_b_EN_RETINA_json,main_bg_RETINA_png,main_menu_bg_RETINA_png,bgmusic,playmusic",
 			"name":"preload"
-		},
-		{
-        "keys": "bgmusic",
-        "name": "soundload"
-    }
+		}
 	],
 	"resources":[
 	{
@@ -20,6 +16,11 @@
      "type": "sound",
      "name": "bgmusic"
   },
+	{
+		 "url": "assets/Sounds/BGM/Main_bgm.mp3",
+		 "type": "sound",
+		 "name": "playmusic"
+	},
 	{
 		"name":"bg_jpg",
 		"type":"image",
