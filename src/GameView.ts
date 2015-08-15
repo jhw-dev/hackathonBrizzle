@@ -46,6 +46,9 @@ class GameView extends egret.DisplayObjectContainer {
 
         this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
 
+        var overboard = new ScoreBoardView();
+        this.addChild(overboard);
+        overboard.showME(1222);
     }
 
     private newBridsFunc(event: egret.TimerEvent) {
