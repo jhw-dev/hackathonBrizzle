@@ -32,7 +32,7 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(bgB);
 
         //TODO:testcode
-        var birdTest=new BirdView();
+        var birdTest=new BirdView(30,30);
         this.addChild(birdTest);
         //TODO:testcode-end
 
