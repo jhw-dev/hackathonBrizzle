@@ -22,6 +22,17 @@ class StartMenu extends egret.DisplayObjectContainer {
         this.addChild(menu_bg);
         this.addChild(start_btn);
         this.addChild(quit_btn);
+        quit_btn.touchEnabled = true;
+        start_btn.touchEnabled = true;
+        start_btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStartBtnClicked, this);
+        this.quit_btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onQuitClicked, this);
+
+    }
+    private onStartBtnClicked(event: MouseEvent): void {
+        GameView.instance.onGameStart();
+    }
+    private onQuitClicked(event: MouseEvent): void {
+      console.log("onQuitClicked");
 
     }
 }

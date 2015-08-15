@@ -21,13 +21,20 @@ class GameView extends egret.DisplayObjectContainer {
     private gameMap: GameMap;
     private elf: ElfBFS;
     private newBirdsTimer: any;
+    private startView: StartMenu;
+    private scroeBoard: ScoreBoardView;
 
     constructor() {
         super();
         this.elf = new ElfBFS();
         this.newBirdsTimer = new egret.Timer(10000, 0);
         this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBridsFunc, this);
+        var startMenu = this.startView = new StartMenu();
+        this.addChild(startMenu);
 
+    }
+
+    public onGameStart() {
         var bgA = this.bgA = Resource.createBitmapByName("stage_bgA_RETINA_png");
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");
         bgA.width = bgB.width = egret.MainContext.instance.stage.stageWidth;
@@ -45,12 +52,10 @@ class GameView extends egret.DisplayObjectContainer {
 
         this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
 
-        var overboard = new ScoreBoardView();
+        var overboard = this.scroeBoard = new ScoreBoardView();
         this.addChild(overboard);
-        overboard.showME(1222323);
+        this.scroeBoard.showME(1222323);
 
-        // var startMenu= new StartMenu();
-        // this.addChild(startMenu);
     }
 
     private newBridsFunc(event: egret.TimerEvent) {
