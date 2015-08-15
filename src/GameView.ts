@@ -30,8 +30,11 @@ class GameView extends egret.DisplayObjectContainer {
 
         this.addChild(bgA);
         this.addChild(bgB);
+
+        //TODO:testcode
         var birdTest=new BirdView();
         this.addChild(birdTest);
+        //TODO:testcode-end
 
         var mapWidth = egret.MainContext.instance.stage.stageWidth * 0.9;
         var mapHeight = mapWidth / 7 * 9;
