@@ -43,7 +43,6 @@ class BirdView extends egret.Sprite {
         this.addChild(this.birdBitmap_close);
         this.birdBitmap_close.visible = false;
         this.draw();
-        console.log(this.height, this.width);
         this.addEventListener(egret.Event.ADDED, this.onAdded, this);
         this.addEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
         this.addEventListener(egret.Event.REMOVED, this.onRemoved, this);

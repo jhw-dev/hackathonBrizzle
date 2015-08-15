@@ -21,13 +21,41 @@ class GameView extends egret.DisplayObjectContainer {
     private gameMap: GameMap;
     private elf: ElfBFS;
     private newBirdsTimer: any;
+    private startView: StartMenu;
+    private scroeBoard: ScoreBoardView;
+    private bgMusic: egret.Sound;
+    private playMusic: egret.Sound;
 
     constructor() {
         super();
         this.elf = new ElfBFS();
         this.newBirdsTimer = new egret.Timer(2000, 0);
         this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBridsFunc, this);
+        var startMenu = this.startView = new StartMenu();
+        this.addChild(startMenu);
+        this.bgMusic=RES.getRes("bgmusic");
+        this.playMusic=RES.getRes("playmusic");
+        this.bgMusic.play(true);
 
+    }
+
+    public setMusic(bg: egret.Sound, play: egret.Sound) {
+        this.bgMusic = bg;
+        this.playMusic = play;
+    }
+
+    public backToMenu() {
+        this.removeChild(this.bgA);
+        this.removeChild(this.bgB);
+        this.newBirdsTimer.stop();
+        //TODO:需要清除所有的鸟
+        this.removeChild(this.scroeBoard);
+        this.startView.visible = true;
+        this.playMusic.stop();
+        this.bgMusic.play(true);
+    }
+
+    public onGameStart() {
         var bgA = this.bgA = Resource.createBitmapByName("stage_bgA_RETINA_png");
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");
         bgA.width = bgB.width = egret.MainContext.instance.stage.stageWidth;
@@ -35,7 +63,6 @@ class GameView extends egret.DisplayObjectContainer {
 
         this.addChild(bgA);
         this.addChild(bgB);
-
         this.newBirdsTimer.start();
 
         var mapWidth = GameData.stageWidth * 0.9;
@@ -48,6 +75,12 @@ class GameView extends egret.DisplayObjectContainer {
 
         this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
         
+
+        var overboard = this.scroeBoard = new ScoreBoardView();
+        this.addChild(overboard);
+        this.scroeBoard.showME(1222323);
+        this.playMusic.play(true);
+        this.bgMusic.stop();
 
     }
 
