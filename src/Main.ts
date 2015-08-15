@@ -146,9 +146,10 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene():void {
         egret.Profiler.getInstance().run();
-        GameCore.$i.launch(this);
+        GameView.instance.launch(this);
 
         //test json res
+
 
         var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
 
@@ -157,6 +158,7 @@ class Main extends egret.DisplayObjectContainer {
         bitmap.texture = texture;
 
         this.addChild(bitmap);
+
     }
 
     /**

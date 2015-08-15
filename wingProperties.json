@@ -21,6 +21,37 @@
 				"isFolder":false,
 				"key":"egretIcon",
 				"name":"egretIcon"
+			},
+			{
+				"children":[
+				{
+					"isFolder":false,
+					"key":"shop_bottom_back",
+					"name":"shop_bottom_back"
+				},
+				{
+					"isFolder":false,
+					"key":"shop_bottom_back_push",
+					"name":"shop_bottom_back_push"
+				}],
+				"isFolder":false,
+				"key":"buttons_RETINA",
+				"name":"buttons_RETINA"
+			},
+			{
+				"isFolder":false,
+				"key":"rect",
+				"name":"rect"
+			},
+			{
+				"isFolder":false,
+				"key":"stage_bgA_RETINA_png",
+				"name":"stage_bgA_RETINA_png"
+			},
+			{
+				"isFolder":false,
+				"key":"stage_bgB_RETINA_png",
+				"name":"stage_bgB_RETINA_png"
 			}]
 		}
 	},
