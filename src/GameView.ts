@@ -48,13 +48,13 @@ class GameView extends egret.DisplayObjectContainer {
     }
 
     public onTouchEnd(e: egret.TouchEvent) {
-        console.log("onTouchEnd-> x:"+ e.stageX +" y: "+ e.stageY);
+        console.log("onTouchEnd-> x:" + e.stageX + " y: " + e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
     }
 
     public onTouchMove(e: egret.TouchEvent) {
-        console.log("onTouch move-> x:"+ e.stageX +" y: "+ e.stageY);
+        console.log("onTouch move-> x:" + e.stageX + " y: " + e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
 
@@ -62,7 +62,7 @@ class GameView extends egret.DisplayObjectContainer {
     }
 
     public onTouchBegin(e: egret.TouchEvent) {
-        console.log("onTouchBegin-> x:"+ e.stageX +" y: "+ e.stageY);
+        console.log("onTouchBegin-> x:" + e.stageX + " y: " + e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
     }
@@ -103,10 +103,12 @@ class GameView extends egret.DisplayObjectContainer {
         bgA.width = bgB.width = egret.MainContext.instance.stage.stageWidth;
         bgA.height = bgB.height = egret.MainContext.instance.stage.stageHeight;
         var stageFace = this.stageFace = new egret.Bitmap(RES.getRes("stage_face_RETINA_png"));
-        stageFace.x = 20;
-        stageFace.y = 110;
-        stageFace.width = 616;
-        stageFace.height = 960;
+        var dH = egret.MainContext.instance.stage.stageHeight / 960;
+        var dW = egret.MainContext.instance.stage.stageWidth / 640;
+        stageFace.x = 20 * dH;
+        stageFace.y = 110 * dW;
+        stageFace.width = 616 * dW;
+        stageFace.height = 960 * dH;
         var tw = egret.Tween.get(stageFace, {
             loop: false
         });
@@ -130,8 +132,8 @@ class GameView extends egret.DisplayObjectContainer {
         var mapWidth = GameData.stageWidth * 0.83;
         var mapHeight = mapWidth / 7 * 9;
 
-        var pLeftTop:egret.Point = new egret.Point();
-        pLeftTop.x = (GameData.stageWidth -mapWidth) / 2;
+        var pLeftTop: egret.Point = new egret.Point();
+        pLeftTop.x = (GameData.stageWidth - mapWidth) / 2;
         pLeftTop.y = GameData.stageHeight * 0.94 - mapHeight;
         this.gameMap = new GameMap(pLeftTop, 9, 7, mapWidth, mapHeight);
 
@@ -148,9 +150,9 @@ class GameView extends egret.DisplayObjectContainer {
 
         // Touch Evnet
         this.touchEnabled = true;
-        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin,this);
-        this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onTouchMove,this);
-        this.addEventListener(egret.TouchEvent.TOUCH_END,this.onTouchEnd,this);
+        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
 
         this.miniScroe = new egret.BitmapText();
         this.miniScroe.text = '123';
@@ -174,7 +176,7 @@ class GameView extends egret.DisplayObjectContainer {
             var bbbs = this.elf.getSevenBirds();
             for (var j = 0; j < bbbs.length; j++) {
                 console.log("line " + i + "middleY: " + this.gameMap.getLines(i).middleY);
-                var birdInit = new BirdView(column.middleX +j * column.width, this.gameMap.getLines(i).middleY, bbbs[j]);
+                var birdInit = new BirdView(column.middleX + j * column.width, this.gameMap.getLines(i).middleY, bbbs[j]);
                 this.addChild(birdInit);
                 super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
             }

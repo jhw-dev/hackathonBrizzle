@@ -10,19 +10,21 @@ class ScoreBoardView extends egret.DisplayObjectContainer {
     private tx: egret.TextField;
     public constructor() {
         super();
+        var dH = egret.MainContext.instance.stage.stageHeight / 960;
+        var dW = egret.MainContext.instance.stage.stageWidth / 640;
         var bg = this.bg = new egret.Bitmap(RES.getRes("gameover_RETINA_json.gameover_bg@2x"));
-        this.x = (egret.MainContext.instance.stage.stageWidth - 532) / 2;
-        this.y = (egret.MainContext.instance.stage.stageHeight - 744) / 2;
+        this.x = (egret.MainContext.instance.stage.stageWidth - 532 * dW) / 2;
+        this.y = (egret.MainContext.instance.stage.stageHeight - 744 * dH) / 2;
         this.addChild(bg);
-        bg.height = 744;
-        bg.width = 532;
+        bg.height = 744 * dH;
+        bg.width = 532 * dW;
 
         var quit_btn = this.quit_btn = new egret.DisplayObjectContainer;
-        quit_btn.x = 20;
-        quit_btn.y = bg.height - 95;
+        quit_btn.x = 20 * dW;
+        quit_btn.y = (bg.height - 95) * dH;
         var restart_btn = this.restart_btn = new egret.DisplayObjectContainer;
-        restart_btn.y = bg.height - 95;
-        restart_btn.x = bg.width - 20 - 224;
+        restart_btn.y = (bg.height - 95) * dH;
+        restart_btn.x = (bg.width - 20 - 224) * dW;
         this.restart_normal = new egret.Bitmap(RES.getRes("gameover_EN_RETINA_json.gameover_restart@2x"));
         this.quit_normal = new egret.Bitmap(RES.getRes("gameover_EN_RETINA_json.gameover_quit@2x"));
         this.restart_press = new egret.Bitmap(RES.getRes("gameover_EN_RETINA_json.gameover_restart_push@2x"));
