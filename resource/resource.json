@@ -24,7 +24,7 @@
   },
 
 	{
-		 "url": "assets/Sounds/BGM/bg.mp3",
+		 "url": "assets/Sounds/BGM/Birzzle_japan.mp3",
 		 "type": "sound",
 		 "name": "playmusic"
 	},
