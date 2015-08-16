@@ -75,7 +75,15 @@ class GameView extends egret.DisplayObjectContainer {
         var tw = egret.Tween.get(stageFace, {
             loop: false
         });
-        tw.wait(1000).to({ y: egret.MainContext.instance.stage.stageHeight + 10 }, 1500, egret.Ease.sineIn).call(() => { this.removeChild(this.stageFace) }, stageFace, []);
+        tw.wait(1000)
+        .to({ y: egret.MainContext.instance.stage.stageHeight + 10 }, 1500, egret.Ease.sineIn)
+        .call(() => {
+            this.removeChild(this.stageFace);
+            this.timerBar = new TimerBar();
+            this.addChild(this.timerBar);
+            this.timerBar.start(10, this.backToMenu, this)
+
+        }, stageFace, []);
 
 
         this.addChild(bgA);
@@ -99,9 +107,6 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(overboard);
         // this.scroeBoard.showME(1222323);
 
-        this.timerBar = new TimerBar();
-        this.addChild(this.timerBar);
-        this.timerBar.start(10, this.backToMenu, this)
         // // var rect:egret.Rectangle = new egret.Rectangle(5,5,5,15);
         // // bitmap.scale9Grid =rect;
 
