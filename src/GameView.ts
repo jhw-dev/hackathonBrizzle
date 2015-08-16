@@ -77,16 +77,6 @@ class GameView extends egret.DisplayObjectContainer {
         });
         tw.wait(1000).to({y:egret.MainContext.instance.stage.stageHeight+10},1500,egret.Ease.sineIn).call(()=>{this.removeChild(this.stageFace)},stageFace,[]);
 
-        // this.countDownView = new CountDownView();
-        // this.addChild(this.countDownView);
-
-        var texture = RES.getRes("classic_progress_bar_RETINA_json.stage_bar@2x");
-        var bitmap = new egret.Bitmap();
-
-        bitmap.texture = texture;
-        bitmap.width = 550;
-        bitmap.height = 25;
-        this.addChild(bitmap);
 
         this.addChild(bgA);
         this.addChild(bgB);
@@ -108,6 +98,14 @@ class GameView extends egret.DisplayObjectContainer {
         var overboard = this.scroeBoard = new ScoreBoardView();
         this.addChild(overboard);
         // this.scroeBoard.showME(1222323);
+
+        this.countDownView = new CountDownView();
+        this.addChild(this.countDownView);
+        this.countDownView.start(15,this.backToMenu,this)
+        // // var rect:egret.Rectangle = new egret.Rectangle(5,5,5,15);
+        // // bitmap.scale9Grid =rect;
+
+
         if (this._ENABLE_MUSIC) {
             this.playMusic.play(true);
             this.bgMusic.stop();
