@@ -71,19 +71,21 @@ class GameView extends egret.DisplayObjectContainer {
         bgA.height = bgB.height = egret.MainContext.instance.stage.stageHeight;
         var stageFace = this.stageFace = new egret.Bitmap(RES.getRes("stage_face_RETINA_png"));
         stageFace.x = 20;
-        stageFace.y = 290;
+        stageFace.y = 110;
+        stageFace.width = 616;
+        stageFace.height= 960;
         var tw = egret.Tween.get(stageFace, {
             loop: false
         });
         tw.wait(1000)
-        .to({ y: egret.MainContext.instance.stage.stageHeight + 10 }, 1500, egret.Ease.sineIn)
-        .call(() => {
-            this.removeChild(this.stageFace);
-            this.timerBar = new TimerBar();
-            this.addChild(this.timerBar);
-            this.timerBar.start(10, this.backToMenu, this)
-
-        }, stageFace, []);
+            .to({ y: egret.MainContext.instance.stage.stageHeight + 10 }, 1500, egret.Ease.sineIn)
+            .call(() => {
+                this.removeChild(this.stageFace);
+                this.initBirds();
+                this.timerBar = new TimerBar();
+                this.addChild(this.timerBar);
+                this.timerBar.start(10, this.backToMenu, this)
+            }, stageFace, []);
 
 
         this.addChild(bgA);
@@ -125,8 +127,8 @@ class GameView extends egret.DisplayObjectContainer {
     private initBirds() {
         for (var i = 0; i < 3; i++) {
             var bbbs = this.elf.getSevenBirds();
-            for (var j = 0; j < bbbs.lenght; j++) {
-                var birdInit = new BirdView(80 + j * 80, pStart.y - i * 80, bbbs[j]);
+            for (var j = 0; j < bbbs.length; j++) {
+                var birdInit = new BirdView(80 + j * 80, this.map.lines[0].y + this.map.lines[0].height / 2 - i * 80, bbbs[j]);
                 this.addChild(birdInit);
                 super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
             }
@@ -139,7 +141,7 @@ class GameView extends egret.DisplayObjectContainer {
         var bbbs = this.elf.getSevenBirds();
         for (var i = 0; i < bbbs.length; i++) {
             var birdTest = new BirdView(80 + i * 80, 80, bbbs[i]);
-            birdTest.dropTo(40 + i * 80, this.map.lines[0].y + this.map.lines[0].height / 2, 1000);
+            birdTest.dropTo(40 + i * 80, this.map.lines[3].y + this.map.lines[3].height / 2, 1000);
             this.addChild(birdTest);
             super.setChildIndex(birdTest, super.getChildIndex(this.timerBar) - 1);
         }
