@@ -40,40 +40,40 @@ var Main = (function (_super) {
         this.loadingView = new LoadingUI();
         this.stage.addChild(this.loadingView);
         //test code
-        var elf = new ElfBFS();
+        // var elf = new ElfBFS();
         // var start=egret.getTimer();
-        var oriMap = [
-            [0, 0, 4, 0, 0, 4, 4],
-            [0, 0, 4, 0, 4, 4, 0],
-            [0, 0, 3, 2, 2, 3, 3],
-            [0, 0, 3, 3, 2, 5, 5],
-            [0, 0, 0, 0, 0, 5, 0],
-            [0, 0, 0, 0, 0, 5, 0],
-            [0, 1, 1, 0, 0, 0, 0],
-            [0, 0, 1, 0, 0, 0, 0],
-            [1, 1, 1, 1, 0, 0, 0]
-        ];
-        var res = elf.findBlocks(oriMap);
-        console.log(JSON.stringify(res));
-        for (var k in res) {
-            for (var ib in res[k]) {
-                oriMap[res[k][ib].x][res[k][ib].y] = -5;
-            }
-        }
-        var rrr = '';
-        for (var i = 0; i < 9; i++) {
-            var t = '';
-            for (var j = 0; j < 7; j++) {
-                if (oriMap[i][j] == -5) {
-                    t = t + 'X';
-                }
-                else {
-                    t = t + oriMap[i][j];
-                }
-            }
-            rrr += t + '\n';
-        }
-        console.log(rrr);
+        // var oriMap = [
+        //     [0, 0, 4, 0, 0, 4, 4],
+        //     [0, 0, 4, 0, 4, 4, 0],
+        //     [0, 0, 3, 2, 2, 3, 3],
+        //     [0, 0, 3, 3, 2, 5, 5],
+        //     [0, 0, 0, 0, 0, 5, 0],
+        //     [0, 0, 0, 0, 0, 5, 0],
+        //     [0, 1, 1, 0, 0, 0, 0],
+        //     [0, 0, 1, 0, 0, 0, 0],
+        //     [1, 1, 1, 1, 0, 0, 0]
+        // ];
+        // var res = elf.findBlocks(oriMap);
+        // console.log(JSON.stringify(res));
+        // for (var k in res) {
+        //     for (var ib in res[k]) {
+        //         oriMap[res[k][ib].x][res[k][ib].y] = -5;
+        //     }
+        // }
+        // var rrr='';
+        // for (var i = 0; i < 9; i++) {
+        //     var t = '';
+        //     for (var j = 0; j < 7; j++) {
+        //         if (oriMap[i][j] == -5) {
+        //             t = t + 'X';
+        //         } else {
+        //             t = t + oriMap[i][j];
+        //         }
+        //     }
+        //     rrr+=t+'\n';
+        // }
+        // console.log(rrr);
+        // console.log(elf.getSevenBirds());
         // var end=egret.getTimer();
         // console.log('time='+(end-start));
         //test code
@@ -103,6 +103,8 @@ var Main = (function (_super) {
             RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
             RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
             RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
+            // var _bgMusic: egret.Sound = RES.getRes("bgmusic");
+            // _bgMusic.play(true);
             this.createGameScene();
         }
     };
@@ -132,12 +134,28 @@ var Main = (function (_super) {
      */
     __egretProto__.createGameScene = function () {
         egret.Profiler.getInstance().run();
-        GameCore.$i.launch(this);
+        GameView.instance.launch(this);
         //test json res
-        var texture = RES.getRes("buttons_RETINA.shop_bottom_back");
+        var texture = RES.getRes("classic_progress_bar_RETINA_json.stage_bar@2x");
         var bitmap = new egret.Bitmap();
         bitmap.texture = texture;
-        this.addChild(bitmap);
+        // bitmap.width = 550;
+        // bitmap.height = 25;
+        bitmap.x = 45;
+        bitmap.y = 213;
+        // var rect:egret.Rectangle = new egret.Rectangle(5,5,5,15);
+        // bitmap.scale9Grid =rect;
+        // this.addChild(bitmap);
+        // var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
+        // var bitmap = new egret.Bitmap();
+        // bitmap.texture = texture;
+        // this.addChild(bitmap);
+        // var texture = RES.getRes("Character_RETINA_json.box00_burn@2x");
+        // var bitmap = new egret.Bitmap();
+        // bitmap.x = 300;
+        // bitmap.y = 300;
+        // bitmap.texture = texture;
+        // this.addChild(bitmap);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

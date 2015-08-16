@@ -18,6 +18,7 @@ class GameView extends egret.DisplayObjectContainer {
 
     private bgA: egret.Bitmap;
     private bgB: egret.Bitmap;
+    private countDownView: CountDownView;
     private gameMap: GameMap;
     private elf: ElfBFS;
     private newBirdsTimer: any;
@@ -36,7 +37,6 @@ class GameView extends egret.DisplayObjectContainer {
         this.bgMusic=RES.getRes("bgmusic");
         this.playMusic=RES.getRes("playmusic");
         this.bgMusic.play(true);
-
     }
 
     public setMusic(bg: egret.Sound, play: egret.Sound) {
@@ -60,6 +60,17 @@ class GameView extends egret.DisplayObjectContainer {
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");
         bgA.width = bgB.width = egret.MainContext.instance.stage.stageWidth;
         bgA.height = bgB.height = egret.MainContext.instance.stage.stageHeight;
+
+        // this.countDownView = new CountDownView();
+        // this.addChild(this.countDownView);
+
+        var texture = RES.getRes("classic_progress_bar_RETINA_json.stage_bar@2x");
+        var bitmap = new egret.Bitmap();
+
+        bitmap.texture = texture;
+        bitmap.width = 550;
+        bitmap.height = 25;
+        this.addChild(bitmap);
 
         this.addChild(bgA);
         this.addChild(bgB);

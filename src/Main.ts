@@ -154,7 +154,7 @@ class Main extends egret.DisplayObjectContainer {
         GameView.instance.launch(this);
 
         //test json res
-
+        
 
         var texture = RES.getRes("classic_progress_bar_RETINA_json.stage_bar@2x");
 
