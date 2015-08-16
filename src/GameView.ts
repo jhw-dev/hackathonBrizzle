@@ -33,7 +33,7 @@ class GameView extends egret.DisplayObjectContainer {
         super();
         this.elf = new ElfBFS();
         this.newBirdsTimer = new egret.Timer(2000, 0);
-        this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBridsFunc, this);
+        this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBirdsFunc, this);
 
         var startMenu = this.startView = new StartMenu();
         this.addChild(startMenu);
@@ -122,7 +122,19 @@ class GameView extends egret.DisplayObjectContainer {
         return this.gameMap;
     }
 
-    private newBridsFunc(event: egret.TimerEvent) {
+    private initBirds() {
+        for (var i = 0; i < 3; i++) {
+            var bbbs = this.elf.getSevenBirds();
+            for (var j = 0; j < bbbs.lenght; j++) {
+                var birdInit = new BirdView(80 + j * 80, pStart.y - i * 80, bbbs[j]);
+                this.addChild(birdInit);
+                super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
+            }
+        }
+
+    }
+
+    private newBirdsFunc(event: egret.TimerEvent) {
         //TODO:testcode
         var bbbs = this.elf.getSevenBirds();
         for (var i = 0; i < bbbs.length; i++) {
