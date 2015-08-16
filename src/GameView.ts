@@ -159,7 +159,7 @@ class GameView extends egret.DisplayObjectContainer {
         for (var i = 0; i < 3; i++) {
             var bbbs = this.elf.getSevenBirds();
             for (var j = 0; j < bbbs.length; j++) {
-                var birdInit = new BirdView(80 + j * 80, 800, bbbs[j]);
+                var birdInit = new BirdView(80 + j * 80, 850+i*82, bbbs[j]);
                 this.addChild(birdInit);
                 super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
             }

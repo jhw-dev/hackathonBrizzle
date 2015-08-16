@@ -10,9 +10,11 @@ class StartMenu extends egret.DisplayObjectContainer {
     private menu_bg: egret.Bitmap;
     public constructor() {
         super();
-        this.x = (egret.MainContext.instance.stage.stageWidth - 640) / 2;
-        this.y = (egret.MainContext.instance.stage.stageHeight - 960) / 2;
+//        this.x = (egret.MainContext.instance.stage.stageWidth - 640) / 2;
+//        this.y = (egret.MainContext.instance.stage.stageHeight - 960) / 2;
         var bg = this.bg = new egret.Bitmap(RES.getRes("main_bg_RETINA_png"));
+        bg.height = GameData.stageHeight;
+        bg.width = GameData.stageWidth;
         var start_btn = this.start_btn = new egret.DisplayObjectContainer();
         var quit_btn = this.quit_btn = new egret.DisplayObjectContainer();
         this.start_normal = new egret.Bitmap(RES.getRes("mainMenu_b_EN_RETINA_json.main_select_newgame@2x"));
