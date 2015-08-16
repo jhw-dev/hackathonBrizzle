@@ -28,6 +28,7 @@ class GameView extends egret.DisplayObjectContainer {
     private bgMusic: egret.Sound;
     private playMusic: egret.Sound;
     private _ENABLE_MUSIC = false;
+    private miniScroe: egret.BitmapText;
 
     constructor() {
         super();
@@ -56,6 +57,8 @@ class GameView extends egret.DisplayObjectContainer {
         console.log("onTouch move-> x:"+ e.stageX +" y: "+ e.stageY); 
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
+
+
     }
 
     public onTouchBegin(e: egret.TouchEvent) {
@@ -148,6 +151,16 @@ class GameView extends egret.DisplayObjectContainer {
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin,this);
         this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onTouchMove,this);
         this.addEventListener(egret.TouchEvent.TOUCH_END,this.onTouchEnd,this);
+
+        this.miniScroe = new egret.BitmapText();
+        this.miniScroe.text = '123';
+        this.miniScroe.font = RES.getRes("number_fnt");
+        this.addChild(this.miniScroe);
+        this.miniScroe.x = egret.MainContext.instance.stage.stageWidth - 140 * egret.MainContext.instance.stage.stageWidth / 640;
+        this.miniScroe.y = 35 * egret.MainContext.instance.stage.stageHeight / 960;
+        this.miniScroe.scaleY = 0.3;
+        this.miniScroe.scaleX = 0.3;
+
 
     }
 
