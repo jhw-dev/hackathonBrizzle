@@ -132,7 +132,7 @@ class GameView extends egret.DisplayObjectContainer {
  
         var pLeftTop:egret.Point = new egret.Point();
         pLeftTop.x = GameData.stageWidth * 0.2 / 2;
-        pLeftTop.y = GameData.stageHeight * 0.9 - mapHeight;
+        pLeftTop.y = GameData.stageHeight * 0.94 - mapHeight;
         this.gameMap = new GameMap(pLeftTop, 9, 7, mapWidth, mapHeight);
 
         var overboard = this.scroeBoard = new ScoreBoardView();
@@ -169,10 +169,12 @@ class GameView extends egret.DisplayObjectContainer {
     }
 
     private initBirds() {
+        var column = this.gameMap.getColumns(0);
         for (var i = 0; i < 3; i++) {
             var bbbs = this.elf.getSevenBirds();
             for (var j = 0; j < bbbs.length; j++) {
-                var birdInit = new BirdView(80 + j * 80, 850+i*82, bbbs[j]);
+                console.log("line " + i + "middleY: " + this.gameMap.getLines(i).middleY);
+                var birdInit = new BirdView(column.width + j * column.width, this.gameMap.getLines(i).middleY, bbbs[j]);
                 this.addChild(birdInit);
                 super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
             }
