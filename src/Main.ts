@@ -79,7 +79,7 @@ class Main extends egret.DisplayObjectContainer {
         //     }
         //     rrr+=t+'\n';
         // }
-        
+
         // console.log(rrr);
         // console.log(elf.getSevenBirds());
         // var end=egret.getTimer();
@@ -115,7 +115,7 @@ class Main extends egret.DisplayObjectContainer {
             RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
             // var _bgMusic: egret.Sound = RES.getRes("bgmusic");
             // _bgMusic.play(true);
-            
+
             this.createGameScene();
 
         }
@@ -156,18 +156,6 @@ class Main extends egret.DisplayObjectContainer {
         //test json res
 
 
-        var texture = RES.getRes("classic_progress_bar_RETINA_json.stage_bar@2x");
-
-        var bitmap = new egret.Bitmap();
-
-        bitmap.texture = texture;
-        // bitmap.width = 550;
-        // bitmap.height = 25;
-        bitmap.x = 45;
-        bitmap.y = 213;
-        // var rect:egret.Rectangle = new egret.Rectangle(5,5,5,15);
-        // bitmap.scale9Grid =rect;
-        // this.addChild(bitmap);
 
         // var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
 
@@ -177,15 +165,8 @@ class Main extends egret.DisplayObjectContainer {
 
         // this.addChild(bitmap);
 
-        // var texture = RES.getRes("Character_RETINA_json.box00_burn@2x");
 
-        // var bitmap = new egret.Bitmap();
-        // bitmap.x = 300;
-        // bitmap.y = 300;
-        // bitmap.texture = texture;
 
-        // this.addChild(bitmap);
-        
     }
 
     /**

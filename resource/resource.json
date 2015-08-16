@@ -1,3 +1,4 @@
+
 {
 	"groups":[
 		{
@@ -20,9 +21,10 @@
 	     "url": "assets/Sounds/BGM/Birzzle_Amazon.mp3",
 	     "type": "sound",
 	     "name": "bgmusic"
-  	},
+  },
+
 	{
-		 "url": "assets/Sounds/BGM/Main_bgm.mp3",
+		 "url": "assets/Sounds/BGM/Birzzle_japan.mp3",
 		 "type": "sound",
 		 "name": "playmusic"
 	},
@@ -940,3 +942,4 @@
 		"url":"config/description.json"
 	}]
 }
+

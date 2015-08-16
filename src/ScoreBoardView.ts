@@ -76,6 +76,7 @@ class ScoreBoardView extends egret.DisplayObjectContainer {
     private onRestartClicked(event: MouseEvent): void {
         console.log("onRestart");
         this.visible = false;
+        GameView.instance.onGameStart();
 
     }
     private onReStartTouchBegin(event: MouseEvent): void {
