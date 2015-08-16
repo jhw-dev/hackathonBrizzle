@@ -25,6 +25,7 @@ class GameView extends egret.DisplayObjectContainer {
     private scroeBoard: ScoreBoardView;
     private bgMusic: egret.Sound;
     private playMusic: egret.Sound;
+    private _ENABLE_MUSIC = false;
 
     constructor() {
         super();
@@ -33,9 +34,11 @@ class GameView extends egret.DisplayObjectContainer {
         this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBridsFunc, this);
         var startMenu = this.startView = new StartMenu();
         this.addChild(startMenu);
-        this.bgMusic=RES.getRes("bgmusic");
-        this.playMusic=RES.getRes("playmusic");
-        this.bgMusic.play(true);
+        this.bgMusic = RES.getRes("bgmusic");
+        this.playMusic = RES.getRes("playmusic");
+        if (this._ENABLE_MUSIC) {
+            this.bgMusic.play(true);
+        }
 
     }
 
@@ -51,8 +54,10 @@ class GameView extends egret.DisplayObjectContainer {
         //TODO:需要清除所有的鸟
         this.removeChild(this.scroeBoard);
         this.startView.visible = true;
-        this.playMusic.stop();
-        this.bgMusic.play(true);
+        if (this._ENABLE_MUSIC) {
+            this.playMusic.stop();
+            this.bgMusic.play(true);
+        }
     }
 
     public onGameStart() {
@@ -76,8 +81,10 @@ class GameView extends egret.DisplayObjectContainer {
         var overboard = this.scroeBoard = new ScoreBoardView();
         this.addChild(overboard);
         this.scroeBoard.showME(1222323);
-        this.playMusic.play(true);
-        this.bgMusic.stop();
+        if (this._ENABLE_MUSIC) {
+            this.playMusic.play(true);
+            this.bgMusic.stop();
+        }
 
     }
 
