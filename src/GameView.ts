@@ -31,12 +31,12 @@ class GameView extends egret.DisplayObjectContainer {
         this.elf = new ElfBFS();
         this.newBirdsTimer = new egret.Timer(2000, 0);
         this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBridsFunc, this);
-        var startMenu = this.startView = new StartMenu();
-        this.addChild(startMenu);
-        this.bgMusic=RES.getRes("bgmusic");
-        this.playMusic=RES.getRes("playmusic");
-        this.bgMusic.play(true);
-
+//        var startMenu = this.startView = new StartMenu();
+//        this.addChild(startMenu);
+//        this.bgMusic=RES.getRes("bgmusic");
+//        this.playMusic=RES.getRes("playmusic");
+//        this.bgMusic.play(true);
+        this.onGameStart();
     }
 
     public setMusic(bg: egret.Sound, play: egret.Sound) {
@@ -76,11 +76,11 @@ class GameView extends egret.DisplayObjectContainer {
         this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
         
 
-        var overboard = this.scroeBoard = new ScoreBoardView();
-        this.addChild(overboard);
-        this.scroeBoard.showME(1222323);
-        this.playMusic.play(true);
-        this.bgMusic.stop();
+//        var overboard = this.scroeBoard = new ScoreBoardView();
+//        this.addChild(overboard);
+//        this.scroeBoard.showME(1222323);
+//        this.playMusic.play(true);
+//        this.bgMusic.stop();
 
     }
 
@@ -92,11 +92,11 @@ class GameView extends egret.DisplayObjectContainer {
         //TODO:testcode
         var bbbs = this.elf.getSevenBirds();
         for (var i = 0; i < bbbs.length; i++) {
-            var birdTest = new BirdView(40 + i * 80, 80, bbbs[i]);
+            var birdTest = new BirdView(80 + i * 80, 80, bbbs[i]);
             birdTest.dropTo(40 + i * 80, this.map.lines[0].y+this.map.lines[0].height / 2, 1000);
             this.addChild(birdTest);
         }
-//        this.newBirdsTimer.stop();
+        this.newBirdsTimer.stop();
     }
 
 }
