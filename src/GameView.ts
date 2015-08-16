@@ -18,7 +18,7 @@ class GameView extends egret.DisplayObjectContainer {
 
     private bgA: egret.Bitmap;
     private bgB: egret.Bitmap;
-    private countDownView: CountDownView;
+    private timerBar: TimerBar;
     private stageFace:egret.Bitmap;
     private gameMap: GameMap;
     private elf: ElfBFS;
@@ -99,9 +99,9 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(overboard);
         // this.scroeBoard.showME(1222323);
 
-        this.countDownView = new CountDownView();
-        this.addChild(this.countDownView);
-        this.countDownView.start(15,this.backToMenu,this)
+        this.timerBar = new TimerBar();
+        this.addChild(this.timerBar);
+        this.timerBar.start(10,this.backToMenu,this)
         // // var rect:egret.Rectangle = new egret.Rectangle(5,5,5,15);
         // // bitmap.scale9Grid =rect;
 

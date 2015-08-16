@@ -1,4 +1,4 @@
-class CountDownView extends egret.DisplayObjectContainer {
+class TimerBar extends egret.DisplayObjectContainer {
 	public constructor() {
 	  super();
 	  this.createView();
