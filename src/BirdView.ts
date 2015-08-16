@@ -29,6 +29,9 @@ class BirdView extends egret.Sprite {
     ];
     public constructor(x: number, y: number, birdType: number) {
         super();
+
+        var dH = egret.MainContext.instance.stage.stageHeight / 960;
+        var dW = egret.MainContext.instance.stage.stageWidth / 640;
         this.touchEnabled = true;
         this.x = x;
         this.y = y;
@@ -51,8 +54,15 @@ class BirdView extends egret.Sprite {
         this.birdBitmap.y = this.height / 2;
         this.birdBitmap.anchorX = this.anchorX;
         this.birdBitmap.anchorY = this.anchorY;
-        this.birdBitmap_close.width = this.birdBitmap.width = this.width * 1.15;
-        this.birdBitmap_close.height = this.birdBitmap.height = this.height * 1.15;
+        this.birdBitmap_close.width = this.birdBitmap.width = this.width ;
+        this.birdBitmap_close.height = this.birdBitmap.height = this.height ;
+        var lgD=dW>dH?dW:dH;
+        this.scaleX=lgD;
+        this.scaleY=lgD;
+        this.birdBitmap.scaleX=lgD;
+        this.birdBitmap.scaleY=lgD;
+        this.birdBitmap_close.scaleX=lgD;
+        this.birdBitmap_close.scaleY=lgD;
         
         this.addChild(this.birdBitmap);
         this.addChild(this.birdBitmap_close);
