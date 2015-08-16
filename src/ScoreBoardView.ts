@@ -57,7 +57,7 @@ class ScoreBoardView extends egret.DisplayObjectContainer {
         this.tx = new egret.TextField;
         this.tx.text = speak;
         this.tx.size = 32;
-        this.tx.x = this.bg.width / 2 - 110 * dW;
+        this.tx.x = this.bg.width / 2 - 110;
         this.tx.y = this.bg.height / 2 - 32 * dH;
         this.tx.multiline = true;
         var bitmapText = this.bitmapText = new egret.BitmapText();
