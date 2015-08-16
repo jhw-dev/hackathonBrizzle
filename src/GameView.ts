@@ -55,7 +55,6 @@ class GameView extends egret.DisplayObjectContainer {
         this.removeChild(this.bgA);
         this.removeChild(this.bgB);
         this.newBirdsTimer.stop();
-        //TODO:需要清除所有的鸟
         this.removeChild(this.scroeBoard);
         if (!this.contains(this.startView)) {
             this.addChild(this.startView);
