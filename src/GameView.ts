@@ -63,7 +63,7 @@ class GameView extends egret.DisplayObjectContainer {
             this._selectedBird.x = e.stageX;
             this._selectedBird.y = e.stageY;
         }
-        
+
     }
 
     public onTouchBegin(e: egret.TouchEvent) {
@@ -71,8 +71,8 @@ class GameView extends egret.DisplayObjectContainer {
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result);
         if (this._selectedBird == null) {
-            var bird = this.gameMap.getBird(result.line,result.column);
-            this._selectedBird = bird;   
+            var bird = this.gameMap.getBird(result.line, result.column);
+            this._selectedBird = bird;
         }
     }
 
@@ -137,7 +137,7 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(bgB);
         this.addChild(stageFace);
 
-//        this.newBirdsTimer.start();
+        //        this.newBirdsTimer.start();
 
         var mapWidth = GameData.stageWidth * 0.83;
         var mapHeight = mapWidth / 7 * 9;
@@ -186,15 +186,20 @@ class GameView extends egret.DisplayObjectContainer {
             var bbbs = this.elf.getSevenBirds();
             for (var j = 0; j < bbbs.length; j++) {
 
-//                console.log("line " + i + "middleY: " + this.gameMap.getLines(i).middleY);
-                var birdInit = new BirdView(column.middleX +j * column.width, this.gameMap.getLines(i).middleY, bbbs[j]);
-                this.gameMap.registerBird(birdInit,i,j);
+                //                console.log("line " + i + "middleY: " + this.gameMap.getLines(i).middleY);
+                var birdInit = new BirdView(column.middleX + j * column.width, this.gameMap.getLines(i).middleY, bbbs[j]);
+                this.gameMap.registerBird(birdInit, i, j);
 
                 this.addChild(birdInit);
+                //TODO testcode for diebired
+                if (j % 2 == 0) {
+                    birdInit.toDie((bird) => { console.log('die') });
+                }
+                //TODO testcode for diebired
                 super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
             }
         }
-        console.dir("bird map: "+ this.gameMap);
+        console.dir("bird map: " + this.gameMap);
     }
 
     private newBirdsFunc(event: egret.TimerEvent) {
@@ -203,7 +208,7 @@ class GameView extends egret.DisplayObjectContainer {
         var bbbs = this.elf.getSevenBirds();
         for (var i = 0; i < bbbs.length; i++) {
 
-            var birdTest = new BirdView(column.middleX +i * column.width, GameData.stageHeight * 0.18, bbbs[i]);
+            var birdTest = new BirdView(column.middleX + i * column.width, GameData.stageHeight * 0.18, bbbs[i]);
             birdTest.dropTo(40 + i * 80, 600, 1000);
 
             this.addChild(birdTest);

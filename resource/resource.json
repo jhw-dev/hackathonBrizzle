@@ -2,7 +2,7 @@
 {
 	"groups":[
 		{
-			"keys":"description_json,Bird_droped,bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json,gameover_RETINA_json,gameover_EN_RETINA_json,number_fnt,classic_progress_bar_RETINA_json,mainMenu_b_EN_RETINA_json,main_bg_RETINA_png,main_menu_bg_RETINA_png,bgmusic,playmusic,stage_face_RETINA_png",
+			"keys":"description_json,Bird_droped,bgImage,egretIcon,rect,stage_bgA_RETINA_png,stage_bgB_RETINA_png,character_json,gameover_RETINA_json,gameover_EN_RETINA_json,number_fnt,classic_progress_bar_RETINA_json,mainMenu_b_EN_RETINA_json,main_bg_RETINA_png,main_menu_bg_RETINA_png,bgmusic,playmusic,stage_face_RETINA_png,Bird_remove",
 			"name":"preload"
 		}
 	],
@@ -16,6 +16,11 @@
 		 "url": "assets/Sounds/SFX/Bird_droped.ogg",
 		 "type": "sound",
 		 "name": "Bird_droped"
+	},
+	{
+		"url": "assets/Sounds/SFX/Bird_remove(2).ogg",
+		"type": "sound",
+		"name": "Bird_remove"
 	},
 	{
 	     "url": "assets/Sounds/BGM/Birzzle_Amazon.mp3",
@@ -942,4 +947,3 @@
 		"url":"config/description.json"
 	}]
 }
-

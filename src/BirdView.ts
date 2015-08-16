@@ -6,7 +6,8 @@ class BirdView extends egret.Sprite {
     private tw: any;
     private _type: number;
     private dropedSound: egret.Sound;
-    
+    private removeSound: egret.Sound;
+
     private BIRDS_OPEN = [null,
         'Character_orange_open',
         'Character_pink_open',
@@ -43,9 +44,9 @@ class BirdView extends egret.Sprite {
         this.anchorY = 0.5;
         this._type = birdType;
         
-//        this.graphics.beginFill(0xff0000);
-//        this.graphics.drawRect(0, 0, this.width,this.height);
-//        this.graphics.endFill();
+        //        this.graphics.beginFill(0xff0000);
+        //        this.graphics.drawRect(0, 0, this.width,this.height);
+        //        this.graphics.endFill();
     
         
         this.birdBitmap = new egret.Bitmap(RES.getRes(this.BIRDS_OPEN[birdType]));
@@ -54,16 +55,16 @@ class BirdView extends egret.Sprite {
         this.birdBitmap.y = this.height / 2;
         this.birdBitmap.anchorX = this.anchorX;
         this.birdBitmap.anchorY = this.anchorY;
-        this.birdBitmap_close.width = this.birdBitmap.width = this.width ;
-        this.birdBitmap_close.height = this.birdBitmap.height = this.height ;
-        var lgD=dW>dH?dW:dH;
-        this.scaleX=lgD;
-        this.scaleY=lgD;
-        this.birdBitmap.scaleX=lgD;
-        this.birdBitmap.scaleY=lgD;
-        this.birdBitmap_close.scaleX=lgD;
-        this.birdBitmap_close.scaleY=lgD;
-        
+        this.birdBitmap_close.width = this.birdBitmap.width = this.width;
+        this.birdBitmap_close.height = this.birdBitmap.height = this.height;
+        var lgD = dW > dH ? dW : dH;
+        this.scaleX = lgD;
+        this.scaleY = lgD;
+        this.birdBitmap.scaleX = lgD;
+        this.birdBitmap.scaleY = lgD;
+        this.birdBitmap_close.scaleX = lgD;
+        this.birdBitmap_close.scaleY = lgD;
+
         this.addChild(this.birdBitmap);
         this.addChild(this.birdBitmap_close);
         this.birdBitmap_close.visible = false;
@@ -73,11 +74,12 @@ class BirdView extends egret.Sprite {
         this.addEventListener(egret.Event.REMOVED, this.onRemoved, this);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
         this.addEventListener(egret.Event.RENDER, this.onRender, this);
-        
+
         this.dropedSound = RES.getRes("Bird_droped");
-        
+        this.removeSound = RES.getRes("Bird_remove");
+
     }
-    
+
     get type() {
         return this._type;
     }
@@ -93,9 +95,9 @@ class BirdView extends egret.Sprite {
         if (!timeout) {
             timeout = 0;
         }
-        this.tw.wait(timeout).to({ y: this.tY },1000,this.customEase).call(function() {this.dropedSound.play();})
-            .to({ scaleX: 1.4, scaleY: 0.8}, 50, egret.Ease.backIn)
-            .to({ scaleX: 1, scaleY: 1}, 400, egret.Ease.backOut);
+        this.tw.wait(timeout).to({ y: this.tY }, 1000, this.customEase).call(function() { this.dropedSound.play(); })
+            .to({ scaleX: 1.4, scaleY: 0.8 }, 50, egret.Ease.backIn)
+            .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.backOut);
 
     }
     private customEase(t: number): number {
@@ -120,28 +122,28 @@ class BirdView extends egret.Sprite {
         //     this.tw.paused = true;
 
         // }
-//        console.log(this.x + 'y' + this.y);
-//        var result = GameView.instance.map.isDropStop(this.x, this.y);
-//        if(result && result.isDropStop == true) {
-//            this.y = result.y;
-//            this.tw.paused = true;
-//        }
+        //        console.log(this.x + 'y' + this.y);
+        //        var result = GameView.instance.map.isDropStop(this.x, this.y);
+        //        if(result && result.isDropStop == true) {
+        //            this.y = result.y;
+        //            this.tw.paused = true;
+        //        }
     }
     private onComplete(param1: string, param2: any): void {
         console.log("onComplete");
-//        console.log(param1);
-//        console.log(param2);
-//        GameView.instance.map.bindBlock(this);
+        //        console.log(param1);
+        //        console.log(param2);
+        //        GameView.instance.map.bindBlock(this);
         // this.dropTo(this.tX, this.tY + 100);
     }
 
     private onAdded(event: Event): void {
-//        console.log("onAdded");
+        //        console.log("onAdded");
         //timer
-//        var timer: egret.Timer = new egret.Timer(1000, 0);
-//        timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);
+        //        var timer: egret.Timer = new egret.Timer(1000, 0);
+        //        timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);
 
-//        timer.start();
+        //        timer.start();
 
     }
 
@@ -168,6 +170,17 @@ class BirdView extends egret.Sprite {
         }
     }
 
+    public toDie(_callback: any) {
+        var tw = egret.Tween.get(this, {
+            loop: false
+        }).to({ rotation: 15 }, 70).to({ rotation: 0 }, 70).to({ rotation: -15 }, 70).to({ rotation: 0 }, 70).to({ rotation: 15 }, 70).to({ rotation: 0 }, 70).to({ rotation: -15 }, 70).to({ rotation: 0 }, 50).to({ rotation: 15 }, 50).to({ rotation: 0 }, 50).to({ rotation: -15 }, 50).to({ rotation: 0 }, 50).to({ rotation: 15 }, 30).to({ rotation: 0 }, 30).to({ rotation: -15 }, 30).to({ rotation: 0 }, 30).call(() => {
+            this.parent.removeChild(this);
+            this.removeSound.play()
+            _callback(this);
+        }, this, []);
+        // this.parent.removeChild(this);
+        
+    }
 
 }
 
