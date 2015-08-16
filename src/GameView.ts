@@ -18,6 +18,7 @@ class GameView extends egret.DisplayObjectContainer {
 
     private bgA: egret.Bitmap;
     private bgB: egret.Bitmap;
+    private stageFace:egret.Bitmap;
     private gameMap: GameMap;
     private elf: ElfBFS;
     private newBirdsTimer: any;
@@ -65,9 +66,18 @@ class GameView extends egret.DisplayObjectContainer {
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");
         bgA.width = bgB.width = egret.MainContext.instance.stage.stageWidth;
         bgA.height = bgB.height = egret.MainContext.instance.stage.stageHeight;
+        var stageFace=this.stageFace=new egret.Bitmap(RES.getRes("stage_face_RETINA_png"));
+        stageFace.x=20;
+        stageFace.y=290;
+        var tw=egret.Tween.get(stageFace,{
+          loop:false
+        });
+        tw.wait(5000).to({y:egret.MainContext.instance.stage.stageHeight+10},1500,egret.Ease.sineIn).call(()=>{this.removeChild(this.stageFace)},stageFace,[]);
 
         this.addChild(bgA);
         this.addChild(bgB);
+        this.addChild(stageFace);
+
         this.newBirdsTimer.start();
 
         var mapWidth = egret.MainContext.instance.stage.stageWidth * 0.9;
