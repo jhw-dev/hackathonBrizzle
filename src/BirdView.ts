@@ -4,6 +4,9 @@ class BirdView extends egret.Sprite {
     private birdBitmap: any;
     private birdBitmap_close: any;
     private tw: any;
+    private _type: number;
+    private dropedSound: egret.Sound;
+    
     private BIRDS_OPEN = ['Character_orange_open',
         'Character_pink_open',
         'Character_purple_open',
@@ -31,6 +34,10 @@ class BirdView extends egret.Sprite {
         this.tY = y;
         this.height = 81;
         this.width = 81;
+        this.anchorX = 0.5;
+        this.anchorY = 0.8;
+        this._type = birdType;
+        
         this.birdBitmap = new egret.Bitmap(RES.getRes(this.BIRDS_OPEN[birdType]));
         this.birdBitmap_close = new egret.Bitmap(RES.getRes(this.BIRDS_CLOSE[birdType]));
         // this.birdBitmap.x = 0;
@@ -45,7 +52,13 @@ class BirdView extends egret.Sprite {
         this.addEventListener(egret.Event.REMOVED, this.onRemoved, this);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
         this.addEventListener(egret.Event.RENDER, this.onRender, this);
-
+        
+        this.dropedSound = RES.getRes("Bird_droped");
+        
+    }
+    
+    get type() {
+        return this._type;
     }
 
     public dropTo(x: number, y: number, timeout: number) {
@@ -59,7 +72,9 @@ class BirdView extends egret.Sprite {
         if (!timeout) {
             timeout = 0;
         }
-        this.tw.wait(timeout).to({ y: this.tY }, 1500, this.customEase).call(this.onComplete, this, ["param1", { key: "key", value: 3 }]);
+        this.tw.wait(timeout).to({ y: this.tY },1000,this.customEase).call(function() { this.dropedSound.play()})
+            .to({ scaleX: 1.4, scaleY: 0.8}, 50, egret.Ease.backIn)
+            .to({ scaleX: 1, scaleY: 1}, 400, egret.Ease.backOut);
 
     }
     private customEase(t: number): number {
@@ -84,22 +99,28 @@ class BirdView extends egret.Sprite {
         //     this.tw.paused = true;
 
         // }
-        console.log(this.x + 'y' + this.y);
+//        console.log(this.x + 'y' + this.y);
+//        var result = GameView.instance.map.isDropStop(this.x, this.y);
+//        if(result && result.isDropStop == true) {
+//            this.y = result.y;
+//            this.tw.paused = true;
+//        }
     }
     private onComplete(param1: string, param2: any): void {
         console.log("onComplete");
-        console.log(param1);
-        console.log(param2);
+//        console.log(param1);
+//        console.log(param2);
+//        GameView.instance.map.bindBlock(this);
         // this.dropTo(this.tX, this.tY + 100);
     }
 
     private onAdded(event: Event): void {
         console.log("onAdded");
         //timer
-        var timer: egret.Timer = new egret.Timer(1000, 0);
-        timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);
+//        var timer: egret.Timer = new egret.Timer(1000, 0);
+//        timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);
 
-        timer.start();
+//        timer.start();
 
     }
 
