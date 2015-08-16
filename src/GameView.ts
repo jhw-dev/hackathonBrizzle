@@ -36,14 +36,33 @@ class GameView extends egret.DisplayObjectContainer {
 
         var startMenu = this.startView = new StartMenu();
         this.addChild(startMenu);
+        
         this.bgMusic = RES.getRes("bgmusic");
         this.playMusic = RES.getRes("playmusic");
         if (this._ENABLE_MUSIC) {
             this.bgMusic.play(true);
         }
-
+        
+    }
+    
+    public onTouchEnd(e: egret.TouchEvent) {
+        console.log("onTouchEnd-> x:"+ e.stageX +" y: "+ e.stageY);
+        var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
+        console.log(result)
+    }
+    
+    public onTouchMove(e: egret.TouchEvent) {
+        console.log("onTouch move-> x:"+ e.stageX +" y: "+ e.stageY); 
+        var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
+        console.log(result)
     }
 
+    public onTouchBegin(e: egret.TouchEvent) {
+        console.log("onTouchBegin-> x:"+ e.stageX +" y: "+ e.stageY);
+        var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
+        console.log(result)
+    }
+    
     public setMusic(bg: egret.Sound, play: egret.Sound) {
         this.bgMusic = bg;
         this.playMusic = play;
@@ -83,13 +102,10 @@ class GameView extends egret.DisplayObjectContainer {
 
         var mapWidth = GameData.stageWidth * 0.9;
         var mapHeight = mapWidth / 7 * 9;
- 
-        var pStart:egret.Point = new egret.Point();
-        pStart.x = GameData.stageWidth * 0.1 / 2;
-        pStart.y = GameData.stageHeight * 0.9;
-
-
-        this.gameMap = new GameMap(pStart, 9, 7, mapWidth, mapHeight);
+        var pLeftTop:egret.Point = new egret.Point();
+        pLeftTop.x = GameData.stageWidth * 0.2 / 2;
+        pLeftTop.y = GameData.stageHeight * 0.9 - mapHeight;
+        this.gameMap = new GameMap(pLeftTop, 9, 7, mapWidth, mapHeight);
         
 
         var overboard = this.scroeBoard = new ScoreBoardView();
@@ -99,6 +115,12 @@ class GameView extends egret.DisplayObjectContainer {
             this.playMusic.play(true);
             this.bgMusic.stop();
         }
+        
+        // Touch Evnet
+        this.touchEnabled = true;
+        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin,this);
+        this.addEventListener(egret.TouchEvent.TOUCH_MOVE,this.onTouchMove,this);
+        this.addEventListener(egret.TouchEvent.TOUCH_END,this.onTouchEnd,this);
 
     }
 
@@ -111,7 +133,7 @@ class GameView extends egret.DisplayObjectContainer {
         var bbbs = this.elf.getSevenBirds();
         for (var i = 0; i < bbbs.length; i++) {
             var birdTest = new BirdView(80 + i * 80, 80, bbbs[i]);
-            birdTest.dropTo(40 + i * 80, this.map.lines[0].y+this.map.lines[0].height / 2, 1000);
+            birdTest.dropTo(40 + i * 80, 600, 1000);
             this.addChild(birdTest);
         }
         this.newBirdsTimer.stop();

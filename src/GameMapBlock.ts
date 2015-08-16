@@ -10,11 +10,13 @@ class GameMapBlock extends egret.Rectangle {
     private _line: number;
     private _col: number;
 
-    constructor(pCenter:egret.Point, width:number, height:number, line:number, col:number) {
-        super(pCenter.x, pCenter.y, width, height);
-        this._pCenter = pCenter; 
-        this._line = line;
-        this._col = col;
+    constructor(pLeftTop:egret.Point, width:number, height:number, curLineNumber:number, curColNumber:number) {
+        super(pLeftTop.x, pLeftTop.y, width, height);
+        var pCenter = this._pCenter = new egret.Point;
+        pCenter.x = pLeftTop.x + width / 2;
+        pCenter.y = pLeftTop.y + height / 2;
+        this._line = curLineNumber;
+        this._col = curColNumber;
     }
     
     get pCenter(): egret.Point {
