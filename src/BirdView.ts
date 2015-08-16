@@ -35,7 +35,7 @@ class BirdView extends egret.Sprite {
         this.height = 81;
         this.width = 81;
         this.anchorX = 0.5;
-        this.anchorY = 0.8;
+        this.anchorY = 0.5;
         this._type = birdType;
         
         this.birdBitmap = new egret.Bitmap(RES.getRes(this.BIRDS_OPEN[birdType]));
@@ -72,7 +72,7 @@ class BirdView extends egret.Sprite {
         if (!timeout) {
             timeout = 0;
         }
-        this.tw.wait(timeout).to({ y: this.tY },1000,this.customEase).call(function() { this.dropedSound.play()})
+        this.tw.wait(timeout).to({ y: this.tY },1000,this.customEase).call(function() {this.dropedSound.play();})
             .to({ scaleX: 1.4, scaleY: 0.8}, 50, egret.Ease.backIn)
             .to({ scaleX: 1, scaleY: 1}, 400, egret.Ease.backOut);
 
