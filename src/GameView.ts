@@ -44,17 +44,17 @@ class GameView extends egret.DisplayObjectContainer {
         if (this._ENABLE_MUSIC) {
             this.bgMusic.play(true);
         }
-        
+
     }
-    
+
     public onTouchEnd(e: egret.TouchEvent) {
         console.log("onTouchEnd-> x:"+ e.stageX +" y: "+ e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
     }
-    
+
     public onTouchMove(e: egret.TouchEvent) {
-        console.log("onTouch move-> x:"+ e.stageX +" y: "+ e.stageY); 
+        console.log("onTouch move-> x:"+ e.stageX +" y: "+ e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
 
@@ -66,7 +66,7 @@ class GameView extends egret.DisplayObjectContainer {
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
     }
-    
+
     public setMusic(bg: egret.Sound, play: egret.Sound) {
         this.bgMusic = bg;
         this.playMusic = play;
@@ -129,7 +129,7 @@ class GameView extends egret.DisplayObjectContainer {
 
         var mapWidth = GameData.stageWidth * 0.83;
         var mapHeight = mapWidth / 7 * 9;
- 
+
         var pLeftTop:egret.Point = new egret.Point();
         pLeftTop.x = (GameData.stageWidth -mapWidth) / 2;
         pLeftTop.y = GameData.stageHeight * 0.94 - mapHeight;
@@ -145,7 +145,7 @@ class GameView extends egret.DisplayObjectContainer {
             this.playMusic.play(true);
             this.bgMusic.stop();
         }
-        
+
         // Touch Evnet
         this.touchEnabled = true;
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin,this);

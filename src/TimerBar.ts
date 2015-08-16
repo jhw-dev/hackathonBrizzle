@@ -2,7 +2,7 @@ class TimerBar extends egret.DisplayObjectContainer {
 	public constructor() {
 	  super();
 	  this.createView();
-		this.x = 45;
+		this.x = 45*egret.MainContext.instance.stage.stageWidth/640;
 		this.y = 213*egret.MainContext.instance.stage.stageHeight/960;
 	}
 

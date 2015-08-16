@@ -16,7 +16,8 @@
 		}
 	],
 	"native": {
-		"path_ignore": []
+		"path_ignore": [],
+		"android_path": "../jhwBrizzle"
 	},
 	"egret_version": "2.0.4"
 }

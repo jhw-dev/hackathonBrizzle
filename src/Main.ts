@@ -152,21 +152,8 @@ class Main extends egret.DisplayObjectContainer {
     private createGameScene(): void {
         egret.Profiler.getInstance().run();
         GameView.instance.launch(this);
-
-        //test json res
-
-
-
-        // var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
-
-        // var bitmap = new egret.Bitmap();
-
-        // bitmap.texture = texture;
-
-        // this.addChild(bitmap);
-
-
-
+        // var config = RES.getRes("description_json");
+        // console.dir(config);
     }
 
     /**
