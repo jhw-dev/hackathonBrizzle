@@ -32,7 +32,7 @@ class TimerBar extends egret.DisplayObjectContainer {
         onChange: this.onChange,//设置更新函数
         onChangeObj: this.bitmap//更新函数作用域
     })
-        .to({width: 560*egret.MainContext.instance.stage.stageHeight/960}, totalTime*1000)//设置2000毫秒内 rotation 属性变为360
+        .to({width: 560*egret.MainContext.instance.stage.stageWidth/640}, totalTime*1000)//设置2000毫秒内 rotation 属性变为360
         .call(wrapCallback, thisObject, []);//设置回调函数及作用域，可用于侦听动画完成
 	}
 
