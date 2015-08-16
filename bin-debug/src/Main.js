@@ -135,11 +135,8 @@ var Main = (function (_super) {
     __egretProto__.createGameScene = function () {
         egret.Profiler.getInstance().run();
         GameView.instance.launch(this);
-        //test json res
-        // var texture = RES.getRes("Character_RETINA_json.box00_normal_00@2x");
-        // var bitmap = new egret.Bitmap();
-        // bitmap.texture = texture;
-        // this.addChild(bitmap);
+        // var config = RES.getRes("description_json");
+        // console.dir(config);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
