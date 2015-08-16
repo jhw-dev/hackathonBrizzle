@@ -9,8 +9,8 @@ class GameMap {
     private _perBlockHeight: number;
     private _width: number;
     private _height: number;
-    private _totalLines: number = 7;
-    private _totalColumns: number = 9;
+    private _totalLines: number = 9;
+    private _totalColumns: number = 7;
     private _pLeftTop: egret.Point;
     
     // pLeftTop: 左上角原点
@@ -58,18 +58,43 @@ class GameMap {
         this._width = width;
         this._height = height;
         this._pLeftTop = pLeftTop;
-        this._perBlockWidth = this._perBlockHeight = width / this._totalLines;
-        for(var i = 0;i < this._totalColumns;i++) {
-            for(var j = 0;j < this._totalLines;j++) {
+        this._perBlockWidth = this._perBlockHeight = width / this._totalColumns;
+        for(var i = 0;i < this._totalLines;i++) {
+            for(var j = 0;j < this._totalColumns;j++) {
                 var pBlockLeftTop = new egret.Point;
                 pBlockLeftTop.x = pLeftTop.x + this._perBlockWidth * j;
-                pBlockLeftTop.y = pLeftTop.y + this._perBlockHeight * (this._totalColumns - i);
-                this._blockMap = new GameMapBlock(pBlockLeftTop, this._perBlockWidth, this._perBlockHeight, j, (this._totalColumns - i) )
+                pBlockLeftTop.y = pLeftTop.y + this._perBlockHeight * (this._totalLines - i - 1);
+                this._blockMap[i][j] = new GameMapBlock(pBlockLeftTop, this._perBlockWidth, this._perBlockHeight, j, (this._totalColumns - i) )
             }
         } 
         console.log("init Map: width:" + this._width+"x"+this._height );
         console.log("per block width:" + this._perBlockWidth);
-        console.log("left top point:"+ this._pLeftTop)
+        console.log("left top point:" + this._pLeftTop);
+        console.log("game blocks:" + this._blockMap);
+    }
+    
+    public getColumns(col:number) {
+        if(col < this._totalLines && col >= 0) { 
+            return {
+                width: this._perBlockWidth,
+                height: this._perBlockHeight * this._totalLines,
+                x: this._blockMap[0][col].x,
+                y: this._blockMap[0][col].y,
+                middleX: this._blockMap[0][col].pCenter.x
+            }
+        }
+    }
+    
+    public getLines(line:number) {
+        if(line < this._totalLines && line >= 0) {
+            return {
+                width: this._perBlockWidth * this._totalColumns,
+                height: this._perBlockHeight,
+                x: this._blockMap[line][0].x,
+                y: this._blockMap[line][0].y,
+                middleY: this._blockMap[line][0].pCenter.y
+            }
+        }
     }
     
     public convertPointToBlockNumber(p: egret.Point, autoLimit:Boolean = true) {

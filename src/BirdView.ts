@@ -32,8 +32,8 @@ class BirdView extends egret.Sprite {
         this.y = y;
         this.tX = x;
         this.tY = y;
-        this.height = 81;
-        this.width = 81;
+        this.height = 12.28571428571429;
+        this.width = 12.28571428571429;
         this.anchorX = 0.5;
         this.anchorY = 0.5;
         this._type = birdType;
