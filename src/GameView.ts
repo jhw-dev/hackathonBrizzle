@@ -105,7 +105,7 @@ class GameView extends egret.DisplayObjectContainer {
         var stageFace = this.stageFace = new egret.Bitmap(RES.getRes("stage_face_RETINA_png"));
         var dH = egret.MainContext.instance.stage.stageHeight / 960;
         var dW = egret.MainContext.instance.stage.stageWidth / 640;
-        stageFace.x = 20 * dH;
+        stageFace.x = 18 * dH;
         stageFace.y = 110 * dW;
         stageFace.width = 616 * dW;
         stageFace.height = 960 * dH;
