@@ -21,10 +21,14 @@ class ScoreBoardView extends egret.DisplayObjectContainer {
 
         var quit_btn = this.quit_btn = new egret.DisplayObjectContainer;
         quit_btn.x = 20 * dW;
-        quit_btn.y = (bg.height - 95) * dH;
+        quit_btn.y = (744 - 95) * dH;
+        quit_btn.scaleX = dW;
+        quit_btn.scaleY = dH;
         var restart_btn = this.restart_btn = new egret.DisplayObjectContainer;
-        restart_btn.y = (bg.height - 95) * dH;
-        restart_btn.x = (bg.width - 20 - 224) * dW;
+        restart_btn.y = (744 - 95) * dH;
+        restart_btn.x = (532 - 20 - 224) * dW;
+        restart_btn.scaleX = dW;
+        restart_btn.scaleY = dH;
         this.restart_normal = new egret.Bitmap(RES.getRes("gameover_EN_RETINA_json.gameover_restart@2x"));
         this.quit_normal = new egret.Bitmap(RES.getRes("gameover_EN_RETINA_json.gameover_quit@2x"));
         this.restart_press = new egret.Bitmap(RES.getRes("gameover_EN_RETINA_json.gameover_restart_push@2x"));

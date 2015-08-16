@@ -119,7 +119,7 @@ class GameView extends egret.DisplayObjectContainer {
                 this.initBirds();
                 this.timerBar = new TimerBar();
                 this.addChild(this.timerBar);
-                this.timerBar.start(20, this.gameOver, this)
+                this.timerBar.start(10, this.gameOver, this)
             }, stageFace, []);
 
 

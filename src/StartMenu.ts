@@ -32,7 +32,7 @@ class StartMenu extends egret.DisplayObjectContainer {
         quit_btn.x = 76 * dH;
         start_btn.x = 76 * dH;
         start_btn.y = 100 * dW;
-        quit_btn.y = 250 * dW;
+        quit_btn.y = 220 * dW;
         start_btn.addChild(this.start_press);
         this.start_press.visible = false;
         start_btn.addChild(this.start_normal);
