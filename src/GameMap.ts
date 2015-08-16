@@ -70,7 +70,21 @@ class GameMap {
         console.log("init Map: width:" + this._width+"x"+this._height );
         console.log("per block width:" + this._perBlockWidth);
         console.log("left top point:" + this._pLeftTop);
-        console.log("game blocks:" + this._blockMap);
+//        console.log("game blocks:" + this._blockMap);
+    }
+    
+    public getBird(line:number, column:number) {
+        if (this._blockMap[line][column].bird) {
+            return this._blockMap[line][column].bird;
+        }else{
+            null;
+        }
+           
+    }
+    
+    public registerBird(bird: BirdView, line: number, column:number) {
+        this._blockMap[line][column].bind(bird);
+        this._birdMap[line][column] = bird.type;
     }
     
     public getColumns(col:number) {

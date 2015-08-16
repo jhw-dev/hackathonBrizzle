@@ -29,6 +29,7 @@ class GameView extends egret.DisplayObjectContainer {
     private playMusic: egret.Sound;
     private _ENABLE_MUSIC = false;
     private miniScroe: egret.BitmapText;
+    private _selectedBird: BirdView;
 
     constructor() {
         super();
@@ -51,20 +52,28 @@ class GameView extends egret.DisplayObjectContainer {
         console.log("onTouchEnd-> x:"+ e.stageX +" y: "+ e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
+        this._selectedBird = null;
     }
 
     public onTouchMove(e: egret.TouchEvent) {
         console.log("onTouch move-> x:"+ e.stageX +" y: "+ e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
-
-
+        if (this._selectedBird) {
+            this._selectedBird.x = e.stageX;
+            this._selectedBird.y = e.stageY;
+        }
+        
     }
 
     public onTouchBegin(e: egret.TouchEvent) {
         console.log("onTouchBegin-> x:"+ e.stageX +" y: "+ e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
-        console.log(result)
+        console.log(result);
+        if (this._selectedBird == null) {
+            var bird = this.gameMap.getBird(result.line,result.column);
+            this._selectedBird = bird;   
+        }
     }
 
     public setMusic(bg: egret.Sound, play: egret.Sound) {
@@ -117,7 +126,7 @@ class GameView extends egret.DisplayObjectContainer {
                 this.initBirds();
                 this.timerBar = new TimerBar();
                 this.addChild(this.timerBar);
-                this.timerBar.start(20, this.gameOver, this)
+//                this.timerBar.start(20, this.gameOver, this)
             }, stageFace, []);
 
 
@@ -125,7 +134,7 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(bgB);
         this.addChild(stageFace);
 
-        this.newBirdsTimer.start();
+//        this.newBirdsTimer.start();
 
         var mapWidth = GameData.stageWidth * 0.83;
         var mapHeight = mapWidth / 7 * 9;
@@ -173,13 +182,14 @@ class GameView extends egret.DisplayObjectContainer {
         for (var i = 0; i < 3; i++) {
             var bbbs = this.elf.getSevenBirds();
             for (var j = 0; j < bbbs.length; j++) {
-                console.log("line " + i + "middleY: " + this.gameMap.getLines(i).middleY);
+//                console.log("line " + i + "middleY: " + this.gameMap.getLines(i).middleY);
                 var birdInit = new BirdView(column.middleX +j * column.width, this.gameMap.getLines(i).middleY, bbbs[j]);
+                this.gameMap.registerBird(birdInit,i,j);
                 this.addChild(birdInit);
                 super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
             }
         }
-
+        console.dir("bird map: "+ this.gameMap);
     }
 
     private newBirdsFunc(event: egret.TimerEvent) {

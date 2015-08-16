@@ -7,7 +7,8 @@ class BirdView extends egret.Sprite {
     private _type: number;
     private dropedSound: egret.Sound;
     
-    private BIRDS_OPEN = ['Character_orange_open',
+    private BIRDS_OPEN = [null,
+        'Character_orange_open',
         'Character_pink_open',
         'Character_purple_open',
         'Character_red_open',
@@ -16,7 +17,8 @@ class BirdView extends egret.Sprite {
         'Character_blue_open',
         'Character_green_open'
     ];
-    private BIRDS_CLOSE = ['Character_orange_close',
+    private BIRDS_CLOSE = [null,
+        'Character_orange_close',
         'Character_pink_close',
         'Character_purple_close',
         'Character_red_close',
@@ -124,7 +126,7 @@ class BirdView extends egret.Sprite {
     }
 
     private onAdded(event: Event): void {
-        console.log("onAdded");
+//        console.log("onAdded");
         //timer
 //        var timer: egret.Timer = new egret.Timer(1000, 0);
 //        timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);

@@ -19,6 +19,10 @@ class GameMapBlock extends egret.Rectangle {
         this._col = curColNumber;
     }
     
+    public bind(bird: BirdView) {
+        this._bird = bird;    
+    }
+    
     get pCenter(): egret.Point {
         return this._pCenter;
     }
