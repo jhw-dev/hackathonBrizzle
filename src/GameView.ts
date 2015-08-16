@@ -183,11 +183,12 @@ class GameView extends egret.DisplayObjectContainer {
     }
 
     private newBirdsFunc(event: egret.TimerEvent) {
+        var column = this.gameMap.getColumns(0);
         //TODO:testcode
         var bbbs = this.elf.getSevenBirds();
         for (var i = 0; i < bbbs.length; i++) {
 
-            var birdTest = new BirdView(80 + i * 80, 80, bbbs[i]);
+            var birdTest = new BirdView(column.middleX +i * column.width, GameData.stageHeight * 0.18, bbbs[i]);
             birdTest.dropTo(40 + i * 80, 600, 1000);
 
             this.addChild(birdTest);
