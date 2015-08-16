@@ -73,7 +73,7 @@ class GameView extends egret.DisplayObjectContainer {
         var tw=egret.Tween.get(stageFace,{
           loop:false
         });
-        tw.wait(5000).to({y:egret.MainContext.instance.stage.stageHeight+10},1500,egret.Ease.sineIn).call(()=>{this.removeChild(this.stageFace)},stageFace,[]);
+        tw.wait(1000).to({y:egret.MainContext.instance.stage.stageHeight+10},1500,egret.Ease.sineIn).call(()=>{this.removeChild(this.stageFace)},stageFace,[]);
 
         this.addChild(bgA);
         this.addChild(bgB);
@@ -94,7 +94,7 @@ class GameView extends egret.DisplayObjectContainer {
 
         var overboard = this.scroeBoard = new ScoreBoardView();
         this.addChild(overboard);
-        this.scroeBoard.showME(1222323);
+        // this.scroeBoard.showME(1222323);
         if (this._ENABLE_MUSIC) {
             this.playMusic.play(true);
             this.bgMusic.stop();
