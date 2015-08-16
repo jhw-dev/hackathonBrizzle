@@ -32,7 +32,7 @@ class GameView extends egret.DisplayObjectContainer {
     constructor() {
         super();
         this.elf = new ElfBFS();
-        this.newBirdsTimer = new egret.Timer(2000, 0);
+        this.newBirdsTimer = new egret.Timer(7000, 0);
         this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBirdsFunc, this);
 
         var startMenu = this.startView = new StartMenu();
@@ -57,6 +57,9 @@ class GameView extends egret.DisplayObjectContainer {
         this.newBirdsTimer.stop();
         //TODO:需要清除所有的鸟
         this.removeChild(this.scroeBoard);
+        if (!this.contains(this.startView)) {
+            this.addChild(this.startView);
+        }
         this.startView.visible = true;
         if (this._ENABLE_MUSIC) {
             this.playMusic.stop();
@@ -64,7 +67,17 @@ class GameView extends egret.DisplayObjectContainer {
         }
     }
 
+    private gameOver() {
+        if (this.contains(this.scroeBoard)) {
+            this.removeChild(this.scroeBoard);
+        }
+        this.newBirdsTimer.stop();
+        this.addChild(this.scroeBoard);
+        this.scroeBoard.showME(1222323);
+    }
+
     public onGameStart() {
+        this.removeChildren();
         var bgA = this.bgA = Resource.createBitmapByName("stage_bgA_RETINA_png");
         var bgB = this.bgB = Resource.createBitmapByName("stage_bgB_RETINA_png");
         bgA.width = bgB.width = egret.MainContext.instance.stage.stageWidth;
@@ -73,7 +86,7 @@ class GameView extends egret.DisplayObjectContainer {
         stageFace.x = 20;
         stageFace.y = 110;
         stageFace.width = 616;
-        stageFace.height= 960;
+        stageFace.height = 960;
         var tw = egret.Tween.get(stageFace, {
             loop: false
         });
@@ -84,7 +97,7 @@ class GameView extends egret.DisplayObjectContainer {
                 this.initBirds();
                 this.timerBar = new TimerBar();
                 this.addChild(this.timerBar);
-                this.timerBar.start(10, this.backToMenu, this)
+                this.timerBar.start(20, this.gameOver, this)
             }, stageFace, []);
 
 
@@ -106,8 +119,6 @@ class GameView extends egret.DisplayObjectContainer {
 
 
         var overboard = this.scroeBoard = new ScoreBoardView();
-        this.addChild(overboard);
-        // this.scroeBoard.showME(1222323);
 
         // // var rect:egret.Rectangle = new egret.Rectangle(5,5,5,15);
         // // bitmap.scale9Grid =rect;
@@ -140,12 +151,12 @@ class GameView extends egret.DisplayObjectContainer {
         //TODO:testcode
         var bbbs = this.elf.getSevenBirds();
         for (var i = 0; i < bbbs.length; i++) {
-            var birdTest = new BirdView(80 + i * 80, 80, bbbs[i]);
+            var birdTest = new BirdView(80 + i * 80, 220, bbbs[i]);
             birdTest.dropTo(40 + i * 80, this.map.lines[3].y + this.map.lines[3].height / 2, 1000);
             this.addChild(birdTest);
             super.setChildIndex(birdTest, super.getChildIndex(this.timerBar) - 1);
         }
-        this.newBirdsTimer.stop();
+        // this.newBirdsTimer.stop();
     }
 
 }
