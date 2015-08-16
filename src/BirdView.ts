@@ -32,16 +32,25 @@ class BirdView extends egret.Sprite {
         this.y = y;
         this.tX = x;
         this.tY = y;
-        this.height = 12.28571428571429;
-        this.width = 12.28571428571429;
+        this.height = 80;
+        this.width = 80;
         this.anchorX = 0.5;
         this.anchorY = 0.5;
         this._type = birdType;
         
+//        this.graphics.beginFill(0xff0000);
+//        this.graphics.drawRect(0, 0, this.width,this.height);
+//        this.graphics.endFill();
+    
+        
         this.birdBitmap = new egret.Bitmap(RES.getRes(this.BIRDS_OPEN[birdType]));
         this.birdBitmap_close = new egret.Bitmap(RES.getRes(this.BIRDS_CLOSE[birdType]));
-        // this.birdBitmap.x = 0;
-        // this.birdBitmap.y = 0;
+        this.birdBitmap.x = this.width / 2;
+        this.birdBitmap.y = this.height / 2;
+        this.birdBitmap.anchorX = this.anchorX;
+        this.birdBitmap.anchorY = this.anchorY;
+        this.birdBitmap_close.width = this.birdBitmap.width = this.width * 1.15;
+        this.birdBitmap_close.height = this.birdBitmap.height = this.height * 1.15;
         
         this.addChild(this.birdBitmap);
         this.addChild(this.birdBitmap_close);
