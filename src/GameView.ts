@@ -52,8 +52,8 @@ class GameView extends egret.DisplayObjectContainer {
         console.log("onTouchEnd-> x:" + e.stageX + " y: " + e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result);
-            
-        // 对齐Y
+          
+        // 对齐x
         this._selectedBird.x = this.gameMap.alignX(this._selectedBird.x);
         this.gameMap.dropdown(this._selectedBird, result.line, result.column);
         
@@ -61,12 +61,16 @@ class GameView extends egret.DisplayObjectContainer {
         
         // 开始判断
         this.gameMap.goEliminate();
+        
+        
+        this.newBirdsTimer.start();
     }
 
     public onTouchMove(e: egret.TouchEvent) {
         console.log("onTouch move-> x:" + e.stageX + " y: " + e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
-        console.log(result)
+        console.log(result);
+        this.newBirdsTimer.reset();
         if (this._selectedBird) {
             var bird = this._selectedBird;
             // up

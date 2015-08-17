@@ -143,6 +143,9 @@ class GameMap {
                 }else if(leftBlock && leftBlock.bird && testHitRect.intersects(leftBlock)) {
                     return;
                 }
+                if (curLine==0) {
+                    return; // fixme
+                }
                 var BottomBlock = this._blockMap[curLine - 1][curColumn];
                 if(BottomBlock.bird && testHitRect.intersects(BottomBlock)) {
                     return;
@@ -204,6 +207,14 @@ class GameMap {
         var dtY = stageY - bird.y;
         var curBlock = this._blockMap[curLine][curColumn];
         if (!curBlock.bird) {
+            if(curLine == 0) {
+                if (stageY > this.getLines(0).middleY) {
+                    bird.y = this.getLines(0).middleY;
+                    return
+                }
+                bird.y = stageY;
+                return;
+            }
             var BottomBlock = this._blockMap[curLine - 1][curColumn];
             var pLeftTop = bird.pLeftTop();
             var testHitRect = new egret.Rectangle(pLeftTop.x,pLeftTop.y+dtY,bird.width,bird.height);
@@ -277,10 +288,15 @@ class GameMap {
     }
     
     public dropdown(bird: BirdView, line:number, column:number) {
+        // 如果已经在最下面了 然后注册数据
+        if(line == 0) {
+            bird.x = this.alignX(bird.x);
+            this.registerBird(bird,line,column);
+        }
         // 如果下面有鸟就只要对齐Y 然后注册数据
         var bottomBlock = this._blockMap[line-1][column];
         if(bottomBlock.bird) {
-            bird.x = this.alignX(bird.x);
+            bird.y = this.alignY(bird.y);
             this.registerBird(bird,line,column);
         }
         // 没鸟就下落
