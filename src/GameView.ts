@@ -34,7 +34,7 @@ class GameView extends egret.DisplayObjectContainer {
     constructor() {
         super();
         this.elf = new ElfBFS();
-        this.newBirdsTimer = new egret.Timer(7000, 0);
+        this.newBirdsTimer = new egret.Timer(5000, 0);
         this.newBirdsTimer.addEventListener(egret.TimerEvent.TIMER, this.newBirdsFunc, this);
 
         var startMenu = this.startView = new StartMenu();
@@ -57,11 +57,11 @@ class GameView extends egret.DisplayObjectContainer {
         this._selectedBird.x = this.gameMap.alignX(this._selectedBird.x);
         this.gameMap.dropdown(this._selectedBird, result.line, result.column);
         
-        this._selectedBird = null;
         
         // 开始判断
         this.gameMap.goEliminate();
         
+        this._selectedBird = null;
         
         this.newBirdsTimer.start();
     }
@@ -70,7 +70,7 @@ class GameView extends egret.DisplayObjectContainer {
         console.log("onTouch move-> x:" + e.stageX + " y: " + e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result);
-        this.newBirdsTimer.reset();
+        this.newBirdsTimer.stop();
         if (this._selectedBird) {
             var bird = this._selectedBird;
             // up

@@ -292,18 +292,21 @@ class GameMap {
         if(line == 0) {
             bird.x = this.alignX(bird.x);
             this.registerBird(bird,line,column);
+            return;
         }
         // 如果下面有鸟就只要对齐Y 然后注册数据
         var bottomBlock = this._blockMap[line-1][column];
         if(bottomBlock.bird) {
             bird.y = this.alignY(bird.y);
             this.registerBird(bird,line,column);
+            return;
         }
         // 没鸟就下落
         else {
             var col = this.getMaxFreeLine(column);
             var diest = this.getLines(col).middleY;
             bird.dropTo(bird.x,diest,100);
+            return;
         }
         
     }
