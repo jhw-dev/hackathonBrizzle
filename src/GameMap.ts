@@ -277,7 +277,7 @@ class GameMap {
     
     public goEliminate() {
         var res = GameView.instance.elf.findBlocks(this._birdMap);
-        console.log("妈妈妈妈" + JSON.stringify(res));
+        console.log("消除数组" + JSON.stringify(res));
         for (var k in res) {
             for (var ib in res[k]) {
                 this._blockMap[res[k][ib].x][res[k][ib].y].bird.toDie((bird) => { console.log('die') });
