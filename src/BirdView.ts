@@ -205,7 +205,8 @@ class BirdView extends egret.Sprite {
             loop: false
         }).to({ rotation: 15 }, 70).to({ rotation: 0 }, 70).to({ rotation: -15 }, 70).to({ rotation: 0 }, 70).to({ rotation: 15 }, 70).to({ rotation: 0 }, 70).to({ rotation: -15 }, 70).to({ rotation: 0 }, 50).to({ rotation: 15 }, 50).to({ rotation: 0 }, 50).to({ rotation: -15 }, 50).to({ rotation: 0 }, 50).to({ rotation: 15 }, 30).to({ rotation: 0 }, 30).to({ rotation: -15 }, 30).to({ rotation: 0 }, 30).call(() => {
             this.parent.removeChild(this);
-            this.removeSound.play()
+            this.removeSound.play();
+            // GameView.instance.BirdArray.remove(this);
             _callback(this);
         }, this, []);
         // this.parent.removeChild(this);

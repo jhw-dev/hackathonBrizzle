@@ -30,6 +30,7 @@ class GameView extends egret.DisplayObjectContainer {
     private _ENABLE_MUSIC = true;
     private miniScroe: egret.BitmapText;
     private _selectedBird: BirdView;
+    public BirdArray: any[];
 
     constructor() {
         super();
@@ -39,7 +40,7 @@ class GameView extends egret.DisplayObjectContainer {
 
         var startMenu = this.startView = new StartMenu();
         this.addChild(startMenu);
-
+        this.BirdArray = [];
         this.bgMusic = RES.getRes("bgmusic");
         this.playMusic = RES.getRes("playmusic");
         if (this._ENABLE_MUSIC) {
@@ -224,6 +225,7 @@ class GameView extends egret.DisplayObjectContainer {
                 this.gameMap.registerBird(birdInit, i, j);
 
                 this.addChild(birdInit);
+                this.BirdArray.push(birdInit);
                 //                //TODO testcode for diebired
                 //                if (j % 2 == 0) {
                 //                    birdInit.toDie((bird) => { console.log('die') });
@@ -251,6 +253,7 @@ class GameView extends egret.DisplayObjectContainer {
             }
 
             this.addChild(birdTest);
+            this.BirdArray.push(birdTest);
             super.setChildIndex(birdTest, super.getChildIndex(this.timerBar) - 1);
         }
         // this.newBirdsTimer.stop();
