@@ -285,8 +285,27 @@ class GameMap {
                 this._birdMap[res[k][ib].x][res[k][ib].y] = 0;
             }
         }
+        var modify = false;
+        for (var i = 0; i < this._blockMap.length; i++) {
+            for (var j = 0; j < this._blockMap[i].length; j++) {
+                if (this._birdMap[i][j] != 0) {
+                    var item = this._blockMap[i][j].bird;
+                    var xx = i;
+                    var yy = j - 1;
+                    if (xx >= 0 && xx < this._blockMap.lenght && yy >= 0 && yy < this._blockMap[i].length && this._birdMap[xx][yy] == 0) {
 
-     
+                        GameView.instance.map.dropdown(item, i, j);
+                        modify = true;
+
+                    }
+                }
+            }
+        }
+        if (modify) {
+            this.goEliminate();
+        }
+
+
     }
 
     public dropdown(bird: BirdView, line: number, column: number) {

@@ -24,6 +24,7 @@ class ElfBFS {
 
     public findBlocks(oriMap: number[][]) {
         this.reset();
+        console.log(JSON.stringify(oriMap));
         var l = oriMap.length;
         var h = oriMap[0].length;
         for (var i = 0; i < l; i++) {

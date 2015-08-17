@@ -72,7 +72,7 @@ class GameView extends egret.DisplayObjectContainer {
         console.log("onTouch move-> x:" + e.stageX + " y: " + e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result);
-        this.newBirdsTimer.stop();
+        // this.newBirdsTimer.stop();
         if (this._selectedBird) {
             var bird = this._selectedBird;
             // up
@@ -159,7 +159,7 @@ class GameView extends egret.DisplayObjectContainer {
                 this.initBirds();
                 this.timerBar = new TimerBar();
                 this.addChild(this.timerBar);
-                this.timerBar.start(100, this.gameOver, this);
+                this.timerBar.start(30, this.gameOver, this);
                 this.gameMap.goEliminate();
 
 
