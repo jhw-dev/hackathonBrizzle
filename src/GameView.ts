@@ -54,15 +54,16 @@ class GameView extends egret.DisplayObjectContainer {
         console.log(result);
           
         // 对齐x
-        this._selectedBird.x = this.gameMap.alignX(this._selectedBird.x);
-        this.gameMap.dropdown(this._selectedBird, result.line, result.column);
+        if(this._selectedBird) {
+            this._selectedBird.x = this.gameMap.alignX(this._selectedBird.x);
+            this.gameMap.dropdown(this._selectedBird,result.line,result.column);
         
         
-        // 开始判断
-        this.gameMap.goEliminate();
-        
-        this._selectedBird = null;
-        
+            // 开始判断
+            this.gameMap.goEliminate();
+
+            this._selectedBird = null;
+        }
         this.newBirdsTimer.start();
     }
 

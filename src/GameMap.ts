@@ -289,6 +289,9 @@ class GameMap {
     
     public dropdown(bird: BirdView, line:number, column:number) {
         // 如果已经在最下面了 然后注册数据
+        if(line< 0 || column < 0) {
+            return;
+        }
         if(line == 0) {
             bird.x = this.alignX(bird.x);
             this.registerBird(bird,line,column);
