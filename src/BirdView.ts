@@ -123,6 +123,7 @@ class BirdView extends egret.Sprite {
             this.dropedSound.play();
             var block = GameView.instance.map.convertPointToBlockNumber(new egret.Point(x,y));
             GameView.instance.map.registerBird(this,block.line,block.column);
+            GameView.instance.map.goEliminate();
         })
             .to({ scaleX: 1.4, scaleY: 0.8}, 50, egret.Ease.backIn)
             .to({ scaleX: this.lgD, scaleY: this.lgD}, 400, egret.Ease.backOut);

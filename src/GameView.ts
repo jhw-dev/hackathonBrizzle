@@ -27,7 +27,7 @@ class GameView extends egret.DisplayObjectContainer {
     private scroeBoard: ScoreBoardView;
     private bgMusic: egret.Sound;
     private playMusic: egret.Sound;
-    private _ENABLE_MUSIC = false;
+    private _ENABLE_MUSIC = true;
     private miniScroe: egret.BitmapText;
     private _selectedBird: BirdView;
 
@@ -54,9 +54,9 @@ class GameView extends egret.DisplayObjectContainer {
         console.log(result);
           
         // 对齐x
-        if(this._selectedBird) {
+        if (this._selectedBird) {
             this._selectedBird.x = this.gameMap.alignX(this._selectedBird.x);
-            this.gameMap.dropdown(this._selectedBird,result.line,result.column);
+            this.gameMap.dropdown(this._selectedBird, result.line, result.column);
         
         
             // 开始判断
@@ -75,18 +75,18 @@ class GameView extends egret.DisplayObjectContainer {
         if (this._selectedBird) {
             var bird = this._selectedBird;
             // up
-            if(bird.y > e.stageY) {
-                this.gameMap.moveUp(result.line,result.column,bird,e.stageY);
-            }else if(bird.y < e.stageY) {
-                this.gameMap.moveDown(result.line,result.column,bird,e.stageY);
+            if (bird.y > e.stageY) {
+                this.gameMap.moveUp(result.line, result.column, bird, e.stageY);
+            } else if (bird.y < e.stageY) {
+                this.gameMap.moveDown(result.line, result.column, bird, e.stageY);
             }
             // left
             if (bird.x > e.stageX) {
-                this.gameMap.moveLeft(result.line,result.column,bird,e.stageX);
+                this.gameMap.moveLeft(result.line, result.column, bird, e.stageX);
             }
             // right
-            else if (bird.x < e.stageX){
-                this.gameMap.moveRight(result.line,result.column,bird,e.stageX);
+            else if (bird.x < e.stageX) {
+                this.gameMap.moveRight(result.line, result.column, bird, e.stageX);
             }
             console.log("select bird.x:" + this._selectedBird.x + " y:" + this._selectedBird.y);
         }
@@ -99,9 +99,9 @@ class GameView extends egret.DisplayObjectContainer {
         console.log(result);
         if (this._selectedBird == null) {
 
-            var bird = this.gameMap.getBird(result.line,result.column);
-            this._selectedBird = bird; 
-            this.gameMap.unregisterBird(result.line,result.column);
+            var bird = this.gameMap.getBird(result.line, result.column);
+            this._selectedBird = bird;
+            this.gameMap.unregisterBird(result.line, result.column);
 
         }
     }
@@ -158,7 +158,9 @@ class GameView extends egret.DisplayObjectContainer {
                 this.initBirds();
                 this.timerBar = new TimerBar();
                 this.addChild(this.timerBar);
-//                this.timerBar.start(10, this.gameOver, this)
+                this.timerBar.start(100, this.gameOver, this);
+                this.gameMap.goEliminate();
+
 
             }, stageFace, []);
 
@@ -166,7 +168,7 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(bgA);
         this.addChild(bgB);
         this.addChild(stageFace);
- 
+
         this.newBirdsTimer.start();
 
 
@@ -222,11 +224,11 @@ class GameView extends egret.DisplayObjectContainer {
                 this.gameMap.registerBird(birdInit, i, j);
 
                 this.addChild(birdInit);
-//                //TODO testcode for diebired
-//                if (j % 2 == 0) {
-//                    birdInit.toDie((bird) => { console.log('die') });
-//                }
-//                //TODO testcode for diebired
+                //                //TODO testcode for diebired
+                //                if (j % 2 == 0) {
+                //                    birdInit.toDie((bird) => { console.log('die') });
+                //                }
+                //                //TODO testcode for diebired
                 super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
             }
         }
@@ -240,12 +242,12 @@ class GameView extends egret.DisplayObjectContainer {
         for (var i = 0; i < bbbs.length; i++) {
 
             var freeLine = this.gameMap.getMaxFreeLine(i);
-            
+
             var distY = this.gameMap.getLines(freeLine).middleY;
-            var birdTest = new BirdView(column.middleX +i * column.width, GameData.stageHeight * 0.18, bbbs[i]);
-            
+            var birdTest = new BirdView(column.middleX + i * column.width, GameData.stageHeight * 0.18, bbbs[i]);
+
             if (freeLine != -1) {
-                birdTest.dropTo(column.middleX +i * column.width, distY, 1000);
+                birdTest.dropTo(column.middleX + i * column.width, distY, 1000);
             }
 
             this.addChild(birdTest);
