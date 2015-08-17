@@ -235,10 +235,13 @@ class GameView extends egret.DisplayObjectContainer {
         for (var i = 0; i < bbbs.length; i++) {
 
             var freeLine = this.gameMap.getMaxFreeLine(i);
+            
             var distY = this.gameMap.getLines(freeLine).middleY;
             var birdTest = new BirdView(column.middleX +i * column.width, GameData.stageHeight * 0.18, bbbs[i]);
-            birdTest.dropTo(column.middleX +i * column.width, distY, 1000);
-
+            
+            if (freeLine != -1) {
+                birdTest.dropTo(column.middleX +i * column.width, distY, 1000);
+            }
 
             this.addChild(birdTest);
             super.setChildIndex(birdTest, super.getChildIndex(this.timerBar) - 1);

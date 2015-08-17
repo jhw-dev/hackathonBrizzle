@@ -156,7 +156,7 @@ class GameMap {
     
     public getMaxFreeLine(column:number) {
         var birdMap = this._birdMap;
-        var free = 0;
+        var free = -1;
         for(var i = 0;i < this._totalLines;i++){
             if(birdMap[i][column] == 0) {
                 free = i;
@@ -266,17 +266,14 @@ class GameMap {
     
     public goEliminate() {
         var res = GameView.instance.elf.findBlocks(this._birdMap);
-        console.log("妈妈妈妈" + res);
+        console.log("妈妈妈妈" + JSON.stringify(res));
         for (var k in res) {
             for (var ib in res[k]) {
-                this._blockMap[res[k][ib].x][res[k][ib].y].bird.toDie((bird) => { console.log('die') });;
+                this._blockMap[res[k][ib].x][res[k][ib].y].bird.toDie((bird) => { console.log('die') });
+                this._blockMap[res[k][ib].x][res[k][ib].y].bird = null;
+                this._birdMap[res[k][ib].x][res[k][ib].y] = 0;
             }
         }
-        for (var k in res) {
-             for (var ib in res[k]) {
-                this._birdMap[res[k][ib].x][res[k][ib].y] = 0;
-             }
-         }
     }
     
     public dropdown(bird: BirdView, line:number, column:number) {
