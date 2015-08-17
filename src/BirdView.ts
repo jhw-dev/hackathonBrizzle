@@ -6,6 +6,7 @@ class BirdView extends egret.Sprite {
     private tw: any;
     private _type: number;
     private dropedSound: egret.Sound;
+    private lgD:number;
     
     private BIRDS_OPEN = [null,
         'Character_orange_open',
@@ -37,8 +38,8 @@ class BirdView extends egret.Sprite {
         this.y = y;
         this.tX = x;
         this.tY = y;
-        this.height = 80;
-        this.width = 80;
+        this.height = 76;
+        this.width = 76;
         this.anchorX = 0.5;
         this.anchorY = 0.5;
         this._type = birdType;
@@ -46,7 +47,7 @@ class BirdView extends egret.Sprite {
 //        this.graphics.beginFill(0xff0000);
 //        this.graphics.drawRect(0, 0, this.width,this.height);
 //        this.graphics.endFill();
-    
+        
         
         this.birdBitmap = new egret.Bitmap(RES.getRes(this.BIRDS_OPEN[birdType]));
         this.birdBitmap_close = new egret.Bitmap(RES.getRes(this.BIRDS_CLOSE[birdType]));
@@ -56,7 +57,7 @@ class BirdView extends egret.Sprite {
         this.birdBitmap.anchorY = this.anchorY;
         this.birdBitmap_close.width = this.birdBitmap.width = this.width ;
         this.birdBitmap_close.height = this.birdBitmap.height = this.height ;
-        var lgD=dW>dH?dW:dH;
+        var lgD = this.lgD=dW>dH?dW:dH;
         this.scaleX=lgD;
         this.scaleY=lgD;
         this.birdBitmap.scaleX=lgD;
@@ -78,6 +79,30 @@ class BirdView extends egret.Sprite {
         
     }
     
+    public pLeftBottom(){
+        var halfWidth = this.width / 2;
+        var halfHeight = this.height / 2;
+        return new egret.Point(this.x - halfWidth,this.y + halfHeight);
+    }
+    
+    public pRightBottom(){
+        var halfWidth = this.width / 2;
+        var halfHeight = this.height / 2;
+        return new egret.Point(this.x + halfWidth,this.y + halfHeight);
+    }
+    
+    public pLeftTop(){
+        var halfWidth = this.width / 2;
+        var halfHeight = this.height / 2;
+        return new egret.Point(this.x - halfWidth,this.y - halfHeight);
+    }
+    
+    public pRightTop(){
+        var halfWidth = this.width / 2;
+        var halfHeight = this.height / 2;
+        return new egret.Point(this.x + halfWidth,this.y - halfHeight);
+    }
+    
     get type() {
         return this._type;
     }
@@ -93,9 +118,13 @@ class BirdView extends egret.Sprite {
         if (!timeout) {
             timeout = 0;
         }
-        this.tw.wait(timeout).to({ y: this.tY },1000,this.customEase).call(function() {this.dropedSound.play();})
+        this.tw.wait(timeout).to({ y: this.tY },1000,this.customEase).call(function() {
+            this.dropedSound.play();
+            var block = GameView.instance.map.convertPointToBlockNumber(new egret.Point(x,y));
+            GameView.instance.map.registerBird(this,block.line,block.column);
+        })
             .to({ scaleX: 1.4, scaleY: 0.8}, 50, egret.Ease.backIn)
-            .to({ scaleX: 1, scaleY: 1}, 400, egret.Ease.backOut);
+            .to({ scaleX: this.lgD, scaleY: this.lgD}, 400, egret.Ease.backOut);
 
     }
     private customEase(t: number): number {

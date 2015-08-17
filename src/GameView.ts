@@ -60,8 +60,22 @@ class GameView extends egret.DisplayObjectContainer {
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
         console.log(result)
         if (this._selectedBird) {
-            this._selectedBird.x = e.stageX;
-            this._selectedBird.y = e.stageY;
+            var bird = this._selectedBird;
+            // up
+            if(bird.y > e.stageY) {
+                this.gameMap.moveUp(result.line,result.column,bird,e.stageY);
+            }else if(bird.y < e.stageY) {
+                this.gameMap.moveDown(result.line,result.column,bird,e.stageY);
+            }
+            // left
+            if (bird.x > e.stageX) {
+                this.gameMap.moveLeft(result.line,result.column,bird,e.stageX);
+            }
+            // right
+            else if (bird.x < e.stageX){
+                this.gameMap.moveRight(result.line,result.column,bird,e.stageX);
+            }
+            console.log("select bird.x:" + this._selectedBird.x + " y:" + this._selectedBird.y);
         }
         
     }
@@ -72,7 +86,8 @@ class GameView extends egret.DisplayObjectContainer {
         console.log(result);
         if (this._selectedBird == null) {
             var bird = this.gameMap.getBird(result.line,result.column);
-            this._selectedBird = bird;   
+            this._selectedBird = bird; 
+            this.gameMap.unregisterBird(result.line,result.column);
         }
     }
 
@@ -128,7 +143,7 @@ class GameView extends egret.DisplayObjectContainer {
                 this.initBirds();
                 this.timerBar = new TimerBar();
                 this.addChild(this.timerBar);
-                this.timerBar.start(10, this.gameOver, this)
+//                this.timerBar.start(10, this.gameOver, this)
 
             }, stageFace, []);
 
@@ -137,7 +152,7 @@ class GameView extends egret.DisplayObjectContainer {
         this.addChild(bgB);
         this.addChild(stageFace);
 
-//        this.newBirdsTimer.start();
+        this.newBirdsTimer.start();
 
         var mapWidth = GameData.stageWidth * 0.83;
         var mapHeight = mapWidth / 7 * 9;
@@ -202,9 +217,10 @@ class GameView extends egret.DisplayObjectContainer {
         //TODO:testcode
         var bbbs = this.elf.getSevenBirds();
         for (var i = 0; i < bbbs.length; i++) {
-
+            var freeLine = this.gameMap.getMaxFreeLine(i);
+            var distY = this.gameMap.getLines(freeLine).middleY;
             var birdTest = new BirdView(column.middleX +i * column.width, GameData.stageHeight * 0.18, bbbs[i]);
-            birdTest.dropTo(40 + i * 80, 600, 1000);
+            birdTest.dropTo(column.middleX +i * column.width, distY, 1000);
 
             this.addChild(birdTest);
             super.setChildIndex(birdTest, super.getChildIndex(this.timerBar) - 1);
