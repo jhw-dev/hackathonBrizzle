@@ -21,7 +21,7 @@ class GameView extends egret.DisplayObjectContainer {
     private timerBar: TimerBar;
     private stageFace: egret.Bitmap;
     private gameMap: GameMap;
-    private elf: ElfBFS;
+    public elf: ElfBFS;
     private newBirdsTimer: any;
     private startView: StartMenu;
     private scroeBoard: ScoreBoardView;
@@ -51,8 +51,16 @@ class GameView extends egret.DisplayObjectContainer {
     public onTouchEnd(e: egret.TouchEvent) {
         console.log("onTouchEnd-> x:" + e.stageX + " y: " + e.stageY);
         var result = this.gameMap.convertPointToBlockNumber(new egret.Point(e.stageX, e.stageY))
-        console.log(result)
+        console.log(result);
+            
+        // 对齐Y
+        this._selectedBird.x = this.gameMap.alignX(this._selectedBird.x);
+        this.gameMap.dropdown(this._selectedBird, result.line, result.column);
+        
         this._selectedBird = null;
+        
+        // 开始判断
+        this.gameMap.goEliminate();
     }
 
     public onTouchMove(e: egret.TouchEvent) {
@@ -209,11 +217,11 @@ class GameView extends egret.DisplayObjectContainer {
                 this.gameMap.registerBird(birdInit, i, j);
 
                 this.addChild(birdInit);
-                //TODO testcode for diebired
-                if (j % 2 == 0) {
-                    birdInit.toDie((bird) => { console.log('die') });
-                }
-                //TODO testcode for diebired
+//                //TODO testcode for diebired
+//                if (j % 2 == 0) {
+//                    birdInit.toDie((bird) => { console.log('die') });
+//                }
+//                //TODO testcode for diebired
                 super.setChildIndex(birdInit, super.getChildIndex(this.timerBar) - 1);
             }
         }

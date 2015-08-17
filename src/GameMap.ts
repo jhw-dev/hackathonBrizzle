@@ -264,6 +264,37 @@ class GameMap {
         bird.y = stageY;
     }
     
+    public goEliminate() {
+        var res = GameView.instance.elf.findBlocks(this._birdMap);
+        console.log("妈妈妈妈" + res);
+        for (var k in res) {
+            for (var ib in res[k]) {
+                this._blockMap[res[k][ib].x][res[k][ib].y].bird.toDie((bird) => { console.log('die') });;
+            }
+        }
+        for (var k in res) {
+             for (var ib in res[k]) {
+                this._birdMap[res[k][ib].x][res[k][ib].y] = 0;
+             }
+         }
+    }
+    
+    public dropdown(bird: BirdView, line:number, column:number) {
+        // 如果下面有鸟就只要对齐Y 然后注册数据
+        var bottomBlock = this._blockMap[line-1][column];
+        if(bottomBlock.bird) {
+            bird.x = this.alignX(bird.x);
+            this.registerBird(bird,line,column);
+        }
+        // 没鸟就下落
+        else {
+            var col = this.getMaxFreeLine(column);
+            var diest = this.getLines(col).middleY;
+            bird.dropTo(bird.x,diest,100);
+        }
+        
+    }
+    
     public alignX(x: number) {
         var block = this.convertPointToBlockNumber(new egret.Point(x,this.getLines(0).middleY));
         return this.getColumns(block.column).middleX;
